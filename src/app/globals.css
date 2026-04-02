@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: #f3fcf5;
+    --foreground: #151d1a;
+  }
+
+  body {
+    @apply bg-background text-on-surface font-body antialiased;
+    min-height: max(100dvh);
+  }
+
+  ::selection {
+    @apply bg-primary-container/30 text-on-primary-container;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-outline-variant/15 shadow-card;
+  }
+
+  .glass-card-dark {
+    @apply bg-on-surface/5 backdrop-blur-xl border border-outline-variant/10;
+  }
+
+  .glow-shadow {
+    @apply shadow-glow;
+  }
+
+  .gradient-btn {
+    @apply bg-gradient-to-r from-primary to-primary-container text-on-primary 
+           px-8 py-4 rounded-full font-bold text-lg glow-shadow 
+           hover:scale-[1.02] active:scale-95 transition-all duration-300 
+           flex items-center gap-3;
+  }
+
+  .gradient-btn-sm {
+    @apply bg-gradient-to-r from-primary to-primary-container text-on-primary 
+           px-6 py-3 rounded-full font-semibold text-sm 
+           hover:scale-[1.02] active:scale-95 transition-all duration-300 
+           flex items-center gap-2;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-black font-headline text-on-surface uppercase tracking-tight;
+  }
+
+  .section-subheading {
+    @apply text-primary font-black tracking-[0.2em] text-xs uppercase;
+  }
+
+  .card-hover {
+    @apply hover:bg-surface-container-lowest transition-all duration-500 
+           shadow-sm hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-outline-variant/30 
+           bg-surface-container-lowest focus:border-primary focus:ring-2 
+           focus:ring-primary-container/30 outline-none transition-all 
+           text-on-surface placeholder:text-outline font-body;
+  }
+
+  .badge-pill {
+    @apply px-3 py-1 bg-surface-container-highest text-[10px] font-black 
+           rounded-md tracking-widest text-on-surface-variant uppercase;
+  }
+
+  .nav-link {
+    @apply text-on-surface-variant hover:text-primary transition-colors 
+           font-headline font-semibold text-sm relative;
+  }
+
+  .nav-link-active {
+    @apply text-primary border-b-2 border-primary pb-1 font-headline font-semibold text-sm;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
