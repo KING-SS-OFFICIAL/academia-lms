@@ -1,10 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Mail, Lock, Eye, EyeOff, LogIn } from "lucide-react";
+import { signIn } from "next-auth/react";
+import { Mail, Lock, Eye, EyeOff, LogIn, Loader2 } from "lucide-react";
+import GoogleSignIn from "@/components/auth/GoogleSignIn";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -15,8 +19,24 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     setError("");
-    // TODO: Implement NextAuth signIn
-    setLoading(false);
+
+    try {
+      const result = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        setError(result.error);
+      } else {
+        router.push("/dashboard");
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -38,6 +58,18 @@ export default function LoginPage() {
             </div>
           )}
 
+          {/* Google Sign-In */}
+          <GoogleSignIn text="Sign in with Google" />
+
+          <div className="flex items-center gap-4 my-6">
+            <div className="flex-1 h-px bg-outline-variant/30" />
+            <span className="text-xs font-bold text-on-surface-variant/50 uppercase">
+              or
+            </span>
+            <div className="flex-1 h-px bg-outline-variant/30" />
+          </div>
+
+          {/* Email/Password Login */}
           <form onSubmit={handleLogin} className="space-y-5">
             <div>
               <label className="block text-sm font-semibold text-on-surface-variant mb-2">
@@ -86,7 +118,7 @@ export default function LoginPage() {
               className="gradient-btn w-full justify-center"
             >
               {loading ? (
-                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                <Loader2 className="w-5 h-5 animate-spin" />
               ) : (
                 <>
                   <LogIn size={20} />

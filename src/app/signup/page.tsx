@@ -1,10 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Mail, Lock, Eye, EyeOff, User, UserPlus } from "lucide-react";
+import { signIn } from "next-auth/react";
+import { Mail, Lock, Eye, EyeOff, User, UserPlus, Loader2 } from "lucide-react";
+import GoogleSignIn from "@/components/auth/GoogleSignIn";
 
 export default function SignupPage() {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,8 +25,41 @@ export default function SignupPage() {
     }
     setLoading(true);
     setError("");
-    // TODO: Implement registration
-    setLoading(false);
+
+    try {
+      // Register user
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Registration failed");
+        setLoading(false);
+        return;
+      }
+
+      // Auto-login after registration
+      const result = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        setError("Account created! Please sign in.");
+        router.push("/login");
+      } else {
+        router.push("/dashboard");
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -44,6 +81,18 @@ export default function SignupPage() {
             </div>
           )}
 
+          {/* Google Sign-Up */}
+          <GoogleSignIn text="Sign up with Google" />
+
+          <div className="flex items-center gap-4 my-6">
+            <div className="flex-1 h-px bg-outline-variant/30" />
+            <span className="text-xs font-bold text-on-surface-variant/50 uppercase">
+              or
+            </span>
+            <div className="flex-1 h-px bg-outline-variant/30" />
+          </div>
+
+          {/* Email/Password Signup */}
           <form onSubmit={handleSignup} className="space-y-5">
             <div>
               <label className="block text-sm font-semibold text-on-surface-variant mb-2">
@@ -128,7 +177,7 @@ export default function SignupPage() {
               className="gradient-btn w-full justify-center"
             >
               {loading ? (
-                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                <Loader2 className="w-5 h-5 animate-spin" />
               ) : (
                 <>
                   <UserPlus size={20} />
