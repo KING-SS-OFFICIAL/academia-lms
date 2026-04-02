@@ -2,6 +2,7 @@
 
 import { ArrowRight, MessageCircle, BadgeCheck } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -28,10 +29,10 @@ export default function HeroSection() {
           </p>
 
           <div className="flex flex-wrap gap-4 items-center">
-            <button className="gradient-btn">
+            <Link href="/enroll" className="gradient-btn">
               Get Started Today
               <ArrowRight size={20} />
-            </button>
+            </Link>
             <a
               href="https://wa.me/7908656395"
               className="flex items-center gap-3 px-6 py-4 rounded-full border border-outline-variant/30 bg-surface-container-low hover:bg-surface-container-high transition-colors"

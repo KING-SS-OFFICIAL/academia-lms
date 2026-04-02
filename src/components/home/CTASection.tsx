@@ -21,7 +21,7 @@ export default function CTASection() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
-              href="/signup"
+              href="/enroll"
               className="bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-3 shadow-lg"
             >
               Enroll Now

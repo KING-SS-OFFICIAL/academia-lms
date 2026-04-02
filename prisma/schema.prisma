@@ -230,3 +230,17 @@ model Progress {
   @@unique([studentId, lessonId])
   @@map("progress")
 }
+
+model Enquiry {
+  id        String   @id @default(cuid())
+  name      String
+  className String   @map("class")
+  medium    String
+  contact   String
+  email     String
+  course    String
+  status    String   @default("pending")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("enquiries")
+}
