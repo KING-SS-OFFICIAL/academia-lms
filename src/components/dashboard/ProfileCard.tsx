@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Camera, Edit, Loader2 } from "lucide-react";
+import { useState, useRef } from "react";
+import { Camera, Edit, Loader2, Upload } from "lucide-react";
 
 interface ProfileData {
   name: string;
@@ -9,6 +9,7 @@ interface ProfileData {
   school: string;
   medium: string;
   contact: string;
+  avatarUrl?: string;
 }
 
 const CLASSES = [
@@ -28,12 +29,76 @@ export default function ProfileCard({
   const [form, setForm] = useState<ProfileData>(initialData);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [uploadingPhoto, setUploadingPhoto] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setSaved(false);
+  };
+
+  const handlePhotoClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handlePhotoChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // Validate file type
+    if (!file.type.startsWith("image/")) {
+      alert("Please select an image file");
+      return;
+    }
+
+    // Validate file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      alert("Image must be less than 5MB");
+      return;
+    }
+
+    setUploadingPhoto(true);
+
+    try {
+      // Convert to base64 for preview
+      const reader = new FileReader();
+      reader.onloadend = async () => {
+        const base64 = reader.result as string;
+
+        // Upload to server
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("folder", "academia/profiles");
+
+        const res = await fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await res.json();
+
+        if (data.success && data.url) {
+          const updatedForm = { ...form, avatarUrl: data.url };
+          setForm(updatedForm);
+          localStorage.setItem("studentProfile", JSON.stringify(updatedForm));
+          onSave(updatedForm);
+        } else {
+          // Fallback: save base64 locally if upload fails
+          const updatedForm = { ...form, avatarUrl: base64 };
+          setForm(updatedForm);
+          localStorage.setItem("studentProfile", JSON.stringify(updatedForm));
+          onSave(updatedForm);
+        }
+
+        setUploadingPhoto(false);
+      };
+      reader.readAsDataURL(file);
+    } catch (error) {
+      console.error("Photo upload failed:", error);
+      setUploadingPhoto(false);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -71,18 +136,48 @@ export default function ProfileCard({
 
       {/* Profile Picture */}
       <div className="flex flex-col items-center mb-8">
-        <div className="relative group">
+        <div className="relative group cursor-pointer" onClick={handlePhotoClick}>
           <div className="w-28 h-28 rounded-full border-4 border-primary-container p-1 overflow-hidden transition-transform group-hover:scale-105 bg-surface-container-low">
-            <div className="w-full h-full rounded-full bg-primary-container/20 flex items-center justify-center text-4xl font-bold text-primary">
-              {form.name ? form.name.charAt(0).toUpperCase() : "S"}
-            </div>
+            {form.avatarUrl ? (
+              <img
+                src={form.avatarUrl}
+                alt="Profile"
+                className="w-full h-full rounded-full object-cover"
+              />
+            ) : (
+              <div className="w-full h-full rounded-full bg-primary-container/20 flex items-center justify-center text-4xl font-bold text-primary">
+                {form.name ? form.name.charAt(0).toUpperCase() : "S"}
+              </div>
+            )}
           </div>
-          <button className="absolute bottom-0 right-0 bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform">
-            <Camera size={14} />
+          <button
+            type="button"
+            className="absolute bottom-0 right-0 bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform"
+            disabled={uploadingPhoto}
+          >
+            {uploadingPhoto ? (
+              <Loader2 size={14} className="animate-spin" />
+            ) : (
+              <Camera size={14} />
+            )}
           </button>
         </div>
-        <p className="mt-4 text-sm font-bold text-on-surface-variant">
-          Click to update photo
+
+        {/* Hidden file input */}
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          onChange={handlePhotoChange}
+          className="hidden"
+        />
+
+        <p className="mt-4 text-sm font-bold text-on-surface-variant flex items-center gap-2">
+          <Upload size={14} />
+          {uploadingPhoto ? "Uploading..." : "Click to update photo"}
+        </p>
+        <p className="text-[10px] text-on-surface-variant/50 mt-1">
+          JPG, PNG or GIF • Max 5MB
         </p>
       </div>
 
