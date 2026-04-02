@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Brain, Sparkles, Play, Zap } from "lucide-react";
+import { Brain, Sparkles, Play } from "lucide-react";
 
 export default function AITestCenter() {
   return (

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function PUT(request: Request) {
   try {
-    const { name, className, school, medium, contact } = await request.json();
+    const { name, className, school, medium } = await request.json();
 
     // Try to save to database (gracefully handle if DB is not connected)
     try {

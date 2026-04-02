@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Camera, Edit, Loader2 } from "lucide-react";
-import Image from "next/image";
 
 interface ProfileData {
   name: string;
