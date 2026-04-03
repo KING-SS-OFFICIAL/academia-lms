@@ -139,9 +139,16 @@ export default function TestPage() {
       });
 
       const data = await response.json();
+      
+      console.log("API Response:", data);
 
       if (!response.ok || data.error) {
+        console.error("API Error:", data.error);
         throw new Error(data.error || "Failed to generate questions");
+      }
+
+      if (!data.questions || data.questions.length === 0) {
+        throw new Error("No questions returned");
       }
 
       const questions: Question[] = data.questions.map(
@@ -156,6 +163,8 @@ export default function TestPage() {
         })
       );
 
+      console.log("Mapped questions:", questions.length);
+
       setState((prev) => ({
         ...prev,
         questions,
@@ -164,6 +173,7 @@ export default function TestPage() {
       }));
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : "Failed to generate questions. Please try again.";
+      console.error("Generate error:", err);
       setError(errorMessage);
     } finally {
       setIsLoading(false);
