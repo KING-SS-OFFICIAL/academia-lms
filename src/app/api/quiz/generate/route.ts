@@ -1,5 +1,31 @@
 import { NextResponse } from "next/server";
 
+async function fetchWithRetry(url: string, options: RequestInit, retries = 3): Promise<Response> {
+  for (let i = 0; i < retries; i++) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000);
+    
+    try {
+      const response = await fetch(url, {
+        ...options,
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+      
+      if (response.status === 429) {
+        await new Promise(resolve => setTimeout(resolve, 2000 * (i + 1)));
+        continue;
+      }
+      return response;
+    } catch (err) {
+      clearTimeout(timeoutId);
+      if (i === retries - 1) throw err;
+      await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
+    }
+  }
+  throw new Error("Max retries exceeded");
+}
+
 export async function POST(request: Request) {
   try {
     const { subject, topic, questionCount = 15 } = await request.json();
@@ -14,8 +40,9 @@ export async function POST(request: Request) {
     const apiKey = process.env.OPENROUTER_API_KEY;
 
     if (!apiKey) {
+      console.error("OPENROUTER_API_KEY is not set");
       return NextResponse.json(
-        { error: "AI API key not configured. Please add OPENROUTER_API_KEY to environment variables." },
+        { error: "AI API key not configured" },
         { status: 500 }
       );
     }
@@ -24,23 +51,21 @@ export async function POST(request: Request) {
     
     const prompt = `You are an expert teacher for Indian competitive exams (WBCS, SSC, BANK, RAILWAY) and school boards (CBSE, ICSE, West Bengal Board).
 Generate exactly ${questionCount} questions on ${subjectContext}.
-Each question must have:
-- A clear question text
-- 4 options labeled A, B, C, D (for MCQ questions)
-- One correct answer (A, B, C, or D)
-- A brief explanation of why that answer is correct
 
-MIX OF QUESTION TYPES:
-- First ${questionCount - 5} questions should be Multiple Choice Questions (MCQ) with 4 options
-- Last 5 questions should be Short Answer questions (no options, user writes answer)
+IMPORTANT: Generate exactly ${Math.max(0, questionCount - 3)} MCQ questions and exactly 3 Short Answer questions. Total: ${questionCount} questions.
 
-Return ONLY a valid JSON array with no markdown formatting, no code blocks, no extra text:
-[
-  {"question":"...","options":{"A":"...","B":"...","C":"...","D":"..."},"correctAnswer":"A","explanation":"...","type":"mcq"},
-  {"question":"...","type":"short","correctAnswer":"..."}
-]`;
+MCQ Questions (first ${Math.max(0, questionCount - 3)} questions):
+- Each must have: question text, 4 options (A,B,C,D), correct answer (A/B/C/D), explanation
+- Format: {"question":"...","options":{"A":"...","B":"...","C":"...","D":"..."},"correctAnswer":"A","explanation":"...","type":"mcq"}
 
-    const response = await fetch(
+Short Answer Questions (last 3 questions):
+- No options, user writes answer
+- Include correct answer for grading
+- Format: {"question":"...","type":"short","correctAnswer":"..."}
+
+Return ONLY a valid JSON array with no markdown formatting, no code blocks, no extra text.`;
+
+    const response = await fetchWithRetry(
       "https://openrouter.ai/api/v1/chat/completions",
       {
         method: "POST",
@@ -51,7 +76,7 @@ Return ONLY a valid JSON array with no markdown formatting, no code blocks, no e
           "X-Title": "ACADEMIA LMS",
         },
         body: JSON.stringify({
-          model: "meta-llama/llama-3.3-70b-instruct:free",
+          model: "nvidia/nemotron-3-super-120b-a12b:free",
           messages: [{ role: "user", content: prompt }],
           temperature: 0.7,
           max_tokens: 4096,
@@ -60,8 +85,9 @@ Return ONLY a valid JSON array with no markdown formatting, no code blocks, no e
     );
 
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(`AI API error: ${errorData.error?.message || response.statusText}`);
+      const errorData = await response.json().catch(() => ({}));
+      console.error("OpenRouter error:", response.status, errorData);
+      throw new Error(`AI API error: ${response.status}`);
     }
 
     const data = await response.json();
@@ -77,8 +103,9 @@ Return ONLY a valid JSON array with no markdown formatting, no code blocks, no e
     return NextResponse.json({ questions });
   } catch (error) {
     console.error("Quiz generation error:", error);
+    const message = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Failed to generate quiz. Please try again." },
+      { error: `Failed to generate quiz: ${message}` },
       { status: 500 }
     );
   }

@@ -1,5 +1,31 @@
 import { NextResponse } from "next/server";
 
+async function fetchWithRetry(url: string, options: RequestInit, retries = 3): Promise<Response> {
+  for (let i = 0; i < retries; i++) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000);
+    
+    try {
+      const response = await fetch(url, {
+        ...options,
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+      
+      if (response.status === 429) {
+        await new Promise(resolve => setTimeout(resolve, 2000 * (i + 1)));
+        continue;
+      }
+      return response;
+    } catch (err) {
+      clearTimeout(timeoutId);
+      if (i === retries - 1) throw err;
+      await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
+    }
+  }
+  throw new Error("Max retries exceeded");
+}
+
 interface GradingQuestion {
   question: string;
   correctAnswer: string;
@@ -39,7 +65,7 @@ ${questions
 Return ONLY a valid JSON array with scores in the same order as the questions:
 [85, 70, 90] (one score per question)`;
 
-    const response = await fetch(
+    const response = await fetchWithRetry(
       "https://openrouter.ai/api/v1/chat/completions",
       {
         method: "POST",
@@ -50,7 +76,7 @@ Return ONLY a valid JSON array with scores in the same order as the questions:
           "X-Title": "ACADEMIA LMS",
         },
         body: JSON.stringify({
-          model: "meta-llama/llama-3.3-70b-instruct:free",
+          model: "nvidia/nemotron-3-super-120b-a12b:free",
           messages: [{ role: "user", content: prompt }],
           temperature: 0.3,
           max_tokens: 1024,
