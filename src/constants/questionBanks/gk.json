@@ -1,0 +1,522 @@
+{
+  "Indian History": [
+    {
+      "question": "Who was the first Emperor of the Maurya Empire?",
+      "options": { "A": "Bindusara", "B": "Ashoka", "C": "Chandragupta Maurya", "D": "Chanakya" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "The Battle of Plassey was fought in which year?",
+      "options": { "A": "1757", "B": "1764", "C": "1857", "D": "1947" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Who founded the Mughal Empire in India?",
+      "options": { "A": "Akbar", "B": "Babur", "C": "Humayun", "D": "Shah Jahan" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Which Indian king is known as 'Samrat' for his extensive empire?",
+      "options": { "A": "Harshavardhana", "B": "Prithviraj Chauhan", "C": "Shivaji", "D": "Maharana Pratap" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The Quit India Movement was launched in which year?",
+      "options": { "A": "1940", "B": "1942", "C": "1944", "D": "1946" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who was the last Viceroy of British India?",
+      "options": { "A": "Lord Mountbatten", "B": "Lord Wavell", "C": "Lord Curzon", "D": "Lord Linlithgow" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Which fort was built by Shivaji Maharaj?",
+      "options": { "A": "Red Fort", "B": "Agra Fort", "C": "Sinhagad Fort", "D": "Gwalior Fort" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "The Jallianwala Bagh massacre took place in which city?",
+      "options": { "A": "Delhi", "B": "Amritsar", "C": "Lahore", "D": "Kolkata" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who wrote the book 'The Discovery of India'?",
+      "options": { "A": "Mahatma Gandhi", "B": "Jawaharlal Nehru", "C": "Subhas Chandra Bose", "D": "Dr. B.R. Ambedkar" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Which dynasty built the Khajuraho Temples?",
+      "options": { "A": "Chola", "B": "Chandela", "C": "Rashtrakuta", "D": "Pala" },
+      "correctAnswer": "B"
+    }
+  ],
+  "Indian Geography": [
+    {
+      "question": "Which is the longest river in India?",
+      "options": { "A": "Yamuna", "B": "Ganga", "C": "Godavari", "D": "Brahmaputra" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Which is the highest peak in India?",
+      "options": { "A": "Nanda Devi", "B": "Kangchenjunga", "C": "K2", "D": "Anamudi" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Which state is known as the 'Spice Garden of India'?",
+      "options": { "A": "Tamil Nadu", "B": "Karnataka", "C": "Kerala", "D": "Andhra Pradesh" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "The Thar Desert is located in which state?",
+      "options": { "A": "Gujarat", "B": "Rajasthan", "C": "Haryana", "D": "Punjab" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Which is the largest state of India by area?",
+      "options": { "A": "Madhya Pradesh", "B": "Maharashtra", "C": "Rajasthan", "D": "Uttar Pradesh" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Which passes connects India to Tibet?",
+      "options": { "A": "Khyber Pass", "B": "Nathu La Pass", "C": "Bolan Pass", "D": "Siliguri" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Lake Chilika is located in which state?",
+      "options": { "A": "West Bengal", "B": "Odisha", "C": "Andhra Pradesh", "D": "Tamil Nadu" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Which is the wettest place in India?",
+      "options": { "A": "Mawsynram", "B": "Cherrapunji", "C": "Shillong", "D": "Guwahati" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The Western Ghats are also known as?",
+      "options": { "A": "Sahyadri", "B": "Aravalli", "C": "Vindhyas", "D": "Satpura" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Which state has the longest coastline in India?",
+      "options": { "A": "Maharashtra", "B": "Tamil Nadu", "C": "Gujarat", "D": "West Bengal" },
+      "correctAnswer": "C"
+    }
+  ],
+  "Indian Polity": [
+    {
+      "question": "How many articles are there in the Indian Constitution?",
+      "options": { "A": "395", "B": "448", "C": "365", "D": "400" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who is the head of the State Government?",
+      "options": { "A": "Governor", "B": "Chief Minister", "C": "President", "D": "Chief Justice" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "TheParliament of India consists of?",
+      "options": { "A": "Lok Sabha only", "B": "Rajya Sabha only", "C": "Lok Sabha and Rajya Sabha", "D": "President, Lok Sabha and Rajya Sabha" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Who is the guardian of the Constitution?",
+      "options": { "A": "President", "B": "Parliament", "C": "Supreme Court", "D": "Election Commission" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "What is the minimum age to vote in India?",
+      "options": { "A": "18 years", "B": "21 years", "C": "25 years", "D": "16 years" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Which article deals with Right to Equality?",
+      "options": { "A": "Article 19", "B": "Article 14-18", "C": "Article 21", "D": "Article 32" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who appoints the Governor of a state?",
+      "options": { "A": "Chief Minister", "B": "President", "C": "Prime Minister", "D": "Parliament" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "How many members are elected to Lok Sabha?",
+      "options": { "A": "545", "B": "543", "C": "550", "D": "500" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Directive Principles of State Policy are in which part of Constitution?",
+      "options": { "A": "Part I", "B": "Part II", "C": "Part III", "D": "Part IV" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Who is the ex-officio Chairman of Rajya Sabha?",
+      "options": { "A": "President", "B": "Vice President", "C": "Prime Minister", "D": "Leader of Opposition" },
+      "correctAnswer": "B"
+    }
+  ],
+  "Indian Economy": [
+    {
+      "question": "Who is known as the Father of Green Revolution in India?",
+      "options": { "A": "M.S. Swaminathan", "B": "Varghese Kurien", "C": "Dr. Verghese Kurien", "D": "C. Subramaniam" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "What is the currency of India?",
+      "options": { "A": "Rupee", "B": "Dollar", "C": "Pound", "D": "Yen" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Which is the largest bank in India?",
+      "options": { "A": "HDFC Bank", "B": "State Bank of India", "C": "ICICI Bank", "D": "Punjab National Bank" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "NITI Aayog replaced which planning body?",
+      "options": { "A": "Finance Commission", "B": "Planning Commission", "C": "Election Commission", "D": "UPSC" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "What does GST stand for?",
+      "options": { "A": "Goods and Services Tax", "B": "General Sales Tax", "C": "Government Service Tax", "D": "Gross State Tax" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Which is the first Indian company to cross $100 billion market cap?",
+      "options": { "A": "TCS", "B": "Reliance Industries", "C": "HDFC Bank", "D": "Infosys" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "RBI was established in which year?",
+      "options": { "A": "1935", "B": "1947", "C": "1950", "D": "1920" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Which sector contributes most to India's GDP?",
+      "options": { "A": "Agriculture", "B": "Industry", "C": "Services", "D": "Mining" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "What is the full form of NSE?",
+      "options": { "A": "National Stock Exchange", "B": "New Securities Exchange", "C": "National Securities Exchange", "D": "National Share Exchange" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Make in India initiative was launched in which year?",
+      "options": { "A": "2014", "B": "2015", "C": "2016", "D": "2013" },
+      "correctAnswer": "A"
+    }
+  ],
+  "Science & Technology": [
+    {
+      "question": "What is the chemical symbol for Gold?",
+      "options": { "A": "Go", "B": "Gd", "C": "Au", "D": "Ag" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Which planet is known as the Red Planet?",
+      "options": { "A": "Venus", "B": "Mars", "C": "Jupiter", "D": "Saturn" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "What is the unit of electric current?",
+      "options": { "A": "Volt", "B": "Watt", "C": "Ampere", "D": "Ohm" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Which is the largest organ in the human body?",
+      "options": { "A": "Heart", "B": "Liver", "C": "Skin", "D": "Brain" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "What does DNA stand for?",
+      "options": { "A": "Deoxyribonucleic Acid", "B": "Dinitrogen Acid", "C": "Deoxynucleic Acid", "D": "Dual Nitrogen Acid" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Which scientist discovered penicillin?",
+      "options": { "A": "Marie Curie", "B": "Alexander Fleming", "C": "Isaac Newton", "D": "Albert Einstein" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "What is the speed of light approximately?",
+      "options": { "A": "3,00,000 km/s", "B": "3,00,000 km/hr", "C": "30,000 km/s", "D": "3,000 km/s" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Which gas is most abundant in Earth's atmosphere?",
+      "options": { "A": "Oxygen", "B": "Carbon Dioxide", "C": "Nitrogen", "D": "Hydrogen" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "What is ISRO's full form?",
+      "options": { "A": "Indian Space Research Organisation", "B": "Indian Satellite Research Organisation", "C": "Indian Space Rocket Organisation", "D": "Indian Space Research Organization" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Which vitamin is produced by sunlight?",
+      "options": { "A": "Vitamin A", "B": "Vitamin B", "C": "Vitamin C", "D": "Vitamin D" },
+      "correctAnswer": "D"
+    }
+  ],
+  "Sports": [
+    {
+      "question": "Who won the first Olympic gold medal for India?",
+      "options": { "A": "Milkha Singh", "B": "Abhinav Bindra", "C": "Norman Pritchard", "D": "KD Jadhav" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Which city hosted the 2016 Summer Olympics?",
+      "options": { "A": "Beijing", "B": "London", "C": "Rio de Janeiro", "D": "Tokyo" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "How many players are there in a cricket team?",
+      "options": { "A": "9", "B": "10", "C": "11", "D": "12" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Who is known as the 'God of Cricket'?",
+      "options": { "A": "Virat Kohli", "B": "Sachin Tendulkar", "C": "Rahul Dravid", "D": "Sunil Gavaskar" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The term 'Hat-trick' is commonly used in which sport?",
+      "options": { "A": "Football", "B": "Cricket", "C": "Hockey", "D": "Both B and C" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Where will the 2028 Summer Olympics be held?",
+      "options": { "A": "Los Angeles", "B": "Paris", "C": "Brisbane", "D": "Tokyo" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Which Indian player is known as the 'Flying Sikh'?",
+      "options": { "A": "PT Usha", "B": "Milkha Singh", "C": "Neeraj Chopra", "D": "Hima Das" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Ranji Trophy is related to which sport?",
+      "options": { "A": "Football", "B": "Hockey", "C": "Cricket", "D": "Badminton" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Who won the 2019 Cricket World Cup?",
+      "options": { "A": "India", "B": "England", "C": "Australia", "D": "New Zealand" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "India won first Olympic gold in hockey in which year?",
+      "options": { "A": "1928", "B": "1936", "C": "1948", "D": "1952" },
+      "correctAnswer": "A"
+    }
+  ],
+  "Awards & Honours": [
+    {
+      "question": "Who was the first Indian to receive the Bharat Ratna?",
+      "options": { "A": "Jawaharlal Nehru", "B": "Sarvepalli Radhakrishnan", "C": "C. Rajagopalachari", "D": "B.R. Ambedkar" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Which award is known as the 'Nobel Prize of India'?",
+      "options": { "A": "Padma Vibhushan", "B": "Padma Shri", "C": "Padma Bhushan", "D": "Bharat Ratna" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Who won the Nobel Prize in Physics in 1930?",
+      "options": { "A": "C.V. Raman", "B": "Har Gobind Khorana", "C": "Homi Bhabha", "D": "Subrahmanyan Chandrasekhar" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The Padma Awards are announced on which day?",
+      "options": { "A": "Republic Day", "B": "Independence Day", "C": "Gandhi Jayanti", "D": "Republic Day" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "How many Padma Vibhushan are given in a year?",
+      "options": { "A": "Unlimited", "B": "Maximum 20", "C": "Maximum 45", "D": "Maximum 10" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who received the first Jnanpith Award?",
+      "options": { "A": "Mulk Raj Anand", "B": "G. Sankara Kurup", "C": "S. R. Ranganathan", "D": "Mahatma Gandhi" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Which is India's highest civilian award for foreigners?",
+      "options": { "A": "Padma Shri", "B": "Padma Bhushan", "C": "Padma Vibhushan", "D": "Bharat Ratna" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Who is the first Indian woman to win Nobel Prize?",
+      "options": { "A": "Mother Teresa", "B": "Amartya Sen", "C": "Kailash Satyarthi", "D": "Rabindranath Tagore" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Arjuna Award is given for?",
+      "options": { "A": "Excellence in sports", "B": "Excellence in arts", "C": "Excellence in literature", "D": "Excellence in science" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Who was the first Indian to win the Oscar Award?",
+      "options": { "A": "Bhanu Athaiya", "B": "Satyajit Ray", "C": "A.R. Rahman", "D": "Madhubala" },
+      "correctAnswer": "A"
+    }
+  ],
+  "Important Days": [
+    {
+      "question": "When is Republic Day celebrated?",
+      "options": { "A": "15 August", "B": "26 January", "C": "2 October", "D": "14 November" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "When is Gandhi Jayanti celebrated?",
+      "options": { "A": "15 August", "B": "2 October", "C": "26 January", "D": "14 November" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "When is International Day of Non-Violence observed?",
+      "options": { "A": "15 August", "B": "2 October", "C": "30 January", "D": "14 November" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "When is World Environment Day celebrated?",
+      "options": { "A": "5 June", "B": "22 April", "C": "10 October", "D": "1 December" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "When is Teachers' Day celebrated in India?",
+      "options": { "A": "5 September", "B": "14 November", "C": "11 November", "D": "15 September" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "When is National Unity Day observed?",
+      "options": { "A": "31 October", "B": "26 January", "C": "15 August", "D": "2 October" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "When is World Book Day?",
+      "options": { "A": "23 April", "B": "1 June", "C": "4 July", "D": "10 October" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "When is International Women's Day?",
+      "options": { "A": "8 March", "B": "15 March", "C": "1 May", "D": "5 June" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "When is National Handloom Day?",
+      "options": { "A": "7 August", "B": "15 August", "C": "26 January", "D": "2 October" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "When is Independence Day celebrated?",
+      "options": { "A": "26 January", "B": "15 August", "C": "2 October", "D": "14 November" },
+      "correctAnswer": "B"
+    }
+  ],
+  "Static GK": [
+    {
+      "question": "Which is the national animal of India?",
+      "options": { "A": "Lion", "B": "Tiger", "C": "Elephant", "D": "Peacock" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "What is the national bird of India?",
+      "options": { "A": "Parrot", "B": "Peacock", "C": "Pigeon", "D": "Sparrow" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "What is the national flower of India?",
+      "options": { "A": "Lotus", "B": "Rose", "C": "Marigold", "D": "Jasmine" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "What is the national tree of India?",
+      "options": { "A": "Banyan", "B": "Neem", "C": "Peepal", "D": "Mango" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "What is the national anthem of India?",
+      "options": { "A": "Vande Mataram", "B": "Jana Gana Mana", "C": "Saare Jahan Se Acha", "D": "Mile Sur Mera Tumhara" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "What is the national sport of India?",
+      "options": { "A": "Cricket", "B": "Hockey", "C": "Football", "D": "Badminton" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "What is the national currency of India?",
+      "options": { "A": "Rupee", "B": "Rupee", "C": "Rupee", "D": "Rupee" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Which country has the longest common border with India?",
+      "options": { "A": "China", "B": "Pakistan", "C": "Bangladesh", "D": "Nepal" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "What is the capital of India?",
+      "options": { "A": "Mumbai", "B": "Kolkata", "C": "New Delhi", "D": "Chennai" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Which is the national emblem of India?",
+      "options": { "A": "Ashoka Chakra", "B": "Lion Capital", "C": "Tricolour", "D": "Peacock" },
+      "correctAnswer": "B"
+    }
+  ],
+  "Miscellaneous": [
+    {
+      "question": "Who wrote the Indian National Anthem?",
+      "options": { "A": "Bankim Chandra", "B": "Rabindranath Tagore", "C": "Mahatma Gandhi", "D": "Jawaharlal Nehru" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Which is the largest continent?",
+      "options": { "A": "Africa", "B": "North America", "C": "Asia", "D": "Europe" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "How many states are there in India?",
+      "options": { "A": "26", "B": "28", "C": "29", "D": "30" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Which is the largest desert in the world?",
+      "options": { "A": "Thar", "B": "Sahara", "C": "Gobi", "D": "Antarctic" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who is the author of 'Mahabharata'?",
+      "options": { "A": "Valmiki", "B": "Vyasa", "C": "Tulsidas", "D": "Kalidas" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Which is the smallest state of India by area?",
+      "options": { "A": "Goa", "B": "Sikkim", "C": "Mizoram", "D": "Puducherry" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "How many Union Territories are there in India?",
+      "options": { "A": "6", "B": "7", "C": "8", "D": "9" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Which is the longest railway platform in India?",
+      "options": { "A": "Howrah", "B": "Gorakhpur", "C": "Kharagpur", "D": "New Delhi" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who built the Taj Mahal?",
+      "options": { "A": "Akbar", "B": "Shah Jahan", "C": "Jahangir", "D": "Aurangzeb" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Which city is known as the 'Pink City' of India?",
+      "options": { "A": "Jaipur", "B": "Udaipur", "C": "Jodhpur", "D": "Bikaner" },
+      "correctAnswer": "A"
+    }
+  ]
+}

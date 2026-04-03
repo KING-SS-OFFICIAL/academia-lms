@@ -1,0 +1,523 @@
+{
+  "Coding-Decoding": [
+    {
+      "question": "In a certain code language, 'DELHI' is written as 'CDGGK'. How will 'MUMBAI' be written in that code?",
+      "options": { "A": "LTLAZH", "B": "LLLZAH", "C": "LTLZZH", "D": "LLLAZH" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "If 'PAPER' is written as 'OZOBDQ', then how is 'PENCIL' written in the same code?",
+      "options": { "A": "ODMBHK", "B": "NDMBHK", "C": "ODMBIK", "D": "NDMAHK" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "In a certain code, 'TABLE' is written as 'BUCDR'. What is the code for 'CHAIR'?",
+      "options": { "A": "DJBSQ", "B": "DJBRS", "C": "DJC SQ", "D": "DIBSQ" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "If 'GATE' is coded as 7-1-20-5, then what will be the code for 'DOOR'?",
+      "options": { "A": "4-15-15-18", "B": "3-14-14-17", "C": "4-14-14-18", "D": "3-15-15-18" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "In a coded language, 'SUMIT' is written as 'TQOKV'. How will 'ANKUR' be written?",
+      "options": { "A": "CPQVT", "B": "CMPVT", "C": "CQPVT", "D": "CPQTV" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "If 'MOTHER' is coded as 14-15-20-8-5-18, then what is the code for 'FATHER'?",
+      "options": { "A": "6-1-20-8-5-18", "B": "7-1-20-8-5-18", "C": "5-1-19-8-5-17", "D": "6-1-19-8-5-17" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "In a certain code language, 'KITE' is written as 'MJVG'. How will 'BIRD' be written?",
+      "question": "In a certain code language, 'KITE' is written as 'MJVG'. How will 'BIRD' be written?",
+      "options": { "A": "DKTF", "B": "CJTD", "C": "DKTE", "D": "CJTE" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "If 'GO' is coded as 7-15 and 'TO' is coded as 20-15, then what will be the code for 'NO'?",
+      "options": { "A": "14-15", "B": "13-15", "C": "14-14", "D": "13-14" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "In a coded language, 'CAR' is written as 'DBT'. What will be the code for 'BUS'?",
+      "options": { "A": "CVT", "B": "DWT", "C": "CWT", "D": "DVT" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "If 'APPLE' is written as '55 16 16 12 5', then how is 'MANGO' written?",
+      "options": { "A": "13 1 14 7 15", "B": "13 1 14 8 15", "C": "12 1 14 7 15", "D": "13 2 14 7 15" },
+      "correctAnswer": "A"
+    }
+  ],
+  "Blood Relations": [
+    {
+      "question": "Pointing to a man, a woman said, 'His mother is the only daughter of my mother.' How is the woman related to the man?",
+      "options": { "A": "Sister", "B": "Mother", "C": "Aunt", "D": "Grandmother" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "A is B's brother. C is B's mother. D is C's father. How is A related to D?",
+      "options": { "A": "Grandson", "B": "Son", "C": "Brother", "D": "Uncle" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "If P is the brother of Q and R is the mother of Q, then what is P's relation to R?",
+      "options": { "A": "Son", "B": "Brother", "C": "Nephew", "D": "Father" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Introducing a man, a woman said, 'He is the only son of my mother's daughter.' How is the man related to the woman?",
+      "options": { "A": "Nephew", "B": "Uncle", "C": "Brother", "D": "Son" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "A is B's sister. C is B's mother. D is C's son. E is D's sister. How is E related to A?",
+      "options": { "A": "Sister", "B": "Niece", "C": "Cousin", "D": "Aunt" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "If X is Y's father and Z is Y's brother, then which of the following is NOT true?",
+      "options": { "A": "Z is X's son", "B": "Y is Z's brother", "C": "X is Z's father", "D": "Z is X's brother" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Pointing to a person, Raj said, 'His mother is the only daughter of my mother.' How is Raj related to that person?",
+      "options": { "A": "Brother", "B": "Uncle", "C": "Father", "D": "Grandfather" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "A and B are married. C is the brother of A. D is the mother of B. How is C related to D?",
+      "options": { "A": "Son", "B": "Nephew", "C": "Brother", "D": "Son-in-law" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "If M is N's father and O is N's mother, then which of the following is true?",
+      "options": { "A": "M is O's husband", "B": "M is O's brother", "C": "O is M's sister", "D": "M is O's son" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "A is the father of B. C is the mother of B. D is the brother of A. How is C related to D?",
+      "options": { "A": "Sister", "B": "Wife", "C": "Niece", "D": "Sister-in-law" },
+      "correctAnswer": "D"
+    }
+  ],
+  "Direction Sense": [
+    {
+      "question": "A man walks 5 km north, then turns right and walks 3 km. Again turns right and walks 5 km. Where is he from the starting point?",
+      "options": { "A": "3 km east", "B": "3 km west", "C": "5 km east", "D": "5 km west" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Ram faces east. He turns 135° clockwise and then 90° anticlockwise. Which direction is he facing now?",
+      "options": { "A": "North-east", "B": "South-east", "C": "South-west", "D": "North-west" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "A person walks 10 km south, turns left and walks 5 km, turns left and walks 10 km. How far is he from the starting point?",
+      "options": { "A": "5 km", "B": "10 km", "C": "15 km", "D": "20 km" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "If South-East becomes North, then what will be the direction of East?",
+      "options": { "A": "North-West", "B": "South-West", "C": "North-East", "D": "South-East" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "A man starts from point A, walks 20 m east to B, then 15 m north to C. What is the distance from A to C?",
+      "options": { "A": "35 m", "B": "25 m", "C": "5 m", "D": "30 m" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Rekha walks 3 km north, then 4 km east, then 3 km south. How far is she from her starting point?",
+      "options": { "A": "10 km", "B": "4 km", "C": "3 km", "D": "7 km" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "One morning, Suresh was standing facing a pole. The shadow of the pole fell to his right. Which direction was Suresh facing?",
+      "options": { "A": "East", "B": "West", "C": "North", "D": "South" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "If you go from point X to point Y, then to point Z, covering 3 km, 4 km and 5 km respectively, and you end up at the starting point, what is the shape of the route?",
+      "options": { "A": "Triangle", "B": "Square", "C": "Circle", "D": "Straight line" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "A girl walks 30 m in the south-west direction, then turns and walks 30 m in the south-east direction. What is her final position relative to the start?",
+      "options": { "A": "60 m south", "B": "60 m east", "C": "30 m south", "D": "30 m east" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Three friends P, Q and R are standing. P is 5 km north of Q. R is 5 km east of Q. What is the direction of P with respect to R?",
+      "options": { "A": "North-west", "B": "South-west", "C": "North-east", "D": "South-east" },
+      "correctAnswer": "B"
+    }
+  ],
+  "Seating Arrangement": [
+    {
+      "question": "Six persons A, B, C, D, E and F are sitting in a row facing north. A is at one end. B is sitting next to A. E is between D and F. C is not next to A. Who is sitting at the right end?",
+      "options": { "A": "F", "B": "D", "C": "C", "D": "E" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Five friends are sitting in a circle. Rocky is between Raj and Amit. Sumit is to the left of Amit. Who is between Sumit and Rocky?",
+      "options": { "A": "Raj", "B": "Amit", "C": "Sumit", "D": "Cannot be determined" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "In a row of 40 students, Rahul is 15th from the left and Vikram is 20th from the right. How many students are between them?",
+      "options": { "A": "5", "B": "6", "C": "7", "D": "8" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Six friends are sitting around a circular table. R is between T and P. S is to the immediate left of P. Q is between S and U. Who is opposite R?",
+      "options": { "A": "P", "B": "Q", "C": "S", "D": "U" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "In a queue, Shyam is 12th from the front and 18th from the back. How many persons are in the queue?",
+      "options": { "A": "30", "B": "29", "C": "28", "D": "31" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Five persons A, B, C, D and E are sitting in a line facing south. Only B is between A and C. Only D is between C and E. Find who is in the middle.",
+      "options": { "A": "B", "B": "C", "C": "D", "D": "E" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Four couples are sitting around a round table. Husband sits opposite wife. R is sitting between his wife and S. T is between his wife and U. Who is S's wife?",
+      "options": { "A": "R", "B": "T", "C": "U", "D": "Cannot be determined" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "In a row of 8 boys, Raman is 5th from the left and Sameer is 4th from the right. How many positions are between them?",
+      "options": { "A": "0", "B": "1", "C": "2", "D": "3" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Six students are sitting in a straight line. R is to the right of S and left of T. U is to the left of V and right of T. Who is sitting at the extreme left?",
+      "options": { "A": "S", "B": "R", "C": "T", "D": "U" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "In a class, students are arranged in rows. There are 6 students in each row. Raman is 15th in overall order. In which row and column is he?",
+      "options": { "A": "Row 3, Column 3", "B": "Row 3, Column 2", "C": "Row 2, Column 3", "D": "Row 2, Column 2" },
+      "correctAnswer": "A"
+    }
+  ],
+  "Syllogism": [
+    {
+      "question": "Statement: All roses are flowers. Some flowers are red. Conclusions: I. Some roses are red. II. All flowers are roses.",
+      "options": { "A": "Only conclusion I follows", "B": "Only conclusion II follows", "C": "Both conclusions follow", "D": "Neither conclusion follows" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Statement: No bird is a fish. Some fishes are aquatic. Conclusions: I. No bird is aquatic. II. Some birds are not fishes.",
+      "options": { "A": "Only conclusion I follows", "B": "Only conclusion II follows", "C": "Both conclusions follow", "D": "Neither conclusion follows" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Statement: All teachers are educated. Some educated are professionals. Conclusions: I. Some professionals are teachers. II. Some educated are not teachers.",
+      "options": { "A": "Only conclusion I follows", "B": "Only conclusion II follows", "C": "Both conclusions follow", "D": "Neither conclusion follows" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Statement: Some books are interesting. All interesting are novels. Conclusions: I. Some books are novels. II. No book is a novel.",
+      "options": { "A": "Only conclusion I follows", "B": "Only conclusion II follows", "C": "Both conclusions follow", "D": "Neither conclusion follows" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Statement: All cats are animals. No animal is a dog. Conclusions: I. No cat is a dog. II. Some dogs are not cats.",
+      "options": { "A": "Only conclusion I follows", "B": "Only conclusion II follows", "C": "Both conclusions follow", "D": "Neither conclusion follows" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Statement: All pens are pencils. Some pencils are erasable. Conclusions: I. Some pens are erasable. II. Some erasers are pencils.",
+      "options": { "A": "Only conclusion I follows", "B": "Only conclusion II follows", "C": "Both conclusions follow", "D": "Neither conclusion follows" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Statement: Some engineers are scientists. All scientists are intelligent. Conclusions: I. Some engineers are intelligent. II. All engineers are intelligent.",
+      "options": { "A": "Only conclusion I follows", "B": "Only conclusion II follows", "C": "Both conclusions follow", "D": "Neither conclusion follows" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Statement: No politician is honest. Some honest are leaders. Conclusions: I. Some leaders are not politicians. II. No leader is a politician.",
+      "options": { "A": "Only conclusion I follows", "B": "Only conclusion II follows", "C": "Both conclusions follow", "D": "Neither conclusion follows" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Statement: All fruits are healthy. Some healthy are tasty. Conclusions: I. Some fruits are tasty. II. Some tasty are not fruits.",
+      "options": { "A": "Only conclusion I follows", "B": "Only conclusion II follows", "C": "Both conclusions follow", "D": "Neither conclusion follows" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Statement: All students are scholars. Some scholars are scholars only. Conclusions: I. Some students are scholars only. II. No student is a scholar only.",
+      "options": { "A": "Only conclusion I follows", "B": "Only conclusion II follows", "C": "Both conclusions follow", "D": "Neither conclusion follows" },
+      "correctAnswer": "A"
+    }
+  ],
+  "Inequalities": [
+    {
+      "question": "Which of the following symbols should replace the question mark (?) in the given expression to make the relation definitely true? A > B ≥ C = D ? E ≤ F",
+      "options": { "A": ">", "B": "=", "C": "≤", "D": "Either = or ≤" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Statements: P > Q ≥ R, R ≤ S < T. Conclusions: I. P > S, II. R < T",
+      "options": { "A": "Only conclusion I follows", "B": "Only conclusion II follows", "C": "Both conclusions follow", "D": "Neither conclusion follows" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "If 'P ≥ Q' means P is greater than or equal to Q, 'P = Q' means P is equal to Q, and 'P < Q' means P is less than Q, then which of the following is TRUE?",
+      "options": { "A": "5 ≥ 5 = 6 > 4", "B": "8 = 8 ≥ 7 < 9", "C": "3 < 3 ≥ 2 = 2", "D": "10 > 9 ≥ 8 = 8" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Statements: A > B ≥ C = D ≤ E. Conclusions: I. A > D, II. C ≤ E",
+      "options": { "A": "Only conclusion I follows", "B": "Only conclusion II follows", "C": "Both conclusions follow", "D": "Neither conclusion follows" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "In which option is the relationship NOT clearly established?",
+      "options": { "A": "A > B ≥ C = D", "B": "M ≥ N = O ≥ P", "C": "X < Y ≤ Z < W", "D": "P = Q ≥ R > S" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Statements: M > N ≥ O, N = P ≤ Q. Conclusions: I. M > P, II. O ≤ Q",
+      "options": { "A": "Only conclusion I follows", "B": "Only conclusion II follows", "C": "Both conclusions follow", "D": "Neither conclusion follows" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Which symbol should replace ? in: 15 ? 20 > 10 ≥ 5",
+      "options": { "A": ">", "B": "=", "C": "<", "D": "Either > or =" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Statements: X ≥ Y = Z ≥ W. Conclusions: I. X ≥ W, II. Z ≤ X",
+      "options": { "A": "Only conclusion I follows", "B": "Only conclusion II follows", "C": "Both conclusions follow", "D": "Neither conclusion follows" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "If A > B = C ≥ D and E < D, then which is definitely TRUE?",
+      "options": { "A": "A > E", "B": "A < E", "C": "C > E", "D": "Cannot be determined" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Statements: P ≤ Q = R < S. Conclusions: I. P ≤ S, II. R ≥ P",
+      "options": { "A": "Only conclusion I follows", "B": "Only conclusion II follows", "C": "Both conclusions follow", "D": "Neither conclusion follows" },
+      "correctAnswer": "B"
+    }
+  ],
+  "Puzzle Test": [
+    {
+      "question": "Five persons A, B, C, D and E have different professions - Doctor, Engineer, Teacher, Actor and Lawyer. A is neither Doctor nor Engineer. B is Teacher. C is Doctor. E is Lawyer. Who is the Actor?",
+      "options": { "A": "A", "B": "B", "C": "D", "D": "C" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Six boxes P, Q, R, S, T and U are arranged in a stack. Box Q is above P. Box S is below R. Box T is at the top. Box U is below Q but above S. Which box is at the bottom?",
+      "options": { "A": "P", "B": "S", "C": "R", "D": "U" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Five cities A, B, C, D and E are arranged from north to south. A is north of C. D is south of B. E is between C and D. Which city is the southernmost?",
+      "options": { "A": "E", "B": "D", "C": "C", "D": "B" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Four friends have different birthdays in different months - January, March, May and July. Ram's birthday is in a month with 31 days. Shyam's birthday is not in May. Rahul's birthday is in March. Whose birthday is in January?",
+      "options": { "A": "Ram", "B": "Shyam", "C": "Rahul", "D": "Cannot be determined" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Six students got different marks - 80, 85, 90, 95, 100 and 105. Raj got the highest marks. Amit got more than Rajesh but less than Raj. Who got the lowest marks?",
+      "options": { "A": "Rajesh", "B": "Amit", "C": "Raj", "D": "Cannot be determined" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Five persons P, Q, R, S and T have different heights. Q is taller than R but shorter than S. T is the tallest. P is shorter than R. Who is the shortest?",
+      "options": { "A": "P", "B": "R", "C": "Q", "D": "S" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Seven teams A, B, C, D, E, F and G participated in a tournament. A finished before B but after D. E finished before F but after G. C finished first. Who finished last?",
+      "options": { "A": "B", "B": "F", "C": "E", "D": "G" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Four women have different occupations - Writer, Singer, Dancer and Painter. Sunita is not Writer. Seema is Dancer. Sonia is Painter. Sunita is Singer. Who is Writer?",
+      "options": { "A": "Sunita", "B": "Seema", "C": "Sonia", "D": "Cannot be determined" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Five cars - Swift, Dzire, Baleno, Vitara and S-Cross are of different colors - White, Black, Blue, Red and Silver. Swift is not White. Baleno is Red. Vitara is Blue. Dzire is Silver. Which car is Black?",
+      "options": { "A": "Swift", "B": "S-Cross", "C": "Dzire", "D": "Vitara" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Six lectures are scheduled in a week from Monday to Saturday. History is on Thursday. Science is before History but after Maths. English is on Tuesday. Which lecture is on Saturday?",
+      "options": { "A": "Science", "B": "History", "C": "Maths", "D": "Cannot be determined" },
+      "correctAnswer": "D"
+    }
+  ],
+  "Input-Output": [
+    {
+      "question": "A word arrangement machine arranges words following a specific rule. Input: 'gate into code lock'. Step 1: 'lock gate into code'. Step 2: 'lock code gate into'. If Step 2 is 'water fire earth air', what was Step 1?",
+      "options": { "A": "air water fire earth", "B": "earth air water fire", "C": "air earth water fire", "D": "earth water air fire" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Input: 'going there for the exam'. If the machine rearranges in reverse alphabetical order, what will be Step 1?",
+      "options": { "A": "there going for the exam", "B": "the for going there exam", "C": "there exam the for going", "D": "exam for going the there" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "A machine arranges numbers in ascending order. Input: '12 5 8 3 15'. Step 1: '3 12 5 8 15'. Step 2: '3 5 12 8 15'. What will Step 3 be?",
+      "options": { "A": "3 5 8 12 15", "B": "3 5 12 8 15", "C": "3 8 5 12 15", "D": "5 3 8 12 15" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Input: 'one two three four five'. If words are arranged by length in descending order, what is Step 1?",
+      "options": { "A": "three five four one two", "B": "five three four two one", "C": "three four five two one", "D": "four three five one two" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "A machine takes first and last elements and swaps them. Input: 'a b c d e f'. Step 1: 'f b c d e a'. Step 2: 'f e c d b a'. What will Step 3 be?",
+      "options": { "A": "f e d c b a", "B": "f b c d e a", "C": "a e c d b f", "D": "f e c d b a" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Input: 'cat dog rat bat'. Step 1: 'rat cat dog bat'. Step 2: 'rat bat cat dog'. If Step 2 is 'low row show grow', what was the input?",
+      "options": { "A": "row low show grow", "B": "show low row grow", "C": "grow show low row", "D": "low row grow show" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "A machine rearranges words alphabetically. Input: 'zebra apple mango banana'. What is the final output?",
+      "options": { "A": "apple banana mango zebra", "B": "zebra mango banana apple", "C": "banana apple mango zebra", "D": "apple zebra banana mango" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Input: '27 15 39 21 33'. The machine arranges them in ascending order. Step 1: '15 27 39 21 33'. Step 2: '15 21 39 27 33'. What will be the final output?",
+      "options": { "A": "15 21 27 33 39", "B": "15 27 21 39 33", "C": "15 21 39 27 33", "D": "15 27 39 21 33" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Input: 'blue red green yellow'. The machine moves the first word to the last. How many steps will give 'green yellow blue red'?",
+      "options": { "A": "2", "B": "3", "C": "4", "D": "1" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "A machine arranges letters in a word in reverse order. Input: 'STOP'. Step 1: 'TOPS'. Step 2: 'POTS'. Step 3: 'SPOT'. What will be Step 4?",
+      "options": { "A": "TSOP", "B": "POST", "C": "OPTS", "D": "TOPS" },
+      "correctAnswer": "B"
+    }
+  ],
+  "Alphanumeric Series": [
+    {
+      "question": "In the series: A, C, F, J, ?, what letter comes next?",
+      "options": { "A": "M", "B": "N", "C": "O", "D": "L" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Find the 7th term: AZ, BY, CX, DW, ?",
+      "options": { "A": "EV", "B": "EU", "C": "FV", "D": "FU" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "In the series: 2A, 4C, 6E, 8G, ?, what comes next?",
+      "options": { "A": "10I", "B": "9I", "C": "10H", "D": "11I" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "What is the 15th term in the series: A, B, C, D, ...?",
+      "options": { "A": "O", "B": "N", "C": "M", "D": "P" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Series: P3Q, R6S, T12U, ?, what comes next?",
+      "options": { "A": "V24W", "B": "W24V", "C": "X20W", "D": "V20W" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "In the alphanumeric series: A1, B2, C3, D4, E5, F6, G7, H8, I9, J10, K11, what is the 15th term?",
+      "options": { "A": "O15", "B": "N14", "C": "O14", "D": "N15" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Find the missing term: AB, EF, JK, ?, UV",
+      "options": { "A": "OP", "B": "NO", "C": "MN", "D": "PQ" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "In the series: 1Z, 2Y, 3X, 4W, 5V, ?, what comes next?",
+      "options": { "A": "6U", "B": "6T", "C": "7U", "D": "5U" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Find the 20th term of the series: A, C, E, G, I, ...",
+      "options": { "A": "S", "B": "T", "C": "U", "D": "V" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "What is the 10th term in the pattern: AA1, BB2, CC3, DD4, EE5, FF6, ...?",
+      "options": { "A": "JJ10", "B": "JJ9", "C": "II10", "D": "KK10" },
+      "correctAnswer": "A"
+    }
+  ],
+  "Miscellaneous": [
+    {
+      "question": "If 'K' denotes '+', 'L' denotes '-', 'M' denotes '×', 'N' denotes '÷', then what is 10 K 5 L 3 M 2 N 4?",
+      "options": { "A": "57", "B": "53", "C": "47", "D": "51" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "In a certain code, '786' means 'study very hard', '958' means 'hard work pays', '645' means 'work and study'. Which digit stands for 'very'?",
+      "options": { "A": "7", "B": "8", "C": "6", "D": "5" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Find the odd one out: 64, 125, 144, 216",
+      "options": { "A": "64", "B": "125", "C": "144", "D": "216" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "If 'P' means 'greater than', 'Q' means 'less than', 'R' means 'equal to', then which is true? 5 P 3, 3 Q 7, 7 R 7",
+      "options": { "A": "All are true", "B": "Only first is true", "C": "Only first and second are true", "D": "Only first and third are true" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Find the missing number: 8, 27, 64, 125, ?",
+      "options": { "A": "216", "B": "196", "C": "225", "D": "256" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "In a queue, Amit is 15th from the front and 25th from the back. How many people are in the queue?",
+      "options": { "A": "40", "B": "39", "C": "38", "D": "41" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Which number is opposite 3 when dice are rolled? The faces are 1, 2, 3, 4, 5, 6. 1 is opposite 6, 2 is opposite 5. What is opposite 3?",
+      "options": { "A": "4", "B": "5", "C": "6", "D": "Cannot be determined" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Find the wrong number in the series: 2, 5, 10, 17, 26, 37, 50",
+      "options": { "A": "5", "B": "10", "C": "17", "D": "37" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "If A=1, B=2, C=3, ..., Z=26, what is the value of APPLE?",
+      "options": { "A": "50", "B": "51", "C": "52", "D": "53" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "In a certain code, 'FISH' is written as 'EHRG'. How will 'BIRD' be written?",
+      "options": { "A": "AHQC", "B": "AHQD", "C": "AGQD", "D": "AHQD" },
+      "correctAnswer": "B"
+    }
+  ]
+}

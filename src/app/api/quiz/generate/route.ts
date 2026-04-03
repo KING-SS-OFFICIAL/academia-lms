@@ -1,100 +1,112 @@
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
-export const maxDuration = 90;
+export const maxDuration = 30;
+
+// Import JSON directly to avoid any module issues
+import grammarData from "@/constants/questionBanks/grammar.json";
+import gkData from "@/constants/questionBanks/gk.json";
+import historyData from "@/constants/questionBanks/history.json";
+import reasoningData from "@/constants/questionBanks/reasoning.json";
+import mathData from "@/constants/questionBanks/math.json";
+import quizData from "@/constants/questionBanks/quiz.json";
+
+interface Question {
+  question: string;
+  options: Record<string, string>;
+  correctAnswer: string;
+}
+
+type QuestionBank = Record<string, Question[]>;
+
+const QUESTION_BANKS: Record<string, QuestionBank> = {
+  grammar: grammarData as QuestionBank,
+  gk: gkData as QuestionBank,
+  history: historyData as QuestionBank,
+  reasoning: reasoningData as QuestionBank,
+  mathematics: mathData as QuestionBank,
+  quiz: quizData as QuestionBank,
+};
+
+function getStaticQuestions(subject: string, chapter: string, count: number): Question[] {
+  const subjectKeyMap: Record<string, string> = {
+    "grammar": "grammar", "gk": "gk", "history": "history",
+    "reasoning": "reasoning", "mathematics": "mathematics", "math": "mathematics", "quiz": "quiz"
+  };
+  
+  const bankKey = subjectKeyMap[subject.toLowerCase()] || subject;
+  const bank = QUESTION_BANKS[bankKey];
+  
+  if (!bank) return [];
+  
+  let chapterQuestions = bank[chapter];
+  
+  if (!chapterQuestions) {
+    const chapterLower = chapter.toLowerCase();
+    for (const key of Object.keys(bank)) {
+      if (key.toLowerCase() === chapterLower) {
+        chapterQuestions = bank[key];
+        break;
+      }
+    }
+  }
+  
+  if (!chapterQuestions) {
+    const chapterLower = chapter.toLowerCase();
+    for (const key of Object.keys(bank)) {
+      if (key.toLowerCase().includes(chapterLower) || chapterLower.includes(key.toLowerCase())) {
+        chapterQuestions = bank[key];
+        break;
+      }
+    }
+  }
+  
+  if (!chapterQuestions) {
+    chapterQuestions = bank["Miscellaneous"];
+  }
+  
+  if (!chapterQuestions || chapterQuestions.length === 0) return [];
+  
+  const shuffled = [...chapterQuestions].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, Math.min(count, shuffled.length));
+}
 
 export async function POST(request: Request) {
-  const apiKey = process.env.OPENROUTER_API_KEY;
-  
-  if (!apiKey) {
-    return NextResponse.json({ error: "AI API key not configured. Please contact admin." }, { status: 500 });
-  }
-
   try {
-    const { subject, topic, questionCount = 10 } = await request.json();
+    const body = await request.json();
+    const { subject, topic, questionCount = 10 } = body;
+
+    console.log("[Generate] Request:", { subject, topic, questionCount });
 
     if (!topic) {
       return NextResponse.json({ error: "Topic is required" }, { status: 400 });
     }
 
-    const subjectContext = getSubjectContext(subject, topic);
-    const mcqCount = Math.max(0, questionCount - 3);
+    const staticQuestions = getStaticQuestions(subject, topic, questionCount);
     
-    const prompt = `Generate ${questionCount} questions on ${subjectContext}.
-First ${mcqCount} are MCQ: question, options A/B/C/D, correct answer (letter), explanation.
-Last 3 are short answer: question, correct answer only.
-Format as JSON array.`;
+    console.log("[Generate] Found:", staticQuestions.length, "questions");
 
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${apiKey}`,
-        "HTTP-Referer": "https://academia-lms-nine.vercel.app",
-        "X-Title": "ACADEMIA LMS",
-      },
-      body: JSON.stringify({
-        model: "nvidia/nemotron-3-nano-30b-a3b:free",
-        messages: [{ role: "user", content: prompt }],
-        temperature: 0.7,
-        max_tokens: 1200,
-      }),
-    });
-
-    if (response.status === 429) {
-      return NextResponse.json({ error: "Rate limited. Please wait a moment and try again." }, { status: 429 });
+    if (staticQuestions.length === 0) {
+      return NextResponse.json({ 
+        error: "No questions available for this topic",
+        debug: { subject, topic }
+      }, { status: 404 });
     }
 
-    if (!response.ok) {
-      return NextResponse.json({ error: "AI service unavailable. Please try again." }, { status: 503 });
-    }
+    const questions = staticQuestions.map((q, index) => ({
+      id: `q-${index}`,
+      question: q.question,
+      options: q.options,
+      correctAnswer: q.correctAnswer,
+      type: "mcq" as const,
+    }));
 
-    const data = await response.json();
-    const text = data.choices?.[0]?.message?.content;
-
-    if (!text) {
-      return NextResponse.json({ error: "AI returned empty response. Please try again." }, { status: 500 });
-    }
-
-    // Clean the response
-    let cleaned = text;
-    // Remove markdown code blocks
-    cleaned = cleaned.replace(/```json\n?/g, "").replace(/```\n?/g, "").replace(/```/g, "");
-    cleaned = cleaned.trim();
-
-    // Find JSON array
-    const startIdx = cleaned.indexOf('[');
-    const endIdx = cleaned.lastIndexOf(']');
-    
-    if (startIdx === -1 || endIdx === -1) {
-      // No JSON array found, try to parse anyway
-      const questions = JSON.parse(cleaned);
-      return NextResponse.json({ questions });
-    }
-
-    const jsonStr = cleaned.substring(startIdx, endIdx + 1);
-    const questions = JSON.parse(jsonStr);
-
-    if (!Array.isArray(questions) || questions.length === 0) {
-      return NextResponse.json({ error: "No questions generated. Please try again." }, { status: 500 });
-    }
-
-    return NextResponse.json({ questions });
-  } catch (error) {
-    const message = error instanceof Error ? error.message : "Unknown error";
-    console.error("Quiz generation error:", message);
-    return NextResponse.json({ error: "Failed to generate. Please try again." }, { status: 500 });
+    return NextResponse.json({ questions, isStatic: true });
+  } catch (err) {
+    console.error("[Generate] Error:", err);
+    return NextResponse.json({ 
+      error: "Failed to generate questions",
+      details: err instanceof Error ? err.message : "Unknown"
+    }, { status: 500 });
   }
-}
-
-function getSubjectContext(subject: string, topic: string): string {
-  const contexts: Record<string, string> = {
-    grammar: `English Grammar - ${topic}`,
-    gk: `General Knowledge - ${topic}`,
-    history: `History - ${topic}`,
-    reasoning: `Reasoning - ${topic}`,
-    mathematics: `Mathematics - ${topic}`,
-    quiz: `General Knowledge - ${topic}`,
-  };
-  return contexts[subject] || `General Knowledge - ${topic}`;
 }

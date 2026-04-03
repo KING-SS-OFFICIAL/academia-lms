@@ -126,11 +126,13 @@ export default function TestPage() {
       const config = TEST_CONFIGS.find((c) => c.id === state.configId);
       const subject = SUBJECTS.find((s) => s.id === state.subject);
 
+      console.log("Generating questions for:", state.subject, state.chapter);
+
       const response = await fetch("/api/quiz/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          subject: subject?.name,
+          subject: state.subject, // Send ID like "grammar", "gk"
           topic: state.chapter,
           questionCount: config?.questions || 15,
         }),
@@ -149,7 +151,8 @@ export default function TestPage() {
           options: q.options,
           correctAnswer: q.correctAnswer,
           explanation: q.explanation,
-          type: idx < (config?.questions || 15) - 5 ? "mcq" : "short",
+          // Static questions are all MCQ, AI questions have mix
+          type: data.isStatic ? "mcq" : (idx < (config?.questions || 15) - 5 ? "mcq" : "short"),
         })
       );
 
