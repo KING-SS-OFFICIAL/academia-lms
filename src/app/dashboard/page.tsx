@@ -86,24 +86,26 @@ export default function DashboardPage() {
         {/* Main Content */}
         <div className="lg:col-span-9 space-y-8">
           {/* Student Profile Header */}
-          <div className="flex items-center gap-5 p-6 rounded-2xl bg-gradient-to-r from-primary/10 to-primary-container/10 border border-primary/20">
-            <div className="w-16 h-16 rounded-full overflow-hidden bg-primary/20 flex items-center justify-center shrink-0 border-2 border-primary">
-              {displayPhoto ? (
-                <img src={displayPhoto} alt={displayName} className="w-full h-full object-cover" />
-              ) : (
-                <span className="text-2xl font-bold text-primary">{displayName.charAt(0).toUpperCase()}</span>
-              )}
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm text-muted-foreground mb-1">{greeting} 👋</p>
-              <h2 className="text-xl font-bold text-foreground truncate">{displayName}</h2>
-              <div className="flex items-center gap-2 mt-1">
-                <span className={`text-xs font-bold ${studentRank.color}`}>
-                  {studentRank.name} {studentRank.level}
-                </span>
-                <span className="text-xs text-muted-foreground">•</span>
-                <span className="text-xs text-primary font-medium">Best Wishes from ACADEMIA ✨</span>
+          <div className="flex items-center justify-between gap-5 p-6 rounded-2xl bg-gradient-to-r from-primary/10 to-primary-container/10 border border-primary/20">
+            <div className="flex items-center gap-5 flex-1 min-w-0">
+              <div className="w-16 h-16 rounded-full overflow-hidden bg-primary/20 flex items-center justify-center shrink-0 border-2 border-primary">
+                {displayPhoto ? (
+                  <img src={displayPhoto} alt={displayName} className="w-full h-full object-cover" />
+                ) : (
+                  <span className="text-2xl font-bold text-primary">{displayName.charAt(0).toUpperCase()}</span>
+                )}
               </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm text-muted-foreground mb-1">{greeting} 👋</p>
+                <h2 className="text-xl font-bold text-foreground truncate">{displayName}</h2>
+                <p className="text-xs text-primary font-medium mt-1">Best Wishes from ACADEMIA ✨</p>
+              </div>
+            </div>
+            <div className="flex-shrink-0 text-center">
+              <div className={`text-2xl font-black ${studentRank.color}`}>
+                {studentRank.name} {studentRank.level}
+              </div>
+              <div className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider mt-1">Current Rank</div>
             </div>
           </div>
 
