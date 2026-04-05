@@ -6,7 +6,7 @@ import { Home, GraduationCap, LayoutDashboard, User, Sparkles } from "lucide-rea
 
 const mobileNavItems = [
   { href: "/", label: "Home", icon: Home },
-  { href: "/dashboard", label: "Portal", icon: GraduationCap },
+  { href: "/dashboard", label: "Student", icon: GraduationCap },
   { href: "/leaderboard", label: "Board", icon: LayoutDashboard },
   { href: "/profile", label: "Profile", icon: User },
 ];
