@@ -9,8 +9,9 @@ import { Menu, X, School, LogOut, User } from "lucide-react";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/dashboard", label: "Student Portal" },
-  { href: "/leaderboard", label: "Dashboard" },
+  { href: "/leaderboard", label: "Leaderboard" },
   { href: "/materials", label: "Study Material" },
+  { href: "/admin", label: "Admin Panel" },
 ];
 
 export default function Navbar() {
