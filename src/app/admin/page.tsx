@@ -12,19 +12,20 @@ import {
   Settings,
   LogOut,
   Search,
-  Eye,
-  Trash2,
-  Edit,
   ChevronLeft,
   ChevronRight,
   BookOpen,
-  Calendar,
   Star,
   Download,
   Plus,
-  X,
   Lock,
   Shield,
+  User,
+  Phone,
+  GraduationCap,
+  School,
+  Mail,
+  Eye,
 } from "lucide-react";
 
 type AdminTab = "dashboard" | "students" | "tests" | "content" | "settings";
@@ -35,20 +36,15 @@ interface Student {
   email: string;
   className: string;
   school: string;
+  medium: string;
+  contact: string;
+  parentContact: string;
+  avatarUrl: string;
   testsTaken: number;
   avgScore: number;
   rank: string;
   joinedDate: string;
-}
-
-interface TestResult {
-  id: string;
-  studentName: string;
-  subject: string;
-  chapter: string;
-  score: number;
-  total: number;
-  date: string;
+  testHistory: { subject: string; chapter: string; score: number; total: number; percentage: number; date: string }[];
 }
 
 const ADMIN_ID = "@RinDAm#AcademIa";
@@ -156,11 +152,10 @@ export default function AdminPanel() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [activeTab, setActiveTab] = useState<AdminTab>("dashboard");
   const [students, setStudents] = useState<Student[]>([]);
-  const [testResults, setTestResults] = useState<TestResult[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const itemsPerPage = 10;
+  const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
+  const [classFilter, setClassFilter] = useState("All");
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -175,82 +170,68 @@ export default function AdminPanel() {
   }, [status, router]);
 
   useEffect(() => {
-    const savedTests = localStorage.getItem("testResults");
-    if (savedTests) {
-      try {
-        const tests = JSON.parse(savedTests);
-        setTestResults(
-          tests.map((t: any, i: number) => ({
-            id: `test-${i}`,
-            studentName: "Current Student",
-            subject: t.subject || "Grammar",
-            chapter: t.chapter || "Tenses",
-            score: t.correct || 0,
-            total: t.total || 15,
-            date: t.date || new Date().toLocaleDateString(),
-          }))
-        );
-      } catch {}
+    // Load real student profiles from localStorage
+    const allProfiles: Student[] = [];
+    const allTestResults: Record<string, any[]> = {};
+
+    // Collect all student profiles
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key === "studentProfile") {
+        try {
+          const profile = JSON.parse(localStorage.getItem(key)!);
+          const testResults = JSON.parse(localStorage.getItem("testResults") || "[]");
+          const qualifiedTests = testResults.filter((t: any) => t.percentage >= 75);
+          const avgScore = testResults.length > 0
+            ? Math.round(testResults.reduce((sum: number, t: any) => sum + t.percentage, 0) / testResults.length)
+            : 0;
+
+          allProfiles.push({
+            id: "1",
+            name: profile.name || session?.user?.name || "Student",
+            email: session?.user?.email || "",
+            className: profile.className || "N/A",
+            school: profile.school || "N/A",
+            medium: profile.medium || "N/A",
+            contact: profile.contact || "N/A",
+            parentContact: "N/A",
+            avatarUrl: profile.avatarUrl || session?.user?.image || "",
+            testsTaken: testResults.length,
+            avgScore,
+            rank: qualifiedTests.length >= 400 ? "Grandmaster" :
+                  qualifiedTests.length >= 280 ? "Heroic" :
+                  qualifiedTests.length >= 180 ? "Diamond" :
+                  qualifiedTests.length >= 130 ? "Platinum" :
+                  qualifiedTests.length >= 90 ? "Gold" :
+                  qualifiedTests.length >= 40 ? "Silver" :
+                  qualifiedTests.length >= 10 ? "Bronze" : "Bronze I",
+            joinedDate: new Date().toLocaleDateString(),
+            testHistory: testResults.map((t: any) => ({
+              subject: t.subject || "Grammar",
+              chapter: t.chapter || "Tenses",
+              score: t.correct || 0,
+              total: t.total || 15,
+              percentage: t.percentage || 0,
+              date: t.date || new Date().toLocaleDateString(),
+            })),
+          });
+        } catch {}
+      }
     }
 
-    setStudents([
-      {
-        id: "1",
-        name: "Arjun Sharma",
-        email: "arjun@email.com",
-        className: "Class X",
-        school: "Delhi Public School",
-        testsTaken: 45,
-        avgScore: 78,
-        rank: "Silver II",
-        joinedDate: "15 Jan 2024",
-      },
-      {
-        id: "2",
-        name: "Priya Patel",
-        email: "priya@email.com",
-        className: "Class IX",
-        school: "Kendriya Vidyalaya",
-        testsTaken: 32,
-        avgScore: 85,
-        rank: "Gold I",
-        joinedDate: "22 Feb 2024",
-      },
-      {
-        id: "3",
-        name: "Rahul Kumar",
-        email: "rahul@email.com",
-        className: "Class VIII",
-        school: "St. Xavier's School",
-        testsTaken: 18,
-        avgScore: 62,
-        rank: "Bronze III",
-        joinedDate: "10 Mar 2024",
-      },
-      {
-        id: "4",
-        name: "Sneha Gupta",
-        email: "sneha@email.com",
-        className: "Class XI",
-        school: "DAV Public School",
-        testsTaken: 67,
-        avgScore: 92,
-        rank: "Platinum II",
-        joinedDate: "5 Dec 2023",
-      },
-      {
-        id: "5",
-        name: "Amit Singh",
-        email: "amit@email.com",
-        className: "Class XII",
-        school: "Ryan International",
-        testsTaken: 25,
-        avgScore: 71,
-        rank: "Silver I",
-        joinedDate: "18 Apr 2024",
-      },
-    ]);
-  }, []);
+    // Add sample students for demonstration
+    if (allProfiles.length === 0) {
+      allProfiles.push(
+        { id: "1", name: "Arjun Sharma", email: "arjun@email.com", className: "Class X", school: "Delhi Public School", medium: "English", contact: "9876543210", parentContact: "9876543211", avatarUrl: "", testsTaken: 45, avgScore: 78, rank: "Silver II", joinedDate: "15 Jan 2024", testHistory: [{ subject: "Grammar", chapter: "Tenses", score: 12, total: 15, percentage: 80, date: "20 Mar 2024" }] },
+        { id: "2", name: "Priya Patel", email: "priya@email.com", className: "Class IX", school: "Kendriya Vidyalaya", medium: "English", contact: "9876543212", parentContact: "9876543213", avatarUrl: "", testsTaken: 32, avgScore: 85, rank: "Gold I", joinedDate: "22 Feb 2024", testHistory: [{ subject: "GK", chapter: "Indian History", score: 14, total: 15, percentage: 93, date: "18 Mar 2024" }] },
+        { id: "3", name: "Rahul Kumar", email: "rahul@email.com", className: "Class VIII", school: "St. Xavier's School", medium: "Hindi", contact: "9876543214", parentContact: "9876543215", avatarUrl: "", testsTaken: 18, avgScore: 62, rank: "Bronze III", joinedDate: "10 Mar 2024", testHistory: [{ subject: "Mathematics", chapter: "Percentage", score: 10, total: 15, percentage: 67, date: "15 Mar 2024" }] },
+        { id: "4", name: "Sneha Gupta", email: "sneha@email.com", className: "Class XI", school: "DAV Public School", medium: "English", contact: "9876543216", parentContact: "9876543217", avatarUrl: "", testsTaken: 67, avgScore: 92, rank: "Platinum II", joinedDate: "5 Dec 2023", testHistory: [{ subject: "Grammar", chapter: "Prepositions", score: 14, total: 15, percentage: 93, date: "22 Mar 2024" }] },
+        { id: "5", name: "Amit Singh", email: "amit@email.com", className: "Class XII", school: "Ryan International", medium: "English", contact: "9876543218", parentContact: "9876543219", avatarUrl: "", testsTaken: 25, avgScore: 71, rank: "Silver I", joinedDate: "18 Apr 2024", testHistory: [{ subject: "Reasoning", chapter: "Coding-Decoding", score: 11, total: 15, percentage: 73, date: "25 Mar 2024" }] },
+      );
+    }
+
+    setStudents(allProfiles);
+  }, [session]);
 
   if (status === "loading") {
     return (
@@ -264,27 +245,24 @@ export default function AdminPanel() {
     return <AdminAuth onAuthenticated={() => setIsAuthenticated(true)} userEmail={session?.user?.email?.toLowerCase() || ""} />;
   }
 
-  const totalTests = testResults.length;
-  const avgScore = testResults.length > 0
-    ? Math.round(testResults.reduce((sum, t) => sum + (t.score / t.total) * 100, 0) / testResults.length)
-    : 0;
   const totalStudents = students.length;
-  const passRate = testResults.length > 0
-    ? Math.round((testResults.filter(t => (t.score / t.total) * 100 >= 60).length / testResults.length) * 100)
+  const totalTests = students.reduce((sum, s) => sum + s.testsTaken, 0);
+  const avgScore = students.length > 0
+    ? Math.round(students.reduce((sum, s) => sum + s.avgScore, 0) / students.length)
+    : 0;
+  const passRate = students.length > 0
+    ? Math.round((students.filter(s => s.avgScore >= 60).length / students.length) * 100)
     : 0;
 
-  const filteredStudents = students.filter(
-    (s) =>
+  const allClasses = ["All", ...Array.from(new Set(students.map(s => s.className)))];
+  const filteredStudents = students
+    .filter(s => classFilter === "All" || s.className === classFilter)
+    .filter(s =>
       s.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       s.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
       s.className.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const paginatedStudents = filteredStudents.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
-  const totalPages = Math.ceil(filteredStudents.length / itemsPerPage);
+    )
+    .sort((a, b) => a.className.localeCompare(b.className));
 
   const navItems = [
     { id: "dashboard" as AdminTab, label: "Dashboard", icon: BarChart3 },
@@ -298,13 +276,13 @@ export default function AdminPanel() {
     <div className="min-h-screen bg-background flex">
       {/* Sidebar */}
       <aside
-        className={`fixed lg:sticky top-0 left-0 h-screen bg-surface-container-low border-r border-border/50 transition-all duration-300 z-50 ${
+        className={`fixed top-0 left-0 h-screen bg-surface-container-low border-r border-border/50 transition-all duration-300 z-50 ${
           sidebarOpen ? "w-64" : "w-20"
         }`}
       >
         <div className="p-6 flex items-center justify-between">
           {sidebarOpen && (
-              <h1 className="text-xl font-black text-primary">Admin Panel</h1>
+            <h1 className="text-xl font-black text-primary">Admin Panel</h1>
           )}
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -318,7 +296,7 @@ export default function AdminPanel() {
           {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => setActiveTab(item.id)}
+              onClick={() => { setActiveTab(item.id); setSelectedStudent(null); }}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
                 activeTab === item.id
                   ? "bg-primary/10 text-primary font-bold"
@@ -346,7 +324,7 @@ export default function AdminPanel() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6 lg:p-8 overflow-auto">
+      <main className={`flex-1 p-6 lg:p-8 overflow-auto ${sidebarOpen ? 'ml-64' : 'ml-20'} transition-all duration-300`}>
         {/* Dashboard */}
         {activeTab === "dashboard" && (
           <div className="space-y-8">
@@ -355,14 +333,12 @@ export default function AdminPanel() {
               <p className="text-muted-foreground mt-1">Platform overview and analytics</p>
             </div>
 
-            {/* Stats Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-surface-container-lowest rounded-2xl p-6 border border-border/50">
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                     <Users className="w-6 h-6 text-primary" />
                   </div>
-                  <span className="text-xs font-bold text-green-500 bg-green-500/10 px-2 py-1 rounded-full">+12%</span>
                 </div>
                 <div className="text-3xl font-black text-foreground">{totalStudents}</div>
                 <div className="text-sm text-muted-foreground">Total Students</div>
@@ -373,7 +349,6 @@ export default function AdminPanel() {
                   <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center">
                     <FileText className="w-6 h-6 text-blue-500" />
                   </div>
-                  <span className="text-xs font-bold text-green-500 bg-green-500/10 px-2 py-1 rounded-full">+8%</span>
                 </div>
                 <div className="text-3xl font-black text-foreground">{totalTests}</div>
                 <div className="text-sm text-muted-foreground">Tests Completed</div>
@@ -384,7 +359,6 @@ export default function AdminPanel() {
                   <div className="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center">
                     <TrendingUp className="w-6 h-6 text-yellow-500" />
                   </div>
-                  <span className="text-xs font-bold text-green-500 bg-green-500/10 px-2 py-1 rounded-full">+5%</span>
                 </div>
                 <div className="text-3xl font-black text-foreground">{avgScore}%</div>
                 <div className="text-sm text-muted-foreground">Average Score</div>
@@ -395,32 +369,194 @@ export default function AdminPanel() {
                   <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center">
                     <Star className="w-6 h-6 text-green-500" />
                   </div>
-                  <span className="text-xs font-bold text-green-500 bg-green-500/10 px-2 py-1 rounded-full">+3%</span>
                 </div>
                 <div className="text-3xl font-black text-foreground">{passRate}%</div>
                 <div className="text-sm text-muted-foreground">Pass Rate</div>
               </div>
             </div>
 
-            {/* Recent Activity */}
+            {/* Students by Class */}
             <div className="bg-surface-container-lowest rounded-2xl border border-border/50 p-6">
-              <h3 className="text-lg font-bold text-foreground mb-4">Recent Test Results</h3>
-              {testResults.length > 0 ? (
+              <h3 className="text-lg font-bold text-foreground mb-4">Students by Class</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {allClasses.filter(c => c !== "All").map(cls => {
+                  const classStudents = students.filter(s => s.className === cls);
+                  return (
+                    <div key={cls} className="p-4 rounded-xl bg-surface-container-low text-center">
+                      <div className="text-2xl font-black text-primary">{classStudents.length}</div>
+                      <div className="text-sm text-muted-foreground">{cls}</div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Students */}
+        {activeTab === "students" && !selectedStudent && (
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-3xl font-black text-foreground">Students</h2>
+              <p className="text-muted-foreground mt-1">Manage student accounts</p>
+            </div>
+
+            {/* Filters */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="relative flex-1">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <input
+                  type="text"
+                  placeholder="Search students..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-12 pr-4 py-3 rounded-xl border border-border bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                />
+              </div>
+              <select
+                value={classFilter}
+                onChange={(e) => setClassFilter(e.target.value)}
+                className="px-4 py-3 rounded-xl border border-border bg-surface-container-lowest focus:border-primary outline-none"
+              >
+                {allClasses.map(c => (
+                  <option key={c} value={c}>{c === "All" ? "All Classes" : c}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Student Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {filteredStudents.map((student) => (
+                <div
+                  key={student.id}
+                  onClick={() => setSelectedStudent(student)}
+                  className="bg-surface-container-lowest rounded-2xl border border-border/50 p-6 hover:border-primary/50 transition-all cursor-pointer group"
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-14 h-14 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center shrink-0">
+                      {student.avatarUrl ? (
+                        <img src={student.avatarUrl} alt={student.name} className="w-full h-full object-cover" />
+                      ) : (
+                        <span className="text-xl font-bold text-primary">{student.name.charAt(0)}</span>
+                      )}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-bold text-foreground truncate">{student.name}</h3>
+                      <p className="text-sm text-muted-foreground">{student.className} • {student.medium}</p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-3 gap-4 text-center">
+                    <div>
+                      <div className="text-lg font-black text-foreground">{student.testsTaken}</div>
+                      <div className="text-xs text-muted-foreground">Tests</div>
+                    </div>
+                    <div>
+                      <div className={`text-lg font-black ${student.avgScore >= 80 ? 'text-green-500' : student.avgScore >= 60 ? 'text-yellow-500' : 'text-red-500'}`}>{student.avgScore}%</div>
+                      <div className="text-xs text-muted-foreground">Avg Score</div>
+                    </div>
+                    <div>
+                      <div className="text-lg font-black text-primary">{student.rank}</div>
+                      <div className="text-xs text-muted-foreground">Rank</div>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-border/50 flex items-center justify-between text-sm text-muted-foreground">
+                    <span className="flex items-center gap-1"><School size={14} /> {student.school}</span>
+                    <span className="flex items-center gap-1"><Phone size={14} /> {student.contact}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {filteredStudents.length === 0 && (
+              <div className="text-center py-16 text-muted-foreground">
+                <Users className="w-16 h-16 mx-auto mb-4 opacity-30" />
+                <p className="text-lg font-bold">No students found</p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Student Detail View */}
+        {activeTab === "students" && selectedStudent && (
+          <div className="space-y-6">
+            <button
+              onClick={() => setSelectedStudent(null)}
+              className="flex items-center gap-2 text-primary font-bold hover:underline"
+            >
+              <ChevronLeft size={20} /> Back to Students
+            </button>
+
+            {/* Student Profile */}
+            <div className="bg-surface-container-lowest rounded-2xl border border-border/50 p-8">
+              <div className="flex flex-col md:flex-row items-start gap-6">
+                <div className="w-24 h-24 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center shrink-0">
+                  {selectedStudent.avatarUrl ? (
+                    <img src={selectedStudent.avatarUrl} alt={selectedStudent.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-4xl font-bold text-primary">{selectedStudent.name.charAt(0)}</span>
+                  )}
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-2xl font-black text-foreground">{selectedStudent.name}</h2>
+                  <p className="text-muted-foreground">{selectedStudent.email}</p>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                    <div className="flex items-center gap-2 text-sm">
+                      <GraduationCap size={16} className="text-primary" />
+                      <span>{selectedStudent.className}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <School size={16} className="text-primary" />
+                      <span>{selectedStudent.school}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <BookOpen size={16} className="text-primary" />
+                      <span>{selectedStudent.medium}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <Phone size={16} className="text-primary" />
+                      <span>{selectedStudent.contact}</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 flex items-center gap-2 text-sm">
+                    <Phone size={16} className="text-muted-foreground" />
+                    <span className="text-muted-foreground">Parent: {selectedStudent.parentContact}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-6">
+              <div className="bg-surface-container-lowest rounded-2xl p-6 border border-border/50 text-center">
+                <div className="text-3xl font-black text-foreground">{selectedStudent.testsTaken}</div>
+                <div className="text-sm text-muted-foreground">Tests Given</div>
+              </div>
+              <div className="bg-surface-container-lowest rounded-2xl p-6 border border-border/50 text-center">
+                <div className={`text-3xl font-black ${selectedStudent.avgScore >= 80 ? 'text-green-500' : selectedStudent.avgScore >= 60 ? 'text-yellow-500' : 'text-red-500'}`}>{selectedStudent.avgScore}%</div>
+                <div className="text-sm text-muted-foreground">Average Score</div>
+              </div>
+              <div className="bg-surface-container-lowest rounded-2xl p-6 border border-border/50 text-center">
+                <div className="text-3xl font-black text-primary">{selectedStudent.rank}</div>
+                <div className="text-sm text-muted-foreground">Current Rank</div>
+              </div>
+            </div>
+
+            {/* Test History */}
+            <div className="bg-surface-container-lowest rounded-2xl border border-border/50 p-6">
+              <h3 className="text-lg font-bold text-foreground mb-4">Test History</h3>
+              {selectedStudent.testHistory.length > 0 ? (
                 <div className="space-y-3">
-                  {testResults.slice(-5).reverse().map((test) => (
-                    <div key={test.id} className="flex items-center justify-between p-4 rounded-xl bg-surface-container-low">
+                  {selectedStudent.testHistory.map((test, i) => (
+                    <div key={i} className="flex items-center justify-between p-4 rounded-xl bg-surface-container-low">
                       <div>
-                        <div className="font-bold text-foreground">{test.studentName}</div>
-                        <div className="text-sm text-muted-foreground">{test.subject} - {test.chapter}</div>
+                        <div className="font-bold text-foreground">{test.subject} - {test.chapter}</div>
+                        <div className="text-sm text-muted-foreground">{test.date}</div>
                       </div>
                       <div className="text-right">
-                        <div className={`text-lg font-black ${
-                          (test.score / test.total) * 100 >= 80 ? 'text-green-500' :
-                          (test.score / test.total) * 100 >= 60 ? 'text-yellow-500' : 'text-red-500'
-                        }`}>
-                          {Math.round((test.score / test.total) * 100)}%
+                        <div className={`text-lg font-black ${test.percentage >= 80 ? 'text-green-500' : test.percentage >= 60 ? 'text-yellow-500' : 'text-red-500'}`}>
+                          {test.percentage}%
                         </div>
-                        <div className="text-xs text-muted-foreground">{test.date}</div>
+                        <div className="text-xs text-muted-foreground">{test.score}/{test.total}</div>
                       </div>
                     </div>
                   ))}
@@ -428,126 +564,7 @@ export default function AdminPanel() {
               ) : (
                 <div className="text-center py-8 text-muted-foreground">
                   <Trophy className="w-12 h-12 mx-auto mb-3 opacity-30" />
-                  <p>No test results yet</p>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* Students */}
-        {activeTab === "students" && (
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-3xl font-black text-foreground">Students</h2>
-                <p className="text-muted-foreground mt-1">Manage student accounts</p>
-              </div>
-              <button className="flex items-center gap-2 px-4 py-3 rounded-xl bg-primary text-white font-bold text-sm hover:opacity-90 transition-all">
-                <Plus size={16} /> Add Student
-              </button>
-            </div>
-
-            {/* Search */}
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder="Search students by name, email, or class..."
-                value={searchQuery}
-                onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
-                className="w-full pl-12 pr-4 py-3 rounded-xl border border-border bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-              />
-            </div>
-
-            {/* Student Table */}
-            <div className="bg-surface-container-lowest rounded-2xl border border-border/50 overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-surface-container-low">
-                    <tr>
-                      <th className="text-left px-6 py-4 text-xs font-bold text-muted-foreground uppercase tracking-wider">Student</th>
-                      <th className="text-left px-6 py-4 text-xs font-bold text-muted-foreground uppercase tracking-wider">Class</th>
-                      <th className="text-left px-6 py-4 text-xs font-bold text-muted-foreground uppercase tracking-wider">Tests</th>
-                      <th className="text-left px-6 py-4 text-xs font-bold text-muted-foreground uppercase tracking-wider">Avg Score</th>
-                      <th className="text-left px-6 py-4 text-xs font-bold text-muted-foreground uppercase tracking-wider">Rank</th>
-                      <th className="text-left px-6 py-4 text-xs font-bold text-muted-foreground uppercase tracking-wider">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-border/50">
-                    {paginatedStudents.map((student) => (
-                      <tr key={student.id} className="hover:bg-surface-container-low transition-colors">
-                        <td className="px-6 py-4">
-                          <div className="font-bold text-foreground">{student.name}</div>
-                          <div className="text-sm text-muted-foreground">{student.email}</div>
-                        </td>
-                        <td className="px-6 py-4 text-sm text-foreground">{student.className}</td>
-                        <td className="px-6 py-4 text-sm text-foreground">{student.testsTaken}</td>
-                        <td className="px-6 py-4">
-                          <span className={`font-bold ${
-                            student.avgScore >= 80 ? 'text-green-500' :
-                            student.avgScore >= 60 ? 'text-yellow-500' : 'text-red-500'
-                          }`}>
-                            {student.avgScore}%
-                          </span>
-                        </td>
-                        <td className="px-6 py-4">
-                          <span className="text-sm font-bold text-primary">{student.rank}</span>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="flex items-center gap-2">
-                            <button className="p-2 rounded-lg hover:bg-surface-container-highest transition-colors">
-                              <Eye size={16} className="text-muted-foreground" />
-                            </button>
-                            <button className="p-2 rounded-lg hover:bg-surface-container-highest transition-colors">
-                              <Edit size={16} className="text-blue-500" />
-                            </button>
-                            <button className="p-2 rounded-lg hover:bg-red-500/10 transition-colors">
-                              <Trash2 size={16} className="text-red-500" />
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              {/* Pagination */}
-              {totalPages > 1 && (
-                <div className="flex items-center justify-between px-6 py-4 border-t border-border/50">
-                  <p className="text-sm text-muted-foreground">
-                    Showing {(currentPage - 1) * itemsPerPage + 1} to {Math.min(currentPage * itemsPerPage, filteredStudents.length)} of {filteredStudents.length}
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-                      disabled={currentPage === 1}
-                      className="p-2 rounded-lg hover:bg-surface-container-highest disabled:opacity-30 transition-colors"
-                    >
-                      <ChevronLeft size={16} />
-                    </button>
-                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                      <button
-                        key={page}
-                        onClick={() => setCurrentPage(page)}
-                        className={`w-8 h-8 rounded-lg text-sm font-bold transition-colors ${
-                          currentPage === page
-                            ? "bg-primary text-white"
-                            : "hover:bg-surface-container-highest text-muted-foreground"
-                        }`}
-                      >
-                        {page}
-                      </button>
-                    ))}
-                    <button
-                      onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-                      disabled={currentPage === totalPages}
-                      className="p-2 rounded-lg hover:bg-surface-container-highest disabled:opacity-30 transition-colors"
-                    >
-                      <ChevronRight size={16} />
-                    </button>
-                  </div>
+                  <p>No tests taken yet</p>
                 </div>
               )}
             </div>
@@ -557,42 +574,37 @@ export default function AdminPanel() {
         {/* Test Results */}
         {activeTab === "tests" && (
           <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-3xl font-black text-foreground">Test Results</h2>
-                <p className="text-muted-foreground mt-1">View all test submissions</p>
-              </div>
-              <button className="flex items-center gap-2 px-4 py-3 rounded-xl bg-primary text-white font-bold text-sm hover:opacity-90 transition-all">
-                <Download size={16} /> Export
-              </button>
+            <div>
+              <h2 className="text-3xl font-black text-foreground">Test Results</h2>
+              <p className="text-muted-foreground mt-1">All student test submissions</p>
             </div>
 
             <div className="bg-surface-container-lowest rounded-2xl border border-border/50 overflow-hidden">
-              {testResults.length > 0 ? (
+              {students.flatMap(s => s.testHistory.map(t => ({ ...t, studentName: s.name, studentClass: s.className }))).length > 0 ? (
                 <div className="divide-y divide-border/50">
-                  {testResults.map((test) => (
-                    <div key={test.id} className="flex items-center justify-between p-6 hover:bg-surface-container-low transition-colors">
+                  {students.flatMap(s => s.testHistory.map(t => ({ ...t, studentName: s.name, studentClass: s.className }))).map((test, i) => (
+                    <div key={i} className="flex items-center justify-between p-6 hover:bg-surface-container-low transition-colors">
                       <div className="flex items-center gap-4">
                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                          (test.score / test.total) * 100 >= 80 ? 'bg-green-500/10' :
-                          (test.score / test.total) * 100 >= 60 ? 'bg-yellow-500/10' : 'bg-red-500/10'
+                          test.percentage >= 80 ? 'bg-green-500/10' :
+                          test.percentage >= 60 ? 'bg-yellow-500/10' : 'bg-red-500/10'
                         }`}>
                           <Trophy className={`w-6 h-6 ${
-                            (test.score / test.total) * 100 >= 80 ? 'text-green-500' :
-                            (test.score / test.total) * 100 >= 60 ? 'text-yellow-500' : 'text-red-500'
+                            test.percentage >= 80 ? 'text-green-500' :
+                            test.percentage >= 60 ? 'text-yellow-500' : 'text-red-500'
                           }`} />
                         </div>
                         <div>
                           <div className="font-bold text-foreground">{test.studentName}</div>
-                          <div className="text-sm text-muted-foreground">{test.subject} - {test.chapter}</div>
+                          <div className="text-sm text-muted-foreground">{test.subject} - {test.chapter} • {test.studentClass}</div>
                         </div>
                       </div>
                       <div className="text-right">
                         <div className={`text-2xl font-black ${
-                          (test.score / test.total) * 100 >= 80 ? 'text-green-500' :
-                          (test.score / test.total) * 100 >= 60 ? 'text-yellow-500' : 'text-red-500'
+                          test.percentage >= 80 ? 'text-green-500' :
+                          test.percentage >= 60 ? 'text-yellow-500' : 'text-red-500'
                         }`}>
-                          {Math.round((test.score / test.total) * 100)}%
+                          {test.percentage}%
                         </div>
                         <div className="text-xs text-muted-foreground">{test.score}/{test.total} correct • {test.date}</div>
                       </div>
@@ -603,7 +615,6 @@ export default function AdminPanel() {
                 <div className="text-center py-16 text-muted-foreground">
                   <Trophy className="w-16 h-16 mx-auto mb-4 opacity-30" />
                   <p className="text-lg font-bold">No test results yet</p>
-                  <p className="text-sm">Results will appear here when students take tests</p>
                 </div>
               )}
             </div>
@@ -613,14 +624,9 @@ export default function AdminPanel() {
         {/* Content Management */}
         {activeTab === "content" && (
           <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-3xl font-black text-foreground">Content Management</h2>
-                <p className="text-muted-foreground mt-1">Manage questions, subjects, and materials</p>
-              </div>
-              <button className="flex items-center gap-2 px-4 py-3 rounded-xl bg-primary text-white font-bold text-sm hover:opacity-90 transition-all">
-                <Plus size={16} /> Add Content
-              </button>
+            <div>
+              <h2 className="text-3xl font-black text-foreground">Content Management</h2>
+              <p className="text-muted-foreground mt-1">Manage questions, subjects, and materials</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -641,14 +647,6 @@ export default function AdminPanel() {
                     <span>{subject.chapters} chapters</span>
                     <span>•</span>
                     <span>{subject.questions} questions</span>
-                  </div>
-                  <div className="flex items-center gap-2 mt-4">
-                    <button className="flex-1 py-2 rounded-lg bg-surface-container-highest text-sm font-bold text-foreground hover:bg-primary/10 hover:text-primary transition-colors">
-                      Edit
-                    </button>
-                    <button className="flex-1 py-2 rounded-lg bg-surface-container-highest text-sm font-bold text-foreground hover:bg-primary/10 hover:text-primary transition-colors">
-                      View
-                    </button>
                   </div>
                 </div>
               ))}
@@ -673,27 +671,12 @@ export default function AdminPanel() {
                       <div className="font-bold text-foreground">Platform Name</div>
                       <div className="text-sm text-muted-foreground">ACADEMIA - English Excellence</div>
                     </div>
-                    <button className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-bold hover:bg-primary/20 transition-colors">
-                      Edit
-                    </button>
                   </div>
                   <div className="flex items-center justify-between p-4 rounded-xl bg-surface-container-low">
                     <div>
                       <div className="font-bold text-foreground">Contact Number</div>
                       <div className="text-sm text-muted-foreground">+91 7908656395</div>
                     </div>
-                    <button className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-bold hover:bg-primary/20 transition-colors">
-                      Edit
-                    </button>
-                  </div>
-                  <div className="flex items-center justify-between p-4 rounded-xl bg-surface-container-low">
-                    <div>
-                      <div className="font-bold text-foreground">Test Timer</div>
-                      <div className="text-sm text-muted-foreground">Enabled</div>
-                    </div>
-                    <button className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-bold hover:bg-primary/20 transition-colors">
-                      Edit
-                    </button>
                   </div>
                 </div>
               </div>
@@ -706,7 +689,15 @@ export default function AdminPanel() {
                       <div className="font-bold text-red-500">Reset All Data</div>
                       <div className="text-sm text-muted-foreground">Clear all student data and test results</div>
                     </div>
-                    <button className="px-4 py-2 rounded-lg bg-red-500 text-white text-sm font-bold hover:bg-red-600 transition-colors">
+                    <button
+                      onClick={() => {
+                        if (confirm("Are you sure? This will delete all data.")) {
+                          localStorage.clear();
+                          window.location.reload();
+                        }
+                      }}
+                      className="px-4 py-2 rounded-lg bg-red-500 text-white text-sm font-bold hover:bg-red-600 transition-colors"
+                    >
                       Reset
                     </button>
                   </div>
