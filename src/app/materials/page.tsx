@@ -1,14 +1,27 @@
+"use client";
+
+import MobileBottomNav from "@/components/dashboard/MobileBottomNav";
+
 export default function MaterialsPage() {
   return (
     <div className="min-h-screen bg-background py-8 px-4">
       <div className="max-w-2xl mx-auto">
+        {/* Heading */}
         <div className="text-center mb-8">
+          <div className="inline-flex items-center gap-3 mb-4">
+            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+              <svg className="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+          </div>
           <h1 className="text-3xl md:text-4xl font-black font-headline text-shimmer mb-2">
             STUDY MATERIAL
           </h1>
           <p className="text-muted-foreground">Contact us to get study material</p>
         </div>
 
+        {/* Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <a href="https://wa.me/7908656395?text=Hi%20Sir%2C%20I%20need%20chapter%20notes" target="_blank" rel="noopener noreferrer" className="group p-6 rounded-2xl bg-surface-container-lowest border border-border hover:border-primary/50 transition-all hover:shadow-lg hover:-translate-y-1 text-center">
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
@@ -43,6 +56,9 @@ export default function MaterialsPage() {
           </a>
         </div>
       </div>
+
+      {/* Mobile Bottom Nav */}
+      <MobileBottomNav />
     </div>
   );
 }
