@@ -207,7 +207,7 @@ export default function StudentLeaderboard() {
             </div>
             <p className="text-lg font-bold text-foreground mb-1">No Rank Yet</p>
             <p className="text-sm text-muted-foreground mb-4">
-              Complete {RANK_TIERS[0].minExams - testCount} more qualified tests to reach Bronze
+              Complete {RANK_TIERS[0].minExams - testCount} more tests with 75%+ to qualify and reach Bronze
             </p>
             <div className="w-full bg-surface-container-highest rounded-full h-3 overflow-hidden">
               <div
