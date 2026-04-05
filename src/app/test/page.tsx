@@ -183,38 +183,6 @@ export default function TestPage() {
     } finally {
       setIsLoading(false);
     }
-
-      if (!data.questions || data.questions.length === 0) {
-        throw new Error("No questions returned");
-      }
-
-      const questions: Question[] = data.questions.map(
-        (q: GeneratedQuestion, idx: number) => ({
-          id: `q-${idx}`,
-          question: q.question,
-          options: q.options,
-          correctAnswer: q.correctAnswer,
-          explanation: q.explanation,
-          // Static questions are all MCQ, AI questions have mix
-          type: data.isStatic ? "mcq" : (idx < (config?.questions || 15) - 5 ? "mcq" : "short"),
-        })
-      );
-
-      console.log("Mapped questions:", questions.length);
-
-      setState((prev) => ({
-        ...prev,
-        questions,
-        timeRemaining: (config?.time || 20) * 60,
-        isActive: true,
-      }));
-    } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : "Failed to generate questions. Please try again.";
-      console.error("Generate error:", err);
-      setError(errorMessage);
-    } finally {
-      setIsLoading(false);
-    }
   };
 
   const handleSubmitTest = async () => {
