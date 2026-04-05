@@ -158,14 +158,13 @@ export default function AdminPanel() {
     if (status === "unauthenticated") {
       router.push("/login");
     }
-  }, [status, router]);
-
-  useEffect(() => {
-    const adminAuth = localStorage.getItem("adminAuth");
-    if (adminAuth === "true") {
-      setIsAuthenticated(true);
+    if (status === "authenticated") {
+      const adminAuth = localStorage.getItem("adminAuth");
+      if (adminAuth === "true") {
+        setIsAuthenticated(true);
+      }
     }
-  }, []);
+  }, [status, router]);
 
   useEffect(() => {
     const savedTests = localStorage.getItem("testResults");
