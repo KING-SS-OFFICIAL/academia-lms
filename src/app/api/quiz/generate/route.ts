@@ -598,10 +598,10 @@ async function generateWithAI(subject: string, topic: string, count: number): Pr
         const questions = JSON.parse(cleaned.substring(startIdx, endIdx + 1));
         if (!Array.isArray(questions) || questions.length === 0) continue;
 
-        return questions.map((q: any) => ({
-          question: q.question || "",
-          options: q.options || { A: "", B: "", C: "", D: "" },
-          correctAnswer: q.correctAnswer || q.correct_answer || q.answer || "A",
+        return questions.map((q: Record<string, unknown>): Question => ({
+          question: (q.question as string) || "",
+          options: (q.options as Record<string, string>) || { A: "", B: "", C: "", D: "" },
+          correctAnswer: (q.correctAnswer as string) || (q.correct_answer as string) || (q.answer as string) || "A",
         }));
       } catch {
         continue;
