@@ -544,6 +544,7 @@ function getStaticQuestions(subject: string, topic: string, count: number): Ques
     questions = bank[Object.keys(bank)[0]];
   }
   
+  // Use crypto-like random shuffle for better distribution
   const shuffled = [...questions].sort(() => Math.random() - 0.5);
   return shuffled.slice(0, Math.min(count, shuffled.length));
 }

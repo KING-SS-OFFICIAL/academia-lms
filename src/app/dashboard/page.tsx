@@ -29,29 +29,31 @@ const defaultProfile: ProfileData = {
 export default function DashboardPage() {
   const { data: session, status } = useSession();
   const [profile, setProfile] = useState<ProfileData>(defaultProfile);
+  const [profileLoaded, setProfileLoaded] = useState(false);
 
   useEffect(() => {
-    // Load profile from localStorage or use session data
-    const saved = localStorage.getItem("studentProfile");
-    if (saved) {
-      try {
-        setProfile(JSON.parse(saved));
-      } catch {
-        // Invalid JSON, ignore
+    if (status !== "loading") {
+      const saved = localStorage.getItem("studentProfile");
+      if (saved) {
+        try {
+          setProfile(JSON.parse(saved));
+        } catch {
+          // Invalid JSON, ignore
+        }
+      } else if (session?.user) {
+        setProfile({
+          name: session.user.name || "",
+          className: "",
+          school: "",
+          medium: "",
+          contact: "",
+        });
       }
-    } else if (session?.user) {
-      // Use session data as default
-      setProfile({
-        name: session.user.name || "",
-        className: "",
-        school: "",
-        medium: "",
-        contact: "",
-      });
+      setProfileLoaded(true);
     }
-  }, [session]);
+  }, [session, status]);
 
-  if (status === "loading") {
+  if (status === "loading" || !profileLoaded) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <Loader2 className="w-8 h-8 animate-spin text-primary" />

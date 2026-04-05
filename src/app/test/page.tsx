@@ -13,6 +13,24 @@ interface Question {
 
 type Screen = 'setup' | 'quiz' | 'results';
 
+function getUsedQuestions(): Set<string> {
+  try {
+    const data = localStorage.getItem('usedQuestions');
+    if (data) return new Set(JSON.parse(data));
+  } catch {}
+  return new Set();
+}
+
+function saveUsedQuestions(questions: Question[]) {
+  try {
+    const used = getUsedQuestions();
+    questions.forEach(q => used.add(q.question));
+    const usedArr: string[] = [];
+    used.forEach(v => usedArr.push(v));
+    localStorage.setItem('usedQuestions', JSON.stringify(usedArr));
+  } catch {}
+}
+
 export default function TestPage() {
   const [screen, setScreen] = useState<Screen>('setup');
   const [subject, setSubject] = useState<SubjectId | null>(null);
@@ -24,6 +42,7 @@ export default function TestPage() {
   const [timeLeft, setTimeLeft] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [availableCount, setAvailableCount] = useState<number | null>(null);
 
   useEffect(() => {
     if (timeLeft > 0 && screen === 'quiz') {
@@ -34,6 +53,26 @@ export default function TestPage() {
       handleSubmit();
     }
   }, [timeLeft, screen, questions.length]);
+
+  useEffect(() => {
+    if (subject && chapter) {
+      try {
+        const allData = localStorage.getItem(`questions_${subject}_${chapter}`);
+        if (allData) {
+          const allQuestions = JSON.parse(allData);
+          const used = getUsedQuestions();
+          const available = allQuestions.filter((q: Question) => !used.has(q.question));
+          setAvailableCount(available.length);
+        } else {
+          setAvailableCount(null);
+        }
+      } catch {
+        setAvailableCount(null);
+      }
+    } else {
+      setAvailableCount(null);
+    }
+  }, [subject, chapter]);
 
   const config = TEST_CONFIGS.find(c => c.id === configId);
   const subjectData = SUBJECTS.find(s => s.id === subject);
@@ -60,7 +99,48 @@ export default function TestPage() {
         throw new Error('No questions returned');
       }
 
-      setQuestions(data.questions);
+      // Filter out already-used questions
+      const used = getUsedQuestions();
+      let newQuestions = data.questions.filter((q: Question) => !used.has(q.question));
+
+      // If not enough new questions, reset used questions for this chapter
+      if (newQuestions.length < (config?.questions || 15)) {
+        // Reset: clear used questions for this subject+chapter
+        const allData = localStorage.getItem(`questions_${subject}_${chapter}`);
+        if (allData) {
+          const allQ = JSON.parse(allData);
+          const toRemove = new Set(allQ.map((q: Question) => q.question));
+          const usedSet = getUsedQuestions();
+          const usedArr: string[] = [];
+          usedSet.forEach(v => usedArr.push(v));
+          const newUsed = usedArr.filter(q => !toRemove.has(q));
+          localStorage.setItem('usedQuestions', JSON.stringify(newUsed));
+          newQuestions = data.questions;
+        }
+      }
+
+      // Take only the requested number
+      newQuestions = newQuestions.slice(0, config?.questions || 15);
+
+      if (newQuestions.length === 0) {
+        throw new Error('All questions used. Try a different chapter.');
+      }
+
+      // Save all questions from this chapter to localStorage for tracking
+      try {
+        const existing = localStorage.getItem(`questions_${subject}_${chapter}`);
+        const existingQ = existing ? JSON.parse(existing) : [];
+        const combined = [...existingQ, ...data.questions];
+        const unique = combined.filter((q: Question, i: number, arr: Question[]) =>
+          arr.findIndex(x => x.question === q.question) === i
+        );
+        localStorage.setItem(`questions_${subject}_${chapter}`, JSON.stringify(unique));
+      } catch {}
+
+      // Mark these questions as used
+      saveUsedQuestions(newQuestions);
+
+      setQuestions(newQuestions);
       setAnswers({});
       setCurrentQ(0);
       setTimeLeft((config?.time || 20) * 60);
@@ -82,6 +162,14 @@ export default function TestPage() {
     setAnswers({});
     setCurrentQ(0);
     setError(null);
+  };
+
+  const handleClearHistory = () => {
+    localStorage.removeItem('usedQuestions');
+    // Clear all chapter caches
+    const keys = Object.keys(localStorage).filter(k => k.startsWith('questions_'));
+    keys.forEach(k => localStorage.removeItem(k));
+    setAvailableCount(null);
   };
 
   const selectAnswer = (qId: string, answer: string) => {
@@ -292,6 +380,14 @@ export default function TestPage() {
             </div>
           )}
 
+          {chapter && availableCount !== null && (
+            <div className="p-4 rounded-xl bg-primary/5 border border-primary/20">
+              <p className="text-sm text-muted-foreground">
+                <span className="font-medium text-primary">{availableCount}</span> new questions available for this chapter
+              </p>
+            </div>
+          )}
+
           {chapter && (
             <div>
               <label className="block text-sm font-medium text-foreground mb-3">Test Configuration</label>
@@ -325,6 +421,13 @@ export default function TestPage() {
             ) : (
               'Start Test'
             )}
+          </button>
+
+          <button
+            onClick={handleClearHistory}
+            className="w-full py-3 rounded-2xl font-medium text-sm text-muted-foreground border border-border hover:bg-surface transition-all"
+          >
+            Reset Question History (see all questions again)
           </button>
         </div>
       </div>
