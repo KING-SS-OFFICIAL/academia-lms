@@ -108,7 +108,7 @@ export default function ProfileCard({
     // Save to localStorage
     localStorage.setItem("studentProfile", JSON.stringify(form));
 
-    // Try to save to API
+    // Save to database via API
     try {
       await fetch("/api/profile", {
         method: "PUT",

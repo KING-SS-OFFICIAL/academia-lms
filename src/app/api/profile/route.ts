@@ -1,25 +1,30 @@
 import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
 
 export async function PUT(request: Request) {
   try {
-    const { name, className, school, medium } = await request.json();
+    const session = await getServerSession(authOptions);
+    const { name, className, school, medium, contact, avatarUrl } = await request.json();
 
-    // Try to save to database (gracefully handle if DB is not connected)
-    try {
-      const { prisma } = await import("@/lib/prisma");
-      // Update the user's profile if they're logged in
-      // For now, just return success since auth isn't fully connected yet
-      await prisma.user.updateMany({
-        where: { name: name },
-        data: {
-          class: className,
-          school,
-          medium,
-        },
-      });
-    } catch (dbError) {
-      console.error("Database save failed (non-critical):", dbError);
+    if (!session?.user?.email) {
+      return NextResponse.json(
+        { error: "Not authenticated" },
+        { status: 401 }
+      );
     }
+
+    await prisma.user.update({
+      where: { email: session.user.email },
+      data: {
+        name: name || session.user.name,
+        class: className,
+        school,
+        medium,
+        avatarUrl: avatarUrl || undefined,
+      },
+    });
 
     return NextResponse.json({
       success: true,

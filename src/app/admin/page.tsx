@@ -170,68 +170,61 @@ export default function AdminPanel() {
   }, [status, router]);
 
   useEffect(() => {
-    // Load real student profiles from localStorage
-    const allProfiles: Student[] = [];
-    const allTestResults: Record<string, any[]> = {};
-
-    // Collect all student profiles
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key === "studentProfile") {
-        try {
-          const profile = JSON.parse(localStorage.getItem(key)!);
+    // Fetch real student data from database
+    async function loadStudents() {
+      try {
+        const res = await fetch("/api/admin/students");
+        const data = await res.json();
+        if (data.students && data.students.length > 0) {
+          setStudents(data.students);
+        } else {
+          // Fallback: show current session user from localStorage
+          const profile = JSON.parse(localStorage.getItem("studentProfile") || "null");
           const testResults = JSON.parse(localStorage.getItem("testResults") || "[]");
           const qualifiedTests = testResults.filter((t: any) => t.percentage >= 75);
           const avgScore = testResults.length > 0
             ? Math.round(testResults.reduce((sum: number, t: any) => sum + t.percentage, 0) / testResults.length)
             : 0;
 
-          allProfiles.push({
-            id: "1",
-            name: profile.name || session?.user?.name || "Student",
-            email: session?.user?.email || "",
-            className: profile.className || "N/A",
-            school: profile.school || "N/A",
-            medium: profile.medium || "N/A",
-            contact: profile.contact || "N/A",
-            parentContact: "N/A",
-            avatarUrl: profile.avatarUrl || session?.user?.image || "",
-            testsTaken: testResults.length,
-            avgScore,
-            rank: qualifiedTests.length >= 400 ? "Grandmaster" :
-                  qualifiedTests.length >= 280 ? "Heroic" :
-                  qualifiedTests.length >= 180 ? "Diamond" :
-                  qualifiedTests.length >= 130 ? "Platinum" :
-                  qualifiedTests.length >= 90 ? "Gold" :
-                  qualifiedTests.length >= 40 ? "Silver" :
-                  qualifiedTests.length >= 10 ? "Bronze" : "Bronze I",
-            joinedDate: new Date().toLocaleDateString(),
-            testHistory: testResults.map((t: any) => ({
-              subject: t.subject || "Grammar",
-              chapter: t.chapter || "Tenses",
-              score: t.correct || 0,
-              total: t.total || 15,
-              percentage: t.percentage || 0,
-              date: t.date || new Date().toLocaleDateString(),
-            })),
-          });
-        } catch {}
-      }
+          if (profile && profile.name) {
+            setStudents([{
+              id: "1",
+              name: profile.name || session?.user?.name || "Student",
+              email: session?.user?.email || "",
+              className: profile.className || "N/A",
+              school: profile.school || "N/A",
+              medium: profile.medium || "N/A",
+              contact: profile.contact || "N/A",
+              parentContact: "N/A",
+              avatarUrl: profile.avatarUrl || session?.user?.image || "",
+              testsTaken: testResults.length,
+              avgScore,
+              rank: qualifiedTests.length >= 400 ? "Grandmaster" :
+                    qualifiedTests.length >= 280 ? "Heroic" :
+                    qualifiedTests.length >= 180 ? "Diamond" :
+                    qualifiedTests.length >= 130 ? "Platinum" :
+                    qualifiedTests.length >= 90 ? "Gold" :
+                    qualifiedTests.length >= 40 ? "Silver" :
+                    qualifiedTests.length >= 10 ? "Bronze" : "Bronze I",
+              joinedDate: new Date().toLocaleDateString(),
+              testHistory: testResults.map((t: any) => ({
+                subject: t.subject || "Grammar",
+                chapter: t.chapter || "Tenses",
+                score: t.correct || 0,
+                total: t.total || 15,
+                percentage: t.percentage || 0,
+                date: t.date || new Date().toLocaleDateString(),
+              })),
+            }]);
+          }
+        }
+      } catch {}
     }
 
-    // Add sample students for demonstration
-    if (allProfiles.length === 0) {
-      allProfiles.push(
-        { id: "1", name: "Arjun Sharma", email: "arjun@email.com", className: "Class X", school: "Delhi Public School", medium: "English", contact: "9876543210", parentContact: "9876543211", avatarUrl: "", testsTaken: 45, avgScore: 78, rank: "Silver II", joinedDate: "15 Jan 2024", testHistory: [{ subject: "Grammar", chapter: "Tenses", score: 12, total: 15, percentage: 80, date: "20 Mar 2024" }] },
-        { id: "2", name: "Priya Patel", email: "priya@email.com", className: "Class IX", school: "Kendriya Vidyalaya", medium: "English", contact: "9876543212", parentContact: "9876543213", avatarUrl: "", testsTaken: 32, avgScore: 85, rank: "Gold I", joinedDate: "22 Feb 2024", testHistory: [{ subject: "GK", chapter: "Indian History", score: 14, total: 15, percentage: 93, date: "18 Mar 2024" }] },
-        { id: "3", name: "Rahul Kumar", email: "rahul@email.com", className: "Class VIII", school: "St. Xavier's School", medium: "Hindi", contact: "9876543214", parentContact: "9876543215", avatarUrl: "", testsTaken: 18, avgScore: 62, rank: "Bronze III", joinedDate: "10 Mar 2024", testHistory: [{ subject: "Mathematics", chapter: "Percentage", score: 10, total: 15, percentage: 67, date: "15 Mar 2024" }] },
-        { id: "4", name: "Sneha Gupta", email: "sneha@email.com", className: "Class XI", school: "DAV Public School", medium: "English", contact: "9876543216", parentContact: "9876543217", avatarUrl: "", testsTaken: 67, avgScore: 92, rank: "Platinum II", joinedDate: "5 Dec 2023", testHistory: [{ subject: "Grammar", chapter: "Prepositions", score: 14, total: 15, percentage: 93, date: "22 Mar 2024" }] },
-        { id: "5", name: "Amit Singh", email: "amit@email.com", className: "Class XII", school: "Ryan International", medium: "English", contact: "9876543218", parentContact: "9876543219", avatarUrl: "", testsTaken: 25, avgScore: 71, rank: "Silver I", joinedDate: "18 Apr 2024", testHistory: [{ subject: "Reasoning", chapter: "Coding-Decoding", score: 11, total: 15, percentage: 73, date: "25 Mar 2024" }] },
-      );
+    if (isAuthenticated) {
+      loadStudents();
     }
-
-    setStudents(allProfiles);
-  }, [session]);
+  }, [isAuthenticated, session]);
 
   if (status === "loading") {
     return (
