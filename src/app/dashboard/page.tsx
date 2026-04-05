@@ -97,15 +97,28 @@ export default function DashboardPage() {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm text-muted-foreground mb-1">{greeting} 👋</p>
-                <h2 className="text-xl font-bold text-foreground truncate">{displayName}</h2>
+                <h2 className="text-2xl md:text-3xl font-black text-foreground truncate">{displayName}</h2>
                 <p className="text-xs text-primary font-medium mt-1">Best Wishes from ACADEMIA ✨</p>
               </div>
             </div>
             <div className="flex-shrink-0 text-center">
-              <div className={`text-2xl font-black ${studentRank.color}`}>
-                {studentRank.name} {studentRank.level}
+              <div className="flex items-center gap-2 justify-center">
+                <svg viewBox="0 0 24 24" className={`w-5 h-5 ${studentRank.color}`} fill="currentColor">
+                  {studentRank.name === "Bronze" && <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8Z" />}
+                  {studentRank.name === "Silver" && <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8Z" />}
+                  {studentRank.name === "Gold" && <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8Z" />}
+                  {studentRank.name === "Platinum" && <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8Z" />}
+                  {studentRank.name === "Diamond" && <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8Z" />}
+                  {studentRank.name === "Heroic" && <path d="M12 2L14 8L20 8L15 12L17 18L12 14L7 18L9 12L4 8L10 8Z" />}
+                  {studentRank.name === "Grandmaster" && <path d="M12 2L14 6L18 6L15 9L16 13L12 11L8 13L9 9L6 6L10 6Z" />}
+                </svg>
+                <div>
+                  <div className={`text-sm font-bold ${studentRank.color}`}>
+                    {studentRank.name} {studentRank.level}
+                  </div>
+                  <div className="text-[9px] text-muted-foreground font-bold uppercase tracking-wider">Current Rank</div>
+                </div>
               </div>
-              <div className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider mt-1">Current Rank</div>
             </div>
           </div>
 
