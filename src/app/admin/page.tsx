@@ -54,7 +54,7 @@ interface TestResult {
 const ADMIN_ID = "@RinDAm#AcademIa";
 const ADMIN_PASSWORD = "Ac@DemIAbyArinD@M";
 
-function AdminAuth({ onAuthenticated }: { onAuthenticated: () => void }) {
+function AdminAuth({ onAuthenticated, userEmail }: { onAuthenticated: () => void; userEmail: string }) {
   const [adminId, setAdminId] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -66,7 +66,6 @@ function AdminAuth({ onAuthenticated }: { onAuthenticated: () => void }) {
     setError("");
 
     setTimeout(() => {
-      const userEmail = session?.user?.email?.toLowerCase() || "";
       const allowedEmail = "sg5517419@gmail.com";
 
       if (userEmail !== allowedEmail) {
@@ -262,7 +261,7 @@ export default function AdminPanel() {
   }
 
   if (!isAuthenticated) {
-    return <AdminAuth onAuthenticated={() => setIsAuthenticated(true)} />;
+    return <AdminAuth onAuthenticated={() => setIsAuthenticated(true)} userEmail={session?.user?.email?.toLowerCase() || ""} />;
   }
 
   const totalTests = testResults.length;
