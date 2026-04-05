@@ -1,48 +1,42 @@
-"use client";
-
-import { BookOpen, FileText, Video, Download } from "lucide-react";
-import Link from "next/link";
-
 export default function MaterialsPage() {
   return (
     <div className="min-h-screen bg-background py-8 px-4">
       <div className="max-w-2xl mx-auto">
-        {/* Heading */}
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-black font-headline text-shimmer mb-2">
             STUDY MATERIAL
           </h1>
-          <p className="text-muted-foreground">Access notes, PDFs, videos and more</p>
+          <p className="text-muted-foreground">Contact us to get study material</p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Link href="/materials" className="group p-6 rounded-2xl bg-surface-container-lowest border border-border hover:border-primary/50 transition-all hover:shadow-lg hover:-translate-y-1 text-center">
+          <a href="https://wa.me/7908656395?text=Hi%20Sir%2C%20I%20need%20chapter%20notes" target="_blank" rel="noopener noreferrer" className="group p-6 rounded-2xl bg-surface-container-lowest border border-border hover:border-primary/50 transition-all hover:shadow-lg hover:-translate-y-1 text-center">
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-              <BookOpen className="w-6 h-6 text-primary" />
+              <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
             </div>
             <h3 className="font-bold text-foreground text-sm">Notes</h3>
             <p className="text-xs text-muted-foreground mt-1">Chapter-wise notes</p>
-          </Link>
+          </a>
 
-          <Link href="/materials" className="group p-6 rounded-2xl bg-surface-container-lowest border border-border hover:border-primary/50 transition-all hover:shadow-lg hover:-translate-y-1 text-center">
+          <a href="https://wa.me/7908656395?text=Hi%20Sir%2C%20I%20need%20PDF%20material" target="_blank" rel="noopener noreferrer" className="group p-6 rounded-2xl bg-surface-container-lowest border border-border hover:border-primary/50 transition-all hover:shadow-lg hover:-translate-y-1 text-center">
             <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-              <FileText className="w-6 h-6 text-red-500" />
+              <svg className="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
             </div>
             <h3 className="font-bold text-foreground text-sm">PDFs</h3>
             <p className="text-xs text-muted-foreground mt-1">Downloadable PDFs</p>
-          </Link>
+          </a>
 
-          <Link href="/materials" className="group p-6 rounded-2xl bg-surface-container-lowest border border-border hover:border-primary/50 transition-all hover:shadow-lg hover:-translate-y-1 text-center">
+          <a href="https://wa.me/7908656395?text=Hi%20Sir%2C%20I%20need%20video%20lectures" target="_blank" rel="noopener noreferrer" className="group p-6 rounded-2xl bg-surface-container-lowest border border-border hover:border-primary/50 transition-all hover:shadow-lg hover:-translate-y-1 text-center">
             <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-              <Video className="w-6 h-6 text-blue-500" />
+              <svg className="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
             </div>
             <h3 className="font-bold text-foreground text-sm">Videos</h3>
             <p className="text-xs text-muted-foreground mt-1">Lecture recordings</p>
-          </Link>
+          </a>
 
           <a href="https://wa.me/7908656395" target="_blank" rel="noopener noreferrer" className="group p-6 rounded-2xl bg-surface-container-lowest border border-border hover:border-primary/50 transition-all hover:shadow-lg hover:-translate-y-1 text-center">
             <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-              <Download className="w-6 h-6 text-green-500" />
+              <svg className="w-6 h-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
             </div>
             <h3 className="font-bold text-foreground text-sm">Contact</h3>
             <p className="text-xs text-muted-foreground mt-1">Get study material</p>
