@@ -23,6 +23,8 @@ import {
   Download,
   Plus,
   X,
+  Lock,
+  Shield,
 } from "lucide-react";
 
 type AdminTab = "dashboard" | "students" | "tests" | "content" | "settings";
@@ -49,9 +51,101 @@ interface TestResult {
   date: string;
 }
 
+const ADMIN_ID = "@RinDAm#AcademIa";
+const ADMIN_PASSWORD = "Ac@DemIAbyArinD@M";
+
+function AdminAuth({ onAuthenticated }: { onAuthenticated: () => void }) {
+  const [adminId, setAdminId] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    setTimeout(() => {
+      if (adminId === ADMIN_ID && password === ADMIN_PASSWORD) {
+        localStorage.setItem("adminAuth", "true");
+        onAuthenticated();
+      } else {
+        setError("Invalid Admin ID or Password");
+      }
+      setLoading(false);
+    }, 500);
+  };
+
+  return (
+    <div className="min-h-screen bg-background flex items-center justify-center p-6">
+      <div className="w-full max-w-md">
+        <div className="text-center mb-8">
+          <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+            <Shield className="w-10 h-10 text-primary" />
+          </div>
+          <h2 className="text-2xl font-black text-foreground">Admin Access</h2>
+          <p className="text-muted-foreground mt-1">Enter credentials to continue</p>
+        </div>
+
+        <form onSubmit={handleLogin} className="bg-surface-container-lowest rounded-2xl border border-border/50 p-8 space-y-6">
+          <div>
+            <label className="block text-sm font-bold text-foreground mb-2">Admin ID</label>
+            <div className="relative">
+              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+              <input
+                type="text"
+                value={adminId}
+                onChange={(e) => setAdminId(e.target.value)}
+                placeholder="Enter Admin ID"
+                className="w-full pl-12 pr-4 py-3 rounded-xl border border-border bg-surface-container-low focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-bold text-foreground mb-2">Password</label>
+            <div className="relative">
+              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter Password"
+                className="w-full pl-12 pr-4 py-3 rounded-xl border border-border bg-surface-container-low focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+              />
+            </div>
+          </div>
+
+          {error && (
+            <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 text-sm font-medium text-center">
+              {error}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={loading || !adminId || !password}
+            className="w-full py-4 rounded-xl bg-gradient-to-r from-primary to-primary-container text-white font-bold text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+          >
+            {loading ? (
+              <div className="flex items-center justify-center gap-2">
+                <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent" />
+                Verifying...
+              </div>
+            ) : (
+              "Access Admin Panel"
+            )}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
 export default function AdminPanel() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [activeTab, setActiveTab] = useState<AdminTab>("dashboard");
   const [students, setStudents] = useState<Student[]>([]);
   const [testResults, setTestResults] = useState<TestResult[]>([]);
@@ -67,7 +161,13 @@ export default function AdminPanel() {
   }, [status, router]);
 
   useEffect(() => {
-    // Load data from localStorage (simulated admin data)
+    const adminAuth = localStorage.getItem("adminAuth");
+    if (adminAuth === "true") {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  useEffect(() => {
     const savedTests = localStorage.getItem("testResults");
     if (savedTests) {
       try {
@@ -86,7 +186,6 @@ export default function AdminPanel() {
       } catch {}
     }
 
-    // Simulated student data
     setStudents([
       {
         id: "1",
@@ -152,6 +251,10 @@ export default function AdminPanel() {
         <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-transparent" />
       </div>
     );
+  }
+
+  if (!isAuthenticated) {
+    return <AdminAuth onAuthenticated={() => setIsAuthenticated(true)} />;
   }
 
   const totalTests = testResults.length;
@@ -223,7 +326,10 @@ export default function AdminPanel() {
 
         <div className="absolute bottom-6 left-0 right-0 px-3">
           <button
-            onClick={() => signOut({ callbackUrl: "/" })}
+            onClick={() => {
+              localStorage.removeItem("adminAuth");
+              signOut({ callbackUrl: "/" });
+            }}
             className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-500 hover:bg-red-500/10 transition-all"
           >
             <LogOut size={20} />
