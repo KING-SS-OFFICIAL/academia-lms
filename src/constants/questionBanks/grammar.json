@@ -1,0 +1,626 @@
+{
+  "Tenses": [
+    {
+      "question": "She ______ to the market every morning.",
+      "options": { "A": "go", "B": "goes", "C": "going", "D": "gone" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "They ______ a movie yesterday.",
+      "options": { "A": "watch", "B": "watched", "C": "watching", "D": "watches" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "I ______ my homework now.",
+      "options": { "A": "do", "B": "doing", "C": "doing", "D": "am doing" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "By next year, she ______ here for five years.",
+      "options": { "A": "will work", "B": "works", "C": "will have been working", "D": "worked" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "He ______ the door when I called him.",
+      "options": { "A": "open", "B": "opens", "C": "opened", "D": "opening" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "The sun ______ in the east.",
+      "options": { "A": "rise", "B": "rises", "C": "rising", "D": "rose" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "If it rains, we ______ the picnic.",
+      "options": { "A": "cancel", "B": "cancels", "C": "will cancel", "D": "cancelling" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "They ______ in this house since 2010.",
+      "options": { "A": "live", "B": "lived", "C": "living", "D": "have been living" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "The teacher ______ the students yesterday.",
+      "options": { "A": "punished", "B": "punish", "C": "punishing", "D": "punishes" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "My father ______ to the office every day.",
+      "options": { "A": "drive", "B": "driving", "C": "drives", "D": "drove" },
+      "correctAnswer": "C"
+    }
+  ],
+  "Articles (A, An, The)": [
+    {
+      "question": "He is ______ honest man.",
+      "options": { "A": "a", "B": "an", "C": "the", "D": "no article" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "I need ______ uniform for school.",
+      "options": { "A": "a", "B": "an", "C": "the", "D": "no article" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "______ Sun rises in the east.",
+      "options": { "A": "A", "B": "An", "C": "The", "D": "No article" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "She is ______ University professor.",
+      "options": { "A": "a", "B": "an", "C": "the", "D": "no article" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "I saw ______ beautiful bird in the garden.",
+      "options": { "A": "a", "B": "an", "C": "the", "D": "no article" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "______ Ganga is a holy river.",
+      "options": { "A": "A", "B": "An", "C": "The", "D": "no article" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "She wants to be ______ engineer.",
+      "options": { "A": "a", "B": "an", "C": "the", "D": "no article" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "He gave me ______useful information.",
+      "options": { "A": "a", "B": "an", "C": "the", "D": "no article" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Please give me ______ glass of water.",
+      "options": { "A": "a", "B": "an", "C": "the", "D": "no article" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "______ Taj Mahal is in Agra.",
+      "options": { "A": "A", "B": "An", "C": "The", "D": "No article" },
+      "correctAnswer": "C"
+    }
+  ],
+  "Prepositions": [
+    {
+      "question": "The cat is ______ the table.",
+      "options": { "A": "in", "B": "on", "C": "at", "D": "to" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "She arrived ______ Monday.",
+      "options": { "A": "in", "B": "on", "C": "at", "D": "by" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "He lives ______ Delhi.",
+      "options": { "A": "in", "B": "on", "C": "at", "D": "to" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The book is ______ the shelf.",
+      "options": { "A": "in", "B": "on", "C": "at", "D": "to" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "I will meet you ______ 5 o'clock.",
+      "options": { "A": "in", "B": "on", "C": "at", "D": "by" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "She is afraid ______ dogs.",
+      "options": { "A": "of", "B": "from", "C": "with", "D": "to" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The teacher is angry ______ the students.",
+      "options": { "A": "with", "B": "to", "C": "at", "D": "both A and C" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "He went to the market ______ foot.",
+      "options": { "A": "by", "B": "on", "C": "with", "D": "in" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "I am looking ______ my keys.",
+      "options": { "A": "for", "B": "at", "C": "to", "D": "in" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The train arrived ______ time.",
+      "options": { "A": "on", "B": "in", "C": "at", "D": "by" },
+      "correctAnswer": "A"
+    }
+  ],
+  "Subject-Verb Agreement": [
+    {
+      "question": "Neither the teacher nor the students ______ present.",
+      "options": { "A": "is", "B": "are", "C": "was", "D": "be" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Each of the boys ______ a prize.",
+      "options": { "A": "gets", "B": "get", "C": "getting", "D": "got" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The news ______ very good.",
+      "options": { "A": "is", "B": "are", "C": "were", "D": "be" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Either my brothers or my sister ______ coming.",
+      "options": { "A": "is", "B": "are", "C": "was", "D": "be" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Ten miles ______ a long distance.",
+      "options": { "A": "is", "B": "are", "C": "were", "D": "be" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The committee ______ decided on the matter.",
+      "options": { "A": "has", "B": "have", "C": "is", "D": "are" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "One of the boys ______ absent.",
+      "options": { "A": "is", "B": "are", "C": "were", "D": "be" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Mathematics ______ a difficult subject.",
+      "options": { "A": "is", "B": "are", "C": "were", "D": "be" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "There ______ many reasons for his failure.",
+      "options": { "A": "is", "B": "are", "C": "was", "D": "be" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "No news ______ good news.",
+      "options": { "A": "is", "B": "are", "C": "were", "D": "be" },
+      "correctAnswer": "A"
+    }
+  ],
+  "Voice (Active/Passive)": [
+    {
+      "question": "The teacher praised the student. (Passive)",
+      "options": { "A": "The student was praised by the teacher.", "B": "The student is praised by the teacher.", "C": "The student praises the teacher.", "D": "The student was praising the teacher." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Who wrote this book? (Passive)",
+      "options": { "A": "By whom was this book written?", "B": "By whom is this book written?", "C": "By whom this book was written?", "D": "Who is writing this book?" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The manager has approved the proposal. (Passive)",
+      "options": { "A": "The proposal has been approved by the manager.", "B": "The proposal is approved by the manager.", "C": "The proposal was approved by the manager.", "D": "The proposal is being approved by the manager." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Someone broke the window yesterday. (Passive)",
+      "options": { "A": "The window was broken yesterday.", "B": "The window is broken yesterday.", "C": "The window was being broken yesterday.", "D": "The window is being broken yesterday." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "They are building a new bridge. (Passive)",
+      "options": { "A": "A new bridge is being built by them.", "B": "A new bridge was being built by them.", "C": "A new bridge has been built by them.", "D": "A new bridge is built by them." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Let the door be opened. (Active)",
+      "options": { "A": "Open the door.", "B": "Opening the door.", "C": "The door is opened.", "D": "The door opens." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The flowers are watered daily. (Active)",
+      "options": { "A": "Someone waters the flowers daily.", "B": "Someone is watering the flowers daily.", "C": "Someone watered the flowers daily.", "D": "Someone will water the flowers daily." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "When will the work be completed? (Active)",
+      "options": { "A": "When will they complete the work?", "B": "When do they complete the work?", "C": "When did they complete the work?", "D": "When are they completing the work?" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The chef prepared a delicious meal. (Passive)",
+      "options": { "A": "A delicious meal was prepared by the chef.", "B": "A delicious meal is prepared by the chef.", "C": "A delicious meal has prepared by the chef.", "D": "A delicious meal prepares by the chef." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "We should help the poor. (Passive)",
+      "options": { "A": "The poor should be helped by us.", "B": "The poor should help us.", "C": "The poor should have been helped.", "D": "The poor is being helped by us." },
+      "correctAnswer": "A"
+    }
+  ],
+  "Narration (Direct/Indirect)": [
+    {
+      "question": "He said, 'I am playing cricket.' (Indirect)",
+      "options": { "A": "He said that he was playing cricket.", "B": "He said that he is playing cricket.", "C": "He said that he plays cricket.", "D": "He said that he played cricket." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "She said to me, 'You are honest.' (Indirect)",
+      "options": { "A": "She told me that I was honest.", "B": "She told me that you are honest.", "C": "She said to me that I am honest.", "D": "She told me I was honest." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "He said, 'Please sit down.' (Indirect)",
+      "options": { "A": "He requested me to sit down.", "B": "He asked me to sit down.", "C": "He told me sit down.", "D": "He ordered me to sit down." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The teacher said, 'Work hard.' (Indirect)",
+      "options": { "A": "The teacher asked us to work hard.", "B": "The teacher told us to work hard.", "C": "The teacher ordered us to work hard.", "D": "The teacher said to work hard." },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "My father said, 'I was ill yesterday.' (Indirect)",
+      "options": { "A": "My father said that he was ill the previous day.", "B": "My father said that he is ill yesterday.", "C": "My father said that he was ill yesterday.", "D": "My father told that he was ill." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "She said, 'I will go to Delhi tomorrow.' (Indirect)",
+      "options": { "A": "She said that she would go to Delhi the next day.", "B": "She said that she will go to Delhi tomorrow.", "C": "She told that she would go to Delhi.", "D": "She said she goes to Delhi tomorrow." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "He said, 'What a beautiful scene!' (Indirect)",
+      "options": { "A": "He exclaimed that it was a beautiful scene.", "B": "He said that it is a beautiful scene.", "C": "He told that it is beautiful.", "D": "He said what a beautiful scene." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Mother said, 'Do not make noise.' (Indirect)",
+      "options": { "A": "Mother told us not to make noise.", "B": "Mother asked us not to make noise.", "C": "Mother forbade us from making noise.", "D": "All of the above" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "He said, 'I have finished my work.' (Indirect)",
+      "options": { "A": "He said that he had finished his work.", "B": "He said that he has finished his work.", "C": "He told me he finished his work.", "D": "He said he had finished his work." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The boy said, 'I want to become a doctor.' (Indirect)",
+      "options": { "A": "The boy said that he wanted to become a doctor.", "B": "The boy said that he wants to become a doctor.", "C": "The boy told he wants to become a doctor.", "D": "The boy said to become a doctor." },
+      "correctAnswer": "A"
+    }
+  ],
+  "Error Spotting": [
+    {
+      "question": "Find the error: She is (A) / more beautiful (B) / than any other girl (C) / in the class. (D)",
+      "options": { "A": "A", "B": "B", "C": "D", "D": "No error" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Find the error: Neither he (A) / nor I (B) / am responsible (C) / for this mistake. (D)",
+      "options": { "A": "A", "B": "B", "C": "C", "D": "No error" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Find the error: Each one (A) / of the players (B) / have practiced (C) / well. (D)",
+      "options": { "A": "A", "B": "B", "C": "C", "D": "No error" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Find the error: He is (A) / one of the (B) / most intelligent (C) / boy in the class. (D)",
+      "options": { "A": "A", "B": "B", "C": "C", "D": "D" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Find the error: The news (A) / are (B) / shocking (C) / to everyone. (D)",
+      "options": { "A": "A", "B": "B", "C": "C", "D": "No error" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Find the error: I (A) / prefer tea (B) / than coffee (C) / any day. (D)",
+      "options": { "A": "A", "B": "B", "C": "C", "D": "No error" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Find the error: My father (A) / and mother (B) / is coming (C) / tomorrow. (D)",
+      "options": { "A": "A", "B": "B", "C": "C", "D": "No error" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Find the error: He is (A) / used to (B) / swim (C) / every morning. (D)",
+      "options": { "A": "A", "B": "B", "C": "C", "D": "No error" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Find the error: She (A) / knows to (B) / speak (C) / English. (D)",
+      "options": { "A": "A", "B": "B", "C": "C", "D": "No error" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Find the error: He (A) / insisted on (B) / me (C) / going there. (D)",
+      "options": { "A": "A", "B": "B", "C": "C", "D": "No error" },
+      "correctAnswer": "C"
+    }
+  ],
+  "Fill in the Blanks": [
+    {
+      "question": "She is working ______ to pass her exams.",
+      "options": { "A": "hard", "B": "hardly", "C": "more hard", "D": "very hardly" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "I would rather stay home ______ go to the party.",
+      "options": { "A": "then", "B": "than", "C": "to", "D": "that" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The weather is ______ today than yesterday.",
+      "options": { "A": "bad", "B": "badly", "C": "worse", "D": "worst" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Neither Ramesh ______ his sister came to the party.",
+      "options": { "A": "or", "B": "nor", "C": "and", "D": "but" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "He is too tired ______ walk any further.",
+      "options": { "A": "to", "B": "for", "C": "that", "D": "which" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "If I ______ rich, I would buy a big house.",
+      "options": { "A": "am", "B": "was", "C": "were", "D": "be" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "She behaves as if she ______ the owner.",
+      "options": { "A": "is", "B": "was", "C": "were", "D": "be" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "I have been waiting for you ______ two hours.",
+      "options": { "A": "since", "B": "for", "C": "from", "D": "by" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "He is keen ______ learning new languages.",
+      "options": { "A": "in", "B": "on", "C": "for", "D": "to" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The boy took ______ his father.",
+      "options": { "A": "after", "B": "up", "C": "off", "D": "in" },
+      "correctAnswer": "A"
+    }
+  ],
+  "Sentence Improvement": [
+    {
+      "question": "He is taller than any boy in the class.",
+      "options": { "A": "He is taller than any other boy in the class.", "B": "He is the tallest boy in the class.", "C": "He is very tall in the class.", "D": "He is tall than any boy in the class." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "She knows to speak three languages.",
+      "options": { "A": "She knows how to speak three languages.", "B": "She knows three languages.", "C": "She can speak three languages.", "D": "She knows speaking three languages." },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "He is very intelligent boy.",
+      "options": { "A": "He is a very intelligent boy.", "B": "He is very an intelligent boy.", "C": "He is intelligent very boy.", "D": "He is an very intelligent boy." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The news is true.",
+      "options": { "A": "The news are true.", "B": "The news are true.", "C": "The news are true.", "D": "The news seems true." },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "I prefer tea than coffee.",
+      "options": { "A": "I prefer tea over coffee.", "B": "I prefer tea to coffee.", "C": "I like tea better than coffee.", "D": "All of the above" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "She is having a headache.",
+      "options": { "A": "She has a headache.", "B": "She is having headache.", "C": "She is having an headache.", "D": "She have a headache." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Neither the teacher nor the students were late.",
+      "options": { "A": "Neither the teacher nor the students was late.", "B": "Neither the teacher nor the students is late.", "C": "Either the teacher or the students were late.", "D": "The teacher and the students were late." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "He went to the market to buy some fruits and vegetables.",
+      "options": { "A": "He went to buy some fruits and vegetables.", "B": "He went to the market for buying some fruits and vegetables.", "C": "He went to market to buy some fruits and vegetables.", "D": "He went to the market buying some fruits and vegetables." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "This is the same book that I lost yesterday.",
+      "options": { "A": "This is the same book which I lost yesterday.", "B": "This is the same book as I lost yesterday.", "C": "This is the same book I lost yesterday.", "D": "This is the same book what I lost yesterday." },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "He was died last year.",
+      "options": { "A": "He died last year.", "B": "He was dead last year.", "C": "He is dead last year.", "D": "He had died last year." },
+      "correctAnswer": "A"
+    }
+  ],
+  "Synonyms & Antonyms": [
+    {
+      "question": "Find the synonym of 'Meticulous':",
+      "options": { "A": "Careless", "B": "Careful", "C": "Quick", "D": "Lazy" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Find the antonym of 'Artificial':",
+      "options": { "A": "Natural", "B": "Fake", "C": "Synthetic", "D": "Man-made" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Find the synonym of 'Benevolent':",
+      "options": { "A": "Cruel", "B": "Kind", "C": "Angry", "D": "Sad" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Find the antonym of 'Abundant':",
+      "options": { "A": "Plenty", "B": "Scarce", "C": "Rich", "D": "Full" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Find the synonym of 'Eloquent':",
+      "options": { "A": "Silent", "B": "Fluent", "C": "Slow", "D": "Quiet" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Find the antonym of 'Bravery':",
+      "options": { "A": "Courage", "B": "Fear", "C": "Cowardice", "D": "Strength" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Find the synonym of 'Rapid':",
+      "options": { "A": "Slow", "B": "Fast", "C": "Quick", "D": "Both B and C" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Find the antonym of 'Optimist':",
+      "options": { "A": "Pessimist", "B": "Dreamer", "C": "Realist", "D": "Thinker" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Find the synonym of 'Gratitude':",
+      "options": { "A": "Thanks", "B": "Anger", "C": "Joy", "D": "Sadness" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Find the antonym of 'Ancient':",
+      "options": { "A": "Old", "B": "Historic", "C": "Modern", "D": "Classic" },
+      "correctAnswer": "C"
+    }
+  ],
+  "Idioms & Phrases": [
+    {
+      "question": "What does 'Break the ice' mean?",
+      "options": { "A": "To break something", "B": "To make people feel comfortable", "C": "To fail", "D": "To start a conversation" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "What does 'Under the weather' mean?",
+      "options": { "A": "Outside in the rain", "B": "Feeling unwell", "C": "In a bad mood", "D": "Very happy" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "What does 'Hit the nail on the head' mean?",
+      "options": { "A": "To hurt someone", "B": "To be exactly right", "C": "To miss something", "D": "To fail" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "What does 'Spill the beans' mean?",
+      "options": { "A": "To cook", "B": "To reveal a secret", "C": "To waste food", "D": "To be careful" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "What does 'Piece of cake' mean?",
+      "options": { "A": "To eat something", "B": "Something very easy", "C": "A gift", "D": "A difficult task" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "What does 'Bite the bullet' mean?",
+      "options": { "A": "To eat something", "B": "To face a difficult situation", "C": "To be angry", "D": "To be scared" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "What does 'Let the cat out of the bag' mean?",
+      "options": { "A": "To keep a secret", "B": "To reveal a secret", "C": "To be angry", "D": "To buy something" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "What does 'Burn the midnight oil' mean?",
+      "options": { "A": "To work late at night", "B": "To waste time", "C": "To cook", "D": "To be lazy" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "What does 'Hit the sack' mean?",
+      "options": { "A": "To hit someone", "B": "To go to sleep", "C": "To start working", "D": "To fail" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "What does 'On the ball' mean?",
+      "options": { "A": "To play sports", "B": "To be alert and competent", "C": "To be confused", "D": "To fail" },
+      "correctAnswer": "B"
+    }
+  ],
+  "Miscellaneous": [
+    {
+      "question": "Choose the correct sentence:",
+      "options": { "A": "He is more smarter than his brother.", "B": "He is smarter than his brother.", "C": "He is most smarter than his brother.", "D": "He is very smarter than his brother." },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Choose the correct plural:",
+      "options": { "A": "Childs", "B": "Children", "C": "Childrens", "D": "Childes" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Choose the correct sentence:",
+      "options": { "A": "This is the best book I have ever read it.", "B": "This is the best book I have ever read.", "C": "This is the most best book I have ever read.", "D": "This is the good book I have ever read." },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Choose the correct word:",
+      "options": { "A": "Its a lovely day.", "B": "It's a lovely day.", "C": "Its' a lovely day.", "D": "It is a lovely day." },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Choose the correct sentence:",
+      "options": { "A": "Me and him went to school.", "B": "He and I went to school.", "C": "Him and me went to school.", "D": "I and him went to school." },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Choose the correct sentence:",
+      "options": { "A": "He is used to hard work.", "B": "He use to hard work.", "C": "He used to hard work.", "D": "He is use to hard work." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Choose the correct article:",
+      "options": { "A": "He is honest man.", "B": "He is an honest man.", "C": "He is the honest man.", "D": "He is honest men." },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Choose the correct sentence:",
+      "options": { "A": "She knows how to swim.", "B": "She knows to swim.", "C": "She knows swimming.", "D": "She knows swim." },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Choose the correct sentence:",
+      "options": { "A": "Let I go.", "B": "Let me go.", "C": "Let me to go.", "D": "Let go to me." },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Choose the correct sentence:",
+      "options": { "A": "He is enough tall.", "B": "He is tall enough.", "C": "He enough is tall.", "D": "Enough he is tall." },
+      "correctAnswer": "B"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "Mixed Quiz": [
+    {"question": "Which planet is known as the Red Planet?", "options": {"A": "Venus", "B": "Mars", "C": "Jupiter", "D": "Saturn"}, "correctAnswer": "B"},
+    {"question": "What is the capital of France?", "options": {"A": "London", "B": "Berlin", "C": "Paris", "D": "Madrid"}, "correctAnswer": "C"},
+    {"question": "Which is the largest ocean on Earth?", "options": {"A": "Atlantic Ocean", "B": "Indian Ocean", "C": "Pacific Ocean", "D": "Arctic Ocean"}, "correctAnswer": "C"},
+    {"question": "Who wrote the national anthem of India?", "options": {"A": "Bankim Chandra Chatterjee", "B": "Rabindranath Tagore", "C": "Mahatma Gandhi", "D": "Jawaharlal Nehru"}, "correctAnswer": "B"},
+    {"question": "How many colors are there in a rainbow?", "options": {"A": "5", "B": "6", "C": "7", "D": "8"}, "correctAnswer": "C"},
+    {"question": "What is the chemical symbol for gold?", "options": {"A": "Go", "B": "Gd", "C": "Au", "D": "Ag"}, "correctAnswer": "C"},
+    {"question": "Which animal is known as the King of the Jungle?", "options": {"A": "Tiger", "B": "Lion", "C": "Elephant", "D": "Giraffe"}, "correctAnswer": "B"},
+    {"question": "In which year did India get independence?", "options": {"A": "1945", "B": "1946", "C": "1947", "D": "1948"}, "correctAnswer": "C"},
+    {"question": "What is the square root of 144?", "options": {"A": "10", "B": "11", "C": "12", "D": "13"}, "correctAnswer": "C"},
+    {"question": "Which is the smallest continent?", "options": {"A": "Australia", "B": "Europe", "C": "Antarctica", "D": "South America"}, "correctAnswer": "A"}
+  ],
+  "Current Affairs": [
+    {"question": "Which country hosted the 2024 Summer Olympics?", "options": {"A": "France", "B": "Japan", "C": "USA", "D": "China"}, "correctAnswer": "A"},
+    {"question": "What is the name of India's Moon mission launched in 2023?", "options": {"A": "Chandrayaan-2", "B": "Chandrayaan-3", "C": "Aditya-L1", "D": "Gaganyaan"}, "correctAnswer": "B"},
+    {"question": "Which Indian city was recently added to UNESCO World Heritage List?", "options": {"A": "Delhi", "B": "Jaipur", "C": "Varanasi", "D": "Kolkata"}, "correctAnswer": "B"},
+    {"question": "What does UPI stand for?", "options": {"A": "Unified Payment Interface", "B": "Universal Payment Integration", "C": "United Payment Infrastructure", "D": "Unified Payment Infrastructure"}, "correctAnswer": "D"},
+    {"question": "Which country launched the first satellite to study the Sun?", "options": {"A": "USA", "B": "China", "C": "India", "D": "Russia"}, "correctAnswer": "C"},
+    {"question": "What is the currency of Nepal?", "options": {"A": "Rupee", "B": "Taka", "C": "Kyat", "D": "Rupee (Nepalese)"}, "correctAnswer": "D"},
+    {"question": "Which Indian sportsperson won the Nobel Prize?", "options": {"A": "Virat Kohli", "B": "PV Sindhu", "C": "None", "D": "Sushil Kumar"}, "correctAnswer": "C"},
+    {"question": "What is the name of the newest state of India?", "options": {"A": "Telangana", "B": "Jharkhand", "C": "Chhattisgarh", "D": "Uttarakhand"}, "correctAnswer": "A"},
+    {"question": "Which organization gives the Nobel Prize?", "options": {"A": "United Nations", "B": "Swedish Academy", "C": "European Union", "D": "World Bank"}, "correctAnswer": "B"},
+    {"question": "What is the theme of World Environment Day 2024?", "options": {"A": "Save Water", "B": "Land Restoration", "C": "Clean Air", "D": "Biodiversity"}, "correctAnswer": "B"}
+  ],
+  "Science Quiz": [
+    {"question": "What is the speed of light?", "options": {"A": "3,00,000 km/s", "B": "3,00,000 m/s", "C": "3,000 km/s", "D": "30,000 km/s"}, "correctAnswer": "A"},
+    {"question": "Which gas do plants absorb from the atmosphere?", "options": {"A": "Oxygen", "B": "Nitrogen", "C": "Carbon Dioxide", "D": "Hydrogen"}, "correctAnswer": "C"},
+    {"question": "What is the unit of force?", "options": {"A": "Watt", "B": "Joule", "C": "Newton", "D": "Pascal"}, "correctAnswer": "C"},
+    {"question": "Which organ produces insulin?", "options": {"A": "Liver", "B": "Kidney", "C": "Pancreas", "D": "Heart"}, "correctAnswer": "C"},
+    {"question": "What is the chemical formula of water?", "options": {"A": "HO", "B": "H2O", "C": "H2O2", "D": "OH2"}, "correctAnswer": "B"},
+    {"question": "Which planet has the most moons?", "options": {"A": "Jupiter", "B": "Saturn", "C": "Uranus", "D": "Neptune"}, "correctAnswer": "B"},
+    {"question": "What type of rock is marble?", "options": {"A": "Igneous", "B": "Sedimentary", "C": "Metamorphic", "D": "Volcanic"}, "correctAnswer": "C"},
+    {"question": "Which vitamin is produced by sunlight?", "options": {"A": "Vitamin A", "B": "Vitamin B", "C": "Vitamin C", "D": "Vitamin D"}, "correctAnswer": "D"},
+    {"question": "What is the boiling point of water?", "options": {"A": "90°C", "B": "100°C", "C": "110°C", "D": "120°C"}, "correctAnswer": "B"},
+    {"question": "Which metal is liquid at room temperature?", "options": {"A": "Mercury", "B": "Iron", "C": "Gold", "D": "Copper"}, "correctAnswer": "A"}
+  ],
+  "Sports Quiz": [
+    {"question": "How many players are there in a cricket team?", "options": {"A": "9", "B": "10", "C": "11", "D": "12"}, "correctAnswer": "C"},
+    {"question": "In which sport is the term 'Home Run' used?", "options": {"A": "Football", "B": "Baseball", "C": "Cricket", "D": "Hockey"}, "correctAnswer": "B"},
+    {"question": "Which country won the 2022 FIFA World Cup?", "options": {"A": "Brazil", "B": "France", "C": "Argentina", "D": "Germany"}, "correctAnswer": "C"},
+    {"question": "What is the national sport of Japan?", "options": {"A": "Judo", "B": "Karate", "C": "Sumo Wrestling", "D": "Baseball"}, "correctAnswer": "C"},
+    {"question": "In which sport would you perform a 'slam dunk'?", "options": {"A": "Volleyball", "B": "Basketball", "C": "Tennis", "D": "Badminton"}, "correctAnswer": "B"},
+    {"question": "How many rings are there in the Olympic logo?", "options": {"A": "4", "B": "5", "C": "6", "D": "7"}, "correctAnswer": "B"},
+    {"question": "Which Indian city hosted the 2016 Summer Olympics?", "options": {"A": "Delhi", "B": "Mumbai", "C": "None", "D": "Kolkata"}, "correctAnswer": "C"},
+    {"question": "What is the length of a standard tennis court?", "options": {"A": "23.77 meters", "B": "26 meters", "C": "20 meters", "D": "30 meters"}, "correctAnswer": "A"},
+    {"question": "Which sport uses a shuttlecock?", "options": {"A": "Badminton", "B": "Squash", "C": "Tennis", "D": "Table Tennis"}, "correctAnswer": "A"},
+    {"question": "How many holes are there in a standard golf course?", "options": {"A": "9", "B": "12", "C": "18", "D": "21"}, "correctAnswer": "C"}
+  ],
+  "Geography Quiz": [
+    {"question": "What is the longest river in the world?", "options": {"A": "Amazon", "B": "Nile", "C": "Ganges", "D": "Yangtze"}, "correctAnswer": "B"},
+    {"question": "Which is the largest desert in the world?", "options": {"A": "Thar", "B": "Sahara", "C": "Gobi", "D": "Antarctic"}, "correctAnswer": "D"},
+    {"question": "Mount Everest is located in which mountain range?", "options": {"A": "Alps", "B": "Andes", "C": "Himalayas", "D": "Rockies"}, "correctAnswer": "C"},
+    {"question": "Which is the smallest country in the world?", "options": {"A": "Monaco", "B": "Vatican City", "C": "San Marino", "D": "Liechtenstein"}, "correctAnswer": "B"},
+    {"question": "Which ocean lies between Africa and Australia?", "options": {"A": "Atlantic", "B": "Indian", "C": "Pacific", "D": "Arctic"}, "correctAnswer": "B"},
+    {"question": "What is the capital of Australia?", "options": {"A": "Sydney", "B": "Melbourne", "C": "Canberra", "D": "Brisbane"}, "correctAnswer": "C"},
+    {"question": "Which continent has the most countries?", "options": {"A": "Asia", "B": "Europe", "C": "Africa", "D": "South America"}, "correctAnswer": "C"},
+    {"question": "What is the name of the largest island in the world?", "options": {"A": "Borneo", "B": "Greenland", "C": "Madagascar", "D": "New Guinea"}, "correctAnswer": "B"},
+    {"question": "Which country has the most natural lakes?", "options": {"A": "USA", "B": "Russia", "C": "Canada", "D": "India"}, "correctAnswer": "C"},
+    {"question": "The Great Barrier Reef is located near which country?", "options": {"A": "New Zealand", "B": "Australia", "C": "Indonesia", "D": "Philippines"}, "correctAnswer": "B"}
+  ],
+  "Literature Quiz": [
+    {"question": "Who wrote 'Romeo and Juliet'?", "options": {"A": "Charles Dickens", "B": "William Shakespeare", "C": "Mark Twain", "D": "Jane Austen"}, "correctAnswer": "B"},
+    {"question": "Who wrote 'To Kill a Mockingbird'?", "options": {"A": "Harper Lee", "B": "Ernest Hemingway", "C": "F. Scott Fitzgerald", "D": "John Steinbeck"}, "correctAnswer": "A"},
+    {"question": "Who is the author of 'Harry Potter' series?", "options": {"A": "J.K. Rowling", "B": "Stephenie Meyer", "C": "J.R.R. Tolkien", "D": "C.S. Lewis"}, "correctAnswer": "A"},
+    {"question": "Which book begins with 'Call me Ishmael'?", "options": {"A": "Moby Dick", "B": "The Great Gatsby", "C": "1984", "D": "Frankenstein"}, "correctAnswer": "A"},
+    {"question": "Who wrote 'The Diary of a Young Girl' (Anne Frank)?", "options": {"A": "Anne Frank", "B": "Helen Keller", "C": "Eleanor Roosevelt", "D": "Marie Curie"}, "correctAnswer": "A"},
+    {"question": "Which poet wrote 'The Road Not Taken'?", "options": {"A": "Robert Frost", "B": "William Wordsworth", "C": "John Keats", "D": "Walt Whitman"}, "correctAnswer": "A"},
+    {"question": "Who wrote 'Gulliver's Travels'?", "options": {"A": "Jonathan Swift", "B": "Daniel Defoe", "C": "Voltaire", "D": "Charles Dickens"}, "correctAnswer": "A"},
+    {"question": "Which Indian author wrote 'Midnight's Children'?", "options": {"A": "Arundhati Roy", "B": "Salman Rushdie", "C": "R.K. Narayan", "D": "Vikram Seth"}, "correctAnswer": "B"},
+    {"question": "Who wrote 'Pride and Prejudice'?", "options": {"A": "Emily Bronte", "B": "Jane Austen", "C": "Virginia Woolf", "D": "George Eliot"}, "correctAnswer": "B"},
+    {"question": "Which epic poem is attributed to Homer?", "options": {"A": "The Iliad and The Odyssey", "B": "The Aeneid", "C": "Beowulf", "D": "Paradise Lost"}, "correctAnswer": "A"}
+  ],
+  "Entertainment Quiz": [
+    {"question": "Who directed the movie 'Titanic'?", "options": {"A": "Steven Spielberg", "B": "James Cameron", "C": "Christopher Nolan", "D": "Martin Scorsese"}, "correctAnswer": "B"},
+    {"question": "Which band sang 'Bohemian Rhapsody'?", "options": {"A": "The Beatles", "B": "Led Zeppelin", "C": "Queen", "D": "Pink Floyd"}, "correctAnswer": "C"},
+    {"question": "What is the name of the fictional wizard in 'The Lord of the Rings'?", "options": {"A": "Dumbledore", "B": "Gandalf", "C": "Merlin", "D": "Saruman"}, "correctAnswer": "B"},
+    {"question": "Which Indian film won the Oscar for Best Original Song?", "options": {"A": "Dilwale Dulhania Le Jayenge", "B": "Lagaan", "C": "None yet", "D": "Slumdog Millionaire"}, "correctAnswer": "C"},
+    {"question": "Who played Iron Man in the Marvel movies?", "options": {"A": "Chris Evans", "B": "Chris Hemsworth", "C": "Robert Downey Jr.", "D": "Mark Ruffalo"}, "correctAnswer": "C"},
+    {"question": "Which is the first Indian film to be nominated for Oscar?", "options": {"A": "Mother India", "B": "Salaam Bombay", "C": "Lagaan", "D": "The Guide"}, "correctAnswer": "A"},
+    {"question": "What is the name of the fictional country in 'Black Panther'?", "options": {"A": "Wakanda", "B": "Genovia", "C": "Zion", "D": "Elbonia"}, "correctAnswer": "A"},
+    {"question": "Who is known as the 'King of Bollywood'?", "options": {"A": "Shah Rukh Khan", "B": "Aamir Khan", "C": "Salman Khan", "D": "Akshay Kumar"}, "correctAnswer": "C"},
+    {"question": "Which TV series features the character 'Jon Snow'?", "options": {"A": "The Witcher", "B": "Game of Thrones", "C": "Vikings", "D": "Lord of the Rings"}, "correctAnswer": "B"},
+    {"question": "Who is the voice of Woody in 'Toy Story'?", "options": {"A": "Tim Allen", "B": "Tom Hanks", "C": "Jim Carrey", "D": "Robin Williams"}, "correctAnswer": "B"}
+  ],
+  "Miscellaneous": [
+    {"question": "How many days are there in a leap year?", "options": {"A": "364", "B": "365", "C": "366", "D": "367"}, "correctAnswer": "C"},
+    {"question": "What is the full form of ATM?", "options": {"A": "Automated Teller Machine", "B": "Automatic Transfer Money", "C": "Automated Transfer Machine", "D": "Automatic Teller Mode"}, "correctAnswer": "A"},
+    {"question": "Which is the hardest natural substance on Earth?", "options": {"A": "Gold", "B": "Iron", "C": "Diamond", "D": "Platinum"}, "correctAnswer": "C"},
+    {"question": "What is the main ingredient in guacamole?", "options": {"A": "Tomato", "B": "Onion", "C": "Avocado", "D": "Lime"}, "correctAnswer": "C"},
+    {"question": "How many cards are there in a standard deck?", "options": {"A": "50", "B": "52", "C": "54", "D": "48"}, "correctAnswer": "B"},
+    {"question": "What is the national bird of India?", "options": {"A": "Peacock", "B": "Parrot", "C": "Pigeon", "D": "Swan"}, "correctAnswer": "A"},
+    {"question": "Which festival is known as the 'Festival of Lights'?", "options": {"A": "Holi", "B": "Diwali", "C": "Eid", "D": "Christmas"}, "correctAnswer": "B"},
+    {"question": "How many sides does a hexagon have?", "options": {"A": "5", "B": "6", "C": "7", "D": "8"}, "correctAnswer": "B"},
+    {"question": "What is the tallest structure in the world?", "options": {"A": "Eiffel Tower", "B": "Burj Khalifa", "C": "Shanghai Tower", "D": "One World Trade Center"}, "correctAnswer": "B"},
+    {"question": "Which is the largest mammal?", "options": {"A": "Elephant", "B": "Blue Whale", "C": "Giraffe", "D": "Hippopotamus"}, "correctAnswer": "B"}
+  ]
+}

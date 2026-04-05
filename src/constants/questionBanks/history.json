@@ -1,0 +1,418 @@
+{
+  "Ancient India": [
+    {
+      "question": "Which civilization was the earliest urban civilization in India?",
+      "options": { "A": "Vedic Civilization", "B": "Indus Valley Civilization", "C": "Maurya Empire", "D": "Gupta Empire" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who was the founder of the Maurya Empire?",
+      "options": { "A": "Chandragupta Maurya", "B": "Ashoka", "C": "Bindusara", "D": "Chanakya" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Which Gupta ruler is known as the 'Napoleon of India'?",
+      "options": { "A": "Chandragupta I", "B": "Samudragupta", "C": "Kumaragupta I", "D": "Vikramaditya" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Great Stupa at Sanchi was built during whose reign?",
+      "options": { "A": "Ashoka", "B": "Kanishka", "C": "Harsha", "D": "Chandragupta Maurya" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Which language was primarily used during the Gupta period?",
+      "options": { "A": "Pali", "B": "Sanskrit", "C": "Prakrit", "D": "Arabic" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who wrote the Arthashastra?",
+      "options": { "A": "Kalidasa", "B": "Chanakya", "C": "Panini", "D": "Banabhatta" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Nalanda University was established during which period?",
+      "options": { "A": "Maurya", "B": "Gupta", "C": "Chola", "D": "Mughal" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Which dynasty built the Ellora Caves?",
+      "options": { "A": "Rashtrakuta", "B": "Chola", "C": "Pala", "D": "Pandya" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Who was the last ruler of the Mauryan Empire?",
+      "options": { "A": "Ashoka", "B": "Bindusara", "C": "Brihadratha", "D": "Samprati" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "The ancient port of Tamralipti was located in which present-day state?",
+      "options": { "A": "Maharashtra", "B": "West Bengal", "C": "Tamil Nadu", "D": "Odisha" },
+      "correctAnswer": "B"
+    }
+  ],
+  "Medieval India": [
+    {
+      "question": "Who founded the Delhi Sultanate?",
+      "options": { "A": "Muhammad Ghori", "B": "Qutb-ud-din Aibak", "C": "Iltutmish", "D": "Razia Sultan" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Battle of Tarain was fought between Prithviraj Chauhan and which ruler?",
+      "options": { "A": "Muhammad Ghori", "B": "Qutb-ud-din Aibak", "C": "Iltutmish", "D": "Muhammad Bin Tughlaq" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Who was the famous Sufi saint from Ajmer?",
+      "options": { "A": "Nizamuddin Auliya", "B": "Khwaja Moinuddin Chishti", "C": "Baba Farid", "D": "Shah Waliullah" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Vijayanagara Empire was founded by",
+      "options": { "A": "Krishna Deva Raya", "B": "Harihara I and Bukka Raya I", "C": "Raja Ram Singh", "D": "Maharana Pratap" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who was the founder of the Mughal Empire?",
+      "options": { "A": "Humayun", "B": "Babur", "C": "Akbar", "D": "Babur" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Din-i-Ilahi religion was founded by",
+      "options": { "A": "Babur", "B": "Akbar", "C": "Shah Jahan", "D": "Aurangzeb" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who wrote the biography 'Baburnama'?",
+      "options": { "A": "Humayun", "B": "Babur", "C": "Akbar", "D": "Abul Fazl" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Bahmani Kingdom was located in which region?",
+      "options": { "A": "North India", "B": "South India", "C": "East India", "D": "West India" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who was the ruler known for building the Char Minar?",
+      "options": { "A": "Qutb-ud-din Aibak", "B": "Muhammad bin Tughlaq", "C": "Iltutmish", "D": "Alauddin Khalji" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "The Rajput ruler who fought against Akbar at Chittorgarh was",
+      "options": { "A": "Rana Pratap", "B": "Rana Sanga", "C": "Rana Kumbha", "D": "Rana Udai Singh" },
+      "correctAnswer": "A"
+    }
+  ],
+  "Modern India": [
+    {
+      "question": "Who was the founder of the British East India Company?",
+      "options": { "A": "Lord Clive", "B": "Queen Elizabeth I", "C": "Thomas Pitt", "D": "John Hastings" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Battle of Plassey was fought in which year?",
+      "options": { "A": "1757", "B": "1764", "C": "1857", "D": "1858" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Who was the first Governor-General of India?",
+      "options": { "A": "Lord Curzon", "B": "Lord Wellesley", "C": "Lord William Bentinck", "D": "Warren Hastings" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "The Doctrine of Lapse was introduced by",
+      "options": { "A": "Lord Dalhousie", "B": "Lord Curzon", "C": "Lord Wellesley", "D": "Lord Mountbatten" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Who established the Indian National Congress?",
+      "options": { "A": "Bal Gangadhar Tilak", "B": "A.O. Hume and W.C. Banerjee", "C": "Mahatma Gandhi", "D": "Jawaharlal Nehru" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Sepoy Mutiny of 1857 started from",
+      "options": { "A": "Delhi", "B": "Meerut", "C": "Kanpur", "D": "Lucknow" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who gave the slogan 'Do or Die' during the Quit India Movement?",
+      "options": { "A": "Jawaharlal Nehru", "B": "Subhas Chandra Bose", "C": "Mahatma Gandhi", "D": "Bhagat Singh" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "The Vernacular Press Act was passed in",
+      "options": { "A": "1858", "B": "1878", "C": "1905", "D": "1919" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who was the leader of the Swadeshi Movement?",
+      "options": { "A": "Mahatma Gandhi", "B": "Bal Gangadhar Tilak", "C": "Lala Lajpat Rai", "D": "All of these" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "The Indian National Congress was founded in",
+      "options": { "A": "1885", "B": "1905", "C": "1919", "D": "1947" },
+      "correctAnswer": "A"
+    }
+  ],
+  "World History": [
+    {
+      "question": "The Renaissance began in which country?",
+      "options": { "A": "France", "B": "England", "C": "Italy", "D": "Germany" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Who was the first President of the United States?",
+      "options": { "A": "John Adams", "B": "Thomas Jefferson", "C": "George Washington", "D": "Benjamin Franklin" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "The French Revolution began in which year?",
+      "options": { "A": "1776", "B": "1789", "C": "1799", "D": "1815" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who wrote the 'Communist Manifesto'?",
+      "options": { "A": "Lenin", "B": "Stalin", "C": "Karl Marx and Friedrich Engels", "D": "Mao Zedong" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "The Industrial Revolution started in",
+      "options": { "A": "France", "B": "Germany", "C": "Britain", "D": "USA" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "World War I began in",
+      "options": { "A": "1912", "B": "1914", "C": "1916", "D": "1918" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who was the first Secretary-General of the United Nations?",
+      "options": { "A": "Trygve Lie", "B": "U Thant", "C": "Kurt Waldheim", "D": "Ban Ki-moon" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The Berlin Wall fell in",
+      "options": { "A": "1985", "B": "1989", "C": "1991", "D": "1993" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who discovered America in 1492?",
+      "options": { "A": "Vasco da Gama", "B": "Christopher Columbus", "C": "Ferdinand Magellan", "D": "Amerigo Vespucci" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Great Depression occurred in",
+      "options": { "A": "1920s", "B": "1930s", "C": "1940s", "D": "1950s" },
+      "correctAnswer": "B"
+    }
+  ],
+  "Indian Freedom Struggle": [
+    {
+      "question": "Who founded the Bengal Gazette?",
+      "options": { "A": "Bal Gangadhar Tilak", "B": "James Augustus Hickey", "C": "Swami Vivekananda", "D": "Rabindranath Tagore" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Quit India Movement was launched in",
+      "options": { "A": "1940", "B": "1942", "C": "1944", "D": "1946" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who formed the Azad Hind Fauj (Indian National Army)?",
+      "options": { "A": "Mahatma Gandhi", "B": "Subhas Chandra Bose", "C": "Jawaharlal Nehru", "D": "Bhagat Singh" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Dandi March was led by",
+      "options": { "A": "Jawaharlal Nehru", "B": "Subhas Chandra Bose", "C": "Mahatma Gandhi", "D": "Vallabhbhai Patel" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Who gave the slogan 'Take up the rifle and shoot'?",
+      "options": { "A": "Mahatma Gandhi", "B": "Bhagat Singh", "C": "Subhas Chandra Bose", "D": "Rajguru" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Jallianwala Bagh massacre occurred in",
+      "options": { "A": "1917", "B": "1919", "C": "1921", "D": "1930" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who was known as the 'Iron Man of India'?",
+      "options": { "A": "Jawaharlal Nehru", "B": "Subhas Chandra Bose", "C": "Sardar Vallabhbhai Patel", "D": "Mahatma Gandhi" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "The Simon Commission was boycotted in India because",
+      "options": { "A": "It promised independence", "B": "It had no Indian members", "C": "It supported British rule", "D": "It wanted to partition India" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who led the Kakori Train Robbery?",
+      "options": { "A": "Bhagat Singh", "B": "Ram Prasad Bismil", "C": "Ashfaque Ullah Khan", "D": "Rajguru" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Poorna Swaraj resolution was passed in the Congress Session at",
+      "options": { "A": "Lahore", "B": "Calcutta", "C": "Bombay", "D": "Madras" },
+      "correctAnswer": "A"
+    }
+  ],
+  "Post Independence India": [
+    {
+      "question": "India became independent on",
+      "options": { "A": "August 15, 1947", "B": "January 26, 1950", "C": "July 4, 1947", "D": "October 2, 1947" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Who was the first Prime Minister of India?",
+      "options": { "A": "Sardar Vallabhbhai Patel", "B": "Jawaharlal Nehru", "C": "Dr. B.R. Ambedkar", "D": "Mahatma Gandhi" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Indian Constitution was adopted on",
+      "options": { "A": "August 15, 1947", "B": "January 26, 1950", "C": "November 26, 1949", "D": "December 31, 1949" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Who is known as the 'Father of the Indian Constitution'?",
+      "options": { "A": "Mahatma Gandhi", "B": "Jawaharlal Nehru", "C": "Dr. B.R. Ambedkar", "D": "Sardar Patel" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "The first Five Year Plan of India was launched in",
+      "options": { "A": "1947", "B": "1951", "C": "1956", "D": "1961" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "India fought its first war after independence in",
+      "options": { "A": "1947", "B": "1948", "C": "1962", "D": "1965" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The Green Revolution in India focused on",
+      "options": { "A": "Cotton", "B": "Sugarcane", "C": "Wheat and Rice", "D": "Jute" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Who was India's first President?",
+      "options": { "A": "Jawaharlal Nehru", "B": "Dr. Rajendra Prasad", "C": "Sardar Vallabhbhai Patel", "D": "Dr. B.R. Ambedkar" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Integration of Princely States was done by",
+      "options": { "A": "Jawaharlal Nehru", "B": "Sardar Vallabhbhai Patel", "C": "Morarji Desai", "D": "Gulzarilal Nanda" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Panchayat Raj system was introduced in India by",
+      "options": { "A": "Jawaharlal Nehru", "B": "Indira Gandhi", "C": "Rajiv Gandhi", "D": "Morarji Desai" },
+      "correctAnswer": "B"
+    }
+  ],
+  "Art & Culture": [
+    {
+      "question": "Which dance form originated in Tamil Nadu?",
+      "options": { "A": "Kathak", "B": "Bharatanatyam", "C": "Odissi", "D": "Manipuri" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Ajanta Caves are located in which state?",
+      "options": { "A": "Madhya Pradesh", "B": "Maharashtra", "C": "Uttar Pradesh", "D": "Rajasthan" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who painted the Mona Lisa?",
+      "options": { "A": "Michelangelo", "B": "Leonardo da Vinci", "C": "Raphael", "D": "Donatello" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Sun Temple at Konark is located in",
+      "options": { "A": "West Bengal", "B": "Odisha", "C": "Andhra Pradesh", "D": "Tamil Nadu" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Which is the classical dance of Odisha?",
+      "options": { "A": "Kathak", "B": "Bharatanatyam", "C": "Odissi", "D": "Kuchipudi" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "The Taj Mahal was built by Mughal Emperor Shah Jahan in memory of",
+      "options": { "A": "Akbar", "B": "Jahangir", "C": "Mumtaz Mahal", "D": "Nur Jahan" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "Which festival is known as the 'Festival of Lights'?",
+      "options": { "A": "Holi", "B": "Diwali", "C": "Navratri", "D": "Pongal" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "The Qutub Minar was built by",
+      "options": { "A": "Shah Jahan", "B": "Iltutmish", "C": "Akbar", "D": "Qutb-ud-din Aibak" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Which UNESCO World Heritage Site is known as the 'Pink City'?",
+      "options": { "A": "Jaipur", "B": "Jodhpur", "C": "Udaipur", "D": "Bikaner" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The Khajuraho Group of Monuments was built by which dynasty?",
+      "options": { "A": "Chola", "B": "Chandela", "C": "Rashtrakuta", "D": "Pala" },
+      "correctAnswer": "B"
+    }
+  ],
+  "Miscellaneous": [
+    {
+      "question": "Which was the first university established in India?",
+      "options": { "A": "University of Calcutta", "B": "University of Bombay", "C": "University of Madras", "D": "Nalanda University" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Who was the first woman to climb Mount Everest?",
+      "options": { "A": "Bachendri Pal", "B": "Santosh Yadav", "C": "Anita Sen", "D": "Arunima" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The Quit India Movement is also known as",
+      "options": { "A": "August Movement", "B": "September Movement", "C": "October Movement", "D": "July Movement" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "Which city is known as the 'Manchester of India'?",
+      "options": { "A": "Ahmedabad", "B": "Mumbai", "C": "Surat", "D": "Kanpur" },
+      "correctAnswer": "A"
+    },
+    {
+      "question": "The headquarters of UNESCO is located in",
+      "options": { "A": "Geneva", "B": "Paris", "C": "New York", "D": "London" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who invented the telescope?",
+      "options": { "A": "Galileo Galilei", "B": "Johannes Kepler", "C": "Hans Lippershey", "D": "Isaac Newton" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "The Jawaharlal Nehru Stadium is located in",
+      "options": { "A": "Mumbai", "B": "Kolkata", "C": "Chennai", "D": "New Delhi" },
+      "correctAnswer": "D"
+    },
+    {
+      "question": "Which river is known as the 'Ganga of South'?",
+      "options": { "A": "Krishna", "B": "Kaveri", "C": "Godavari", "D": "Mahanadi" },
+      "correctAnswer": "C"
+    },
+    {
+      "question": "The National Flag of India was designed by",
+      "options": { "A": "Mahatma Gandhi", "B": "Pingali Venkayya", "C": "Rabindranath Tagore", "D": "Jawaharlal Nehru" },
+      "correctAnswer": "B"
+    },
+    {
+      "question": "Who wrote the book 'Discovery of India'?",
+      "options": { "A": "Mahatma Gandhi", "B": "Jawaharlal Nehru", "C": "Dr. B.R. Ambedkar", "D": "Sardar Patel" },
+      "correctAnswer": "B"
+    }
+  ]
+}
