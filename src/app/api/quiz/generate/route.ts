@@ -1,18 +1,7 @@
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
-export const maxDuration = 60;
-
-const API_KEYS = [
-  process.env.OPENROUTER_API_KEY,
-  process.env.OPENROUTER_API_KEY_2,
-].filter(Boolean) as string[];
-
-const MODELS = [
-  "google/gemma-3-8b-it:free",
-  "qwen/qwen3.6-plus:free",
-  "nvidia/nemotron-3-nano-30b-a3b:free",
-];
+export const maxDuration = 30;
 
 interface Question {
   question: string;
@@ -559,101 +548,33 @@ function getStaticQuestions(subject: string, topic: string, count: number): Ques
   return shuffled.slice(0, Math.min(count, shuffled.length));
 }
 
-async function generateWithAI(subject: string, topic: string, count: number): Promise<Question[] | null> {
-  if (API_KEYS.length === 0) return null;
-
-  for (const apiKey of API_KEYS) {
-    for (const model of MODELS) {
-      try {
-        const prompt = `Generate ${count} multiple choice questions on ${topic} (${subject}). Each question must have exactly 4 options labeled A, B, C, D and one correct answer. Return ONLY a valid JSON array like: [{"question":"Q?","options":{"A":"opt1","B":"opt2","C":"opt3","D":"opt4"},"correctAnswer":"A"}]`;
-
-        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${apiKey}`,
-            "HTTP-Referer": "https://academia-lms-nine.vercel.app",
-            "X-Title": "ACADEMIA LMS",
-          },
-          body: JSON.stringify({
-            model,
-            messages: [{ role: "user", content: prompt }],
-            temperature: 0.7,
-            max_tokens: 1500,
-          }),
-        });
-
-        if (response.status === 429) continue;
-        if (!response.ok) continue;
-
-        const data = await response.json();
-        const text = data.choices?.[0]?.message?.content;
-        if (!text) continue;
-
-        const cleaned = text.replace(/```json\n?/g, "").replace(/```\n?/g, "").replace(/```/g, "").trim();
-        const startIdx = cleaned.indexOf('[');
-        const endIdx = cleaned.lastIndexOf(']');
-        if (startIdx === -1 || endIdx === -1) continue;
-
-        const questions = JSON.parse(cleaned.substring(startIdx, endIdx + 1));
-        if (!Array.isArray(questions) || questions.length === 0) continue;
-
-        return questions.map((q: Record<string, unknown>): Question => ({
-          question: (q.question as string) || "",
-          options: (q.options as Record<string, string>) || { A: "", B: "", C: "", D: "" },
-          correctAnswer: (q.correctAnswer as string) || (q.correct_answer as string) || (q.answer as string) || "A",
-        }));
-      } catch {
-        continue;
-      }
-    }
-  }
-  return null;
-}
-
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    let body;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
+    }
+    
     const subject = (body.subject || "").toString().toLowerCase().trim();
     const topic = (body.topic || "").toString().trim();
     const questionCount = parseInt(body.questionCount) || 10;
-
-    console.log("[Generate] Request:", { subject, topic, questionCount });
 
     if (!topic) {
       return NextResponse.json({ error: "Topic is required" }, { status: 400 });
     }
 
-    // Try AI first
-    const aiQuestions = await generateWithAI(subject, topic, questionCount);
+    const questions = getStaticQuestions(subject, topic, questionCount);
     
-    if (aiQuestions && aiQuestions.length > 0) {
-      console.log("[Generate] AI returned", aiQuestions.length, "questions");
-      const formattedQuestions = aiQuestions.slice(0, questionCount).map((q, index) => ({
-        id: `q-${index}`,
-        question: q.question,
-        options: q.options,
-        correctAnswer: q.correctAnswer,
-        type: "mcq" as const,
-      }));
-      return NextResponse.json({ questions: formattedQuestions, isStatic: false });
-    }
-
-    console.log("[Generate] AI failed, using static questions");
-
-    // Fallback to static questions
-    const staticQuestions = getStaticQuestions(subject, topic, questionCount);
-    
-    if (staticQuestions.length === 0) {
+    if (questions.length === 0) {
       return NextResponse.json({ 
         error: "No questions available for this topic",
         debug: { subject, topic }
       }, { status: 404 });
     }
 
-    console.log("[Generate] Static: Found", staticQuestions.length, "questions");
-
-    const formattedQuestions = staticQuestions.map((q, index) => ({
+    const formattedQuestions = questions.map((q, index) => ({
       id: `q-${index}`,
       question: q.question,
       options: q.options,
