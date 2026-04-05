@@ -8,7 +8,7 @@ export default function HeroWelcome({ name }: { name: string }) {
     <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-container p-8 text-white">
       <div className="relative z-10 max-w-xl">
         <span className="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4 inline-block">
-          Welcome back, {name || "Student"}
+          Welcome to ACADEMIA
         </span>
         <h2 className="text-4xl font-black font-headline tracking-tight mb-4">
           Your Intelligent Learning Ecosystem.

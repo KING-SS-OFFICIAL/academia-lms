@@ -72,7 +72,7 @@ export default function DashboardPage() {
   }
 
   const displayName = profile.name || session?.user?.name || "Student";
-  const displayPhoto = profile.photo || session?.user?.image || "";
+  const displayPhoto = profile.photo || "";
   const greeting = getGreeting();
 
   return (
@@ -95,9 +95,7 @@ export default function DashboardPage() {
             <div className="flex-1 min-w-0">
               <p className="text-sm text-muted-foreground mb-1">{greeting} 👋</p>
               <h2 className="text-xl font-bold text-foreground truncate">{displayName}</h2>
-              {profile.className && (
-                <p className="text-sm text-primary font-medium">Class {profile.className}</p>
-              )}
+              <p className="text-xs text-primary font-medium mt-1">Best Wishes from ACADEMIA ✨</p>
             </div>
           </div>
 
