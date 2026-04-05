@@ -516,7 +516,15 @@ const ALL_BANKS: Record<string, Record<string, Question[]>> = {
   quiz: gkQuestions,
 };
 
-function getStaticQuestions(subject: string, topic: string, count: number): Question[] {
+function seededRandom(seed: number): () => number {
+  let s = seed;
+  return () => {
+    s = (s * 16807 + 0) % 2147483647;
+    return (s - 1) / 2147483646;
+  };
+}
+
+function getStaticQuestions(subject: string, topic: string, count: number, seed?: number): Question[] {
   const bank = ALL_BANKS[subject.toLowerCase()];
   if (!bank) return [];
   
@@ -544,9 +552,14 @@ function getStaticQuestions(subject: string, topic: string, count: number): Ques
     questions = bank[Object.keys(bank)[0]];
   }
   
-  // Use crypto-like random shuffle for better distribution
-  const shuffled = [...questions].sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, Math.min(count, shuffled.length));
+  // Fisher-Yates shuffle with seed for proper randomization
+  const arr = [...questions];
+  const rng = seed ? seededRandom(seed) : () => Math.random();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr.slice(0, Math.min(count, arr.length));
 }
 
 export async function POST(request: Request) {
@@ -561,12 +574,13 @@ export async function POST(request: Request) {
     const subject = (body.subject || "").toString().toLowerCase().trim();
     const topic = (body.topic || "").toString().trim();
     const questionCount = parseInt(body.questionCount) || 10;
+    const seed = body.seed || Date.now();
 
     if (!topic) {
       return NextResponse.json({ error: "Topic is required" }, { status: 400 });
     }
 
-    const questions = getStaticQuestions(subject, topic, questionCount);
+    const questions = getStaticQuestions(subject, topic, questionCount, seed);
     
     if (questions.length === 0) {
       return NextResponse.json({ 

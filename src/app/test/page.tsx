@@ -86,7 +86,12 @@ export default function TestPage() {
       const res = await fetch('/api/quiz/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ subject, topic: chapter, questionCount: config?.questions || 15 }),
+        body: JSON.stringify({
+          subject,
+          topic: chapter,
+          questionCount: config?.questions || 15,
+          seed: Date.now() + Math.floor(Math.random() * 100000),
+        }),
       });
 
       const data = await res.json();
