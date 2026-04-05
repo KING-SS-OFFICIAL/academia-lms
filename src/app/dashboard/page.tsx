@@ -16,6 +16,7 @@ interface ProfileData {
   school: string;
   medium: string;
   contact: string;
+  photo?: string;
 }
 
 const defaultProfile: ProfileData = {
@@ -24,7 +25,15 @@ const defaultProfile: ProfileData = {
   school: "",
   medium: "",
   contact: "",
+  photo: "",
 };
+
+function getGreeting(): string {
+  const hour = new Date().getHours();
+  if (hour < 12) return "Good Morning";
+  if (hour < 17) return "Good Afternoon";
+  return "Good Evening";
+}
 
 export default function DashboardPage() {
   const { data: session, status } = useSession();
@@ -47,6 +56,7 @@ export default function DashboardPage() {
           school: "",
           medium: "",
           contact: "",
+          photo: session.user.image || "",
         });
       }
       setProfileLoaded(true);
@@ -61,6 +71,10 @@ export default function DashboardPage() {
     );
   }
 
+  const displayName = profile.name || session?.user?.name || "Student";
+  const displayPhoto = profile.photo || session?.user?.image || "";
+  const greeting = getGreeting();
+
   return (
     <>
       <main className="pt-24 pb-24 md:pb-12 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -69,8 +83,26 @@ export default function DashboardPage() {
 
         {/* Main Content */}
         <div className="lg:col-span-9 space-y-8">
+          {/* Student Profile Header */}
+          <div className="flex items-center gap-5 p-6 rounded-2xl bg-gradient-to-r from-primary/10 to-primary-container/10 border border-primary/20">
+            <div className="w-16 h-16 rounded-full overflow-hidden bg-primary/20 flex items-center justify-center shrink-0 border-2 border-primary">
+              {displayPhoto ? (
+                <img src={displayPhoto} alt={displayName} className="w-full h-full object-cover" />
+              ) : (
+                <span className="text-2xl font-bold text-primary">{displayName.charAt(0).toUpperCase()}</span>
+              )}
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm text-muted-foreground mb-1">{greeting} 👋</p>
+              <h2 className="text-xl font-bold text-foreground truncate">{displayName}</h2>
+              {profile.className && (
+                <p className="text-sm text-primary font-medium">Class {profile.className}</p>
+              )}
+            </div>
+          </div>
+
           {/* Hero Welcome */}
-          <HeroWelcome name={profile.name || session?.user?.name || "Student"} />
+          <HeroWelcome name={displayName} />
 
           {/* Profile & AI Test Center */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
