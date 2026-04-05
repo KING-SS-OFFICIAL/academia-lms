@@ -172,7 +172,7 @@ export default function TestPage() {
     const newTest = {
       id: `test-${Date.now()}`,
       testNumber,
-      subject: subjectData?.name || subject,
+      subject: subjectData?.name || subject || "Unknown",
       chapter,
       total: results.total,
       correct: results.correct,
