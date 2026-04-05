@@ -7,7 +7,7 @@ import Sidebar from "@/components/dashboard/Sidebar";
 import HeroWelcome from "@/components/dashboard/HeroWelcome";
 import ProfileCard from "@/components/dashboard/ProfileCard";
 import StudentProgress from "@/components/dashboard/StudentProgress";
-import StudentLeaderboard from "@/components/dashboard/StudentLeaderboard";
+import StudentLeaderboard, { getStudentRank } from "@/components/dashboard/StudentLeaderboard";
 import AcademicRecords from "@/components/dashboard/AcademicRecords";
 import MobileBottomNav from "@/components/dashboard/MobileBottomNav";
 
@@ -75,6 +75,7 @@ export default function DashboardPage() {
   const displayName = profile.name || session?.user?.name || "Student";
   const displayPhoto = profile.avatarUrl || "";
   const greeting = getGreeting();
+  const studentRank = getStudentRank();
 
   return (
     <>
@@ -96,7 +97,13 @@ export default function DashboardPage() {
             <div className="flex-1 min-w-0">
               <p className="text-sm text-muted-foreground mb-1">{greeting} 👋</p>
               <h2 className="text-xl font-bold text-foreground truncate">{displayName}</h2>
-              <p className="text-xs text-primary font-medium mt-1">Best Wishes from ACADEMIA ✨</p>
+              <div className="flex items-center gap-2 mt-1">
+                <span className={`text-xs font-bold ${studentRank.color}`}>
+                  {studentRank.name} {studentRank.level}
+                </span>
+                <span className="text-xs text-muted-foreground">•</span>
+                <span className="text-xs text-primary font-medium">Best Wishes from ACADEMIA ✨</span>
+              </div>
             </div>
           </div>
 

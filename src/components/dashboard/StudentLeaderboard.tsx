@@ -4,6 +4,46 @@ import { useEffect, useState } from "react";
 import { Trophy, ArrowRight, CheckCircle, XCircle } from "lucide-react";
 import Link from "next/link";
 
+// Export rank calculation for use in dashboard
+export function getStudentRank(): { name: string; level: string; color: string } {
+  const saved = typeof window !== 'undefined' ? localStorage.getItem("testResults") : null;
+  if (!saved) return { name: "Bronze", level: "I", color: "text-orange-600" };
+
+  try {
+    const tests = JSON.parse(saved);
+    const qualifiedTests = tests.filter((t: { percentage: number }) => t.percentage >= 75);
+    const count = qualifiedTests.length;
+
+    const tiers = [
+      { name: "Bronze", levels: ["I", "II", "III"], min: 10, max: 30, color: "text-orange-600" },
+      { name: "Silver", levels: ["I", "II", "III"], min: 40, max: 80, color: "text-gray-400" },
+      { name: "Gold", levels: ["I", "II", "III", "IV"], min: 90, max: 120, color: "text-yellow-500" },
+      { name: "Platinum", levels: ["I", "II", "III", "IV"], min: 130, max: 170, color: "text-cyan-400" },
+      { name: "Diamond", levels: ["I", "II", "III", "IV"], min: 180, max: 220, color: "text-blue-400" },
+      { name: "Heroic", levels: [""], min: 280, max: 399, color: "text-purple-500" },
+      { name: "Grandmaster", levels: [""], min: 400, max: Infinity, color: "text-amber-400" },
+    ];
+
+    for (const tier of tiers) {
+      if (count >= tier.min && count <= tier.max) {
+        if (tier.levels.length === 1 && tier.levels[0] === "") {
+          return { name: tier.name, level: "", color: tier.color };
+        }
+        const range = tier.max - tier.min;
+        const levelIndex = Math.min(
+          Math.floor(((count - tier.min) / range) * tier.levels.length),
+          tier.levels.length - 1
+        );
+        return { name: tier.name, level: tier.levels[levelIndex], color: tier.color };
+      }
+    }
+
+    return { name: "Bronze", level: "I", color: "text-orange-600" };
+  } catch {
+    return { name: "Bronze", level: "I", color: "text-orange-600" };
+  }
+}
+
 // Custom Gamified Rank Icons (Free Fire style)
 function BronzeBadge() {
   return (
