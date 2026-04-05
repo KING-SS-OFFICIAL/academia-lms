@@ -194,7 +194,7 @@ export default function AdminPanel() {
       >
         <div className="p-6 flex items-center justify-between">
           {sidebarOpen && (
-            <h1 className="text-xl font-black text-primary">ACADEMIA</h1>
+              <h1 className="text-xl font-black text-primary">Admin Panel</h1>
           )}
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
