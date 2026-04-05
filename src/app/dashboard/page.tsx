@@ -7,6 +7,7 @@ import Sidebar from "@/components/dashboard/Sidebar";
 import HeroWelcome from "@/components/dashboard/HeroWelcome";
 import ProfileCard from "@/components/dashboard/ProfileCard";
 import StudentProgress from "@/components/dashboard/StudentProgress";
+import StudentLeaderboard from "@/components/dashboard/StudentLeaderboard";
 import AcademicRecords from "@/components/dashboard/AcademicRecords";
 import MobileBottomNav from "@/components/dashboard/MobileBottomNav";
 
@@ -107,6 +108,9 @@ export default function DashboardPage() {
             <ProfileCard initialData={profile} onSave={setProfile} />
             <StudentProgress />
           </div>
+
+          {/* Student Leaderboard */}
+          <StudentLeaderboard />
 
           {/* Academic Records */}
           <AcademicRecords />
