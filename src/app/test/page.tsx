@@ -341,8 +341,13 @@ export default function TestPage() {
   return (
     <div className="min-h-screen bg-background py-8 px-4">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-bold text-foreground mb-2">AI Test Centre</h1>
-        <p className="text-muted-foreground mb-8">Select your subject, chapter, and test configuration</p>
+        {/* Heading */}
+        <div className="text-center mb-8">
+          <h1 className="text-3xl md:text-4xl font-black font-headline text-shimmer mb-2">
+            ACADEMIA EXCELLENCE TEST SERIES
+          </h1>
+          <p className="text-muted-foreground">Select your subject, chapter, and test configuration</p>
+        </div>
 
         {error && (
           <div className="mb-6 p-4 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-500 font-medium">
