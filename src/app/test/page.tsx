@@ -163,7 +163,7 @@ export default function TestPage() {
     const percentage = Math.round((results.correct / results.total) * 100);
     
     const saved = localStorage.getItem("testResults");
-    let allTests: any[] = [];
+    let allTests: { id: string; testNumber: number; subject: string; chapter: string; total: number; correct: number; wrong: number; percentage: number; date: string }[] = [];
     if (saved) {
       try { allTests = JSON.parse(saved); } catch {}
     }
