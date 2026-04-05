@@ -100,7 +100,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Hero Welcome */}
-          <HeroWelcome name={displayName} />
+          <HeroWelcome />
 
           {/* Profile & AI Test Center */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

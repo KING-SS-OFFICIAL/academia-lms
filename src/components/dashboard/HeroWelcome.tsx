@@ -3,7 +3,7 @@
 import { ArrowRight, Target } from "lucide-react";
 import Link from "next/link";
 
-export default function HeroWelcome({ name }: { name: string }) {
+export default function HeroWelcome() {
   return (
     <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-container p-8 text-white">
       <div className="relative z-10 max-w-xl">
