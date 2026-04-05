@@ -96,11 +96,9 @@ export default function DashboardPage() {
                 )}
               </div>
               <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 whitespace-nowrap">
-                  <p className="text-sm text-muted-foreground">{greeting} 👋</p>
-                  <span className="text-xs text-primary font-medium">Best Wishes from ACADEMIA ✨</span>
-                </div>
-                <h2 className="text-xl md:text-2xl font-black text-foreground break-words leading-tight mt-1">{displayName}</h2>
+                <p className="text-sm text-muted-foreground whitespace-nowrap">{greeting} 👋</p>
+                <h2 className="text-xl md:text-2xl font-black text-foreground break-words leading-tight">{displayName.split(' ')[0]}</h2>
+                <p className="text-xs text-primary font-medium mt-1">Best Wishes from ACADEMIA ✨</p>
               </div>
             </div>
             <div className="flex-shrink-0 text-center">
