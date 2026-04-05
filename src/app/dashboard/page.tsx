@@ -16,7 +16,7 @@ interface ProfileData {
   school: string;
   medium: string;
   contact: string;
-  photo?: string;
+  avatarUrl?: string;
 }
 
 const defaultProfile: ProfileData = {
@@ -25,7 +25,7 @@ const defaultProfile: ProfileData = {
   school: "",
   medium: "",
   contact: "",
-  photo: "",
+  avatarUrl: "",
 };
 
 function getGreeting(): string {
@@ -56,7 +56,7 @@ export default function DashboardPage() {
           school: "",
           medium: "",
           contact: "",
-          photo: session.user.image || "",
+          avatarUrl: "",
         });
       }
       setProfileLoaded(true);
@@ -72,7 +72,7 @@ export default function DashboardPage() {
   }
 
   const displayName = profile.name || session?.user?.name || "Student";
-  const displayPhoto = profile.photo || "";
+  const displayPhoto = profile.avatarUrl || "";
   const greeting = getGreeting();
 
   return (
