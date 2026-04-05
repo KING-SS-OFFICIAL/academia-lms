@@ -66,6 +66,15 @@ function AdminAuth({ onAuthenticated }: { onAuthenticated: () => void }) {
     setError("");
 
     setTimeout(() => {
+      const userEmail = session?.user?.email?.toLowerCase() || "";
+      const allowedEmail = "sg5517419@gmail.com";
+
+      if (userEmail !== allowedEmail) {
+        setError("Access denied. Only authorized Gmail can access admin panel.");
+        setLoading(false);
+        return;
+      }
+
       if (adminId === ADMIN_ID && password === ADMIN_PASSWORD) {
         localStorage.setItem("adminAuth", "true");
         onAuthenticated();
