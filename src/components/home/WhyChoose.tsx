@@ -59,7 +59,7 @@ function AnimatedFeature({ feature, index }: { feature: typeof features[0]; inde
       ([entry]) => {
         if (entry.isIntersecting) setVisible(true);
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -68,26 +68,20 @@ function AnimatedFeature({ feature, index }: { feature: typeof features[0]; inde
   return (
     <div
       ref={ref}
-      className={`p-8 rounded-2xl bg-surface-container-lowest border border-outline-variant/10 hover:border-primary-container/50 transition-all duration-500 group relative overflow-hidden ${
+      className={`p-8 rounded-2xl bg-surface-container-lowest border border-outline-variant/10 hover:border-primary-container/50 transition-all duration-300 group ${
         visible ? 'animate-fade-in-up' : 'opacity-0-init'
       }`}
-      style={{ animationDelay: `${index * 0.1}s` }}
+      style={{ animationDelay: `${index * 0.08}s` }}
     >
-      {/* Hover glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-      {/* Floating icon on hover */}
-      <div className="relative z-10">
-        <div className="mb-4 w-8 h-8 text-primary group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
-          <feature.icon className="w-full h-full" />
-        </div>
-        <h5 className="text-lg font-bold font-headline mb-2 text-on-surface group-hover:text-primary transition-colors">
-          {feature.title}
-        </h5>
-        <p className="text-on-surface-variant text-sm leading-relaxed">
-          {feature.description}
-        </p>
+      <div className="mb-4 w-8 h-8 text-primary group-hover:scale-110 transition-transform">
+        <feature.icon className="w-full h-full" />
       </div>
+      <h5 className="text-lg font-bold font-headline mb-2 text-on-surface group-hover:text-primary transition-colors">
+        {feature.title}
+      </h5>
+      <p className="text-on-surface-variant text-sm leading-relaxed">
+        {feature.description}
+      </p>
     </div>
   );
 }
@@ -95,9 +89,8 @@ function AnimatedFeature({ feature, index }: { feature: typeof features[0]; inde
 export default function WhyChoose() {
   return (
     <section className="py-24 max-w-7xl mx-auto px-6 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] animate-pulse-glow" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-[80px] animate-pulse-glow" style={{ animationDelay: "2s" }} />
+      {/* Subtle background */}
+      <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-full blur-[100px] animate-pulse-glow" />
 
       <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16 relative z-10">
         <div className="space-y-4 max-w-2xl">
