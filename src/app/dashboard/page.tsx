@@ -6,7 +6,7 @@ import { MessageCircle, LogOut, Loader2 } from "lucide-react";
 import Sidebar from "@/components/dashboard/Sidebar";
 import HeroWelcome from "@/components/dashboard/HeroWelcome";
 import ProfileCard from "@/components/dashboard/ProfileCard";
-import AITestCenter from "@/components/dashboard/AITestCenter";
+import StudentProgress from "@/components/dashboard/StudentProgress";
 import AcademicRecords from "@/components/dashboard/AcademicRecords";
 import MobileBottomNav from "@/components/dashboard/MobileBottomNav";
 
@@ -102,10 +102,10 @@ export default function DashboardPage() {
           {/* Hero Welcome */}
           <HeroWelcome />
 
-          {/* Profile & AI Test Center */}
+          {/* Profile & Student Progress */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <ProfileCard initialData={profile} onSave={setProfile} />
-            <AITestCenter />
+            <StudentProgress />
           </div>
 
           {/* Academic Records */}

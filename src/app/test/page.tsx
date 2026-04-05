@@ -158,6 +158,32 @@ export default function TestPage() {
   };
 
   const handleSubmit = () => {
+    // Save test result to localStorage
+    const results = getResults();
+    const percentage = Math.round((results.correct / results.total) * 100);
+    
+    const saved = localStorage.getItem("testResults");
+    let allTests: any[] = [];
+    if (saved) {
+      try { allTests = JSON.parse(saved); } catch {}
+    }
+    
+    const testNumber = allTests.length + 1;
+    const newTest = {
+      id: `test-${Date.now()}`,
+      testNumber,
+      subject: subjectData?.name || subject,
+      chapter,
+      total: results.total,
+      correct: results.correct,
+      wrong: results.wrong,
+      percentage,
+      date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }),
+    };
+    
+    allTests.push(newTest);
+    localStorage.setItem("testResults", JSON.stringify(allTests));
+    
     setScreen('results');
   };
 
